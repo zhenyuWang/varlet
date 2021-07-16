@@ -1,0 +1,1 @@
+(self.webpackChunk_varlet_ui=self.webpackChunk_varlet_ui||[]).push([[3343],{3343:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>a});var u=t(7875),l={class:"varlet-site-doc"},s=(0,u.Wm)("h1",null,"轮播项",-1);const a={render:function(e,r){return(0,u.wg)(),(0,u.j4)("div",l,[s])}}}}]);
