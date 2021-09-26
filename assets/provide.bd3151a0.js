@@ -1,1 +1,1 @@
-import{c as t,d as n}from"./components.fc1d8498.js";const o=Symbol("TABS_ITEMS_BIND_TAB_ITEM_KEY"),s=Symbol("TABS_ITEMS_COUNT_TAB_ITEM_KEY");function T(){const{bindChildren:T,childProviders:_}=t(o),{length:e}=n(s);return{length:e,tabItemList:_,bindTabItem:T}}export{o as T,s as a,T as u};
+import{c as n,d as s}from"./components.fc1d8498.js";const e=Symbol("TABS_ITEMS_BIND_TAB_ITEM_KEY"),o=Symbol("TABS_ITEMS_COUNT_TAB_ITEM_KEY");function E(){const{bindChildren:T,childProviders:_}=n(e),{length:t}=s(o);return{length:t,tabItemList:_,bindTabItem:T}}export{e as T,o as a,E as u};
