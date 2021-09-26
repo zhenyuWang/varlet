@@ -1,1 +1,0 @@
-import{c as n,d as E}from"./components.fc1d8498.js";const _=Symbol("SWIPE_BIND_SWIPE_ITEM_KEY"),t=Symbol("SWIPE_COUNT_SWIPE_ITEM_KEY");function S(){const{childProviders:s,bindChildren:e}=n(_),{length:I}=E(t);return{length:I,swipeItems:s,bindSwipeItems:e}}export{_ as S,t as a,S as u};
