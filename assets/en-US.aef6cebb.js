@@ -1,1 +1,0 @@
-import{_ as o}from"./IconSfc.addeaf96.js";import{o as r,c as a}from"./vendor.bac705d4.js";const s={class:"varlet-site-doc"};var e=o({components:{}},[["render",function(o,e,t,c,n,d){return r(),a("div",s)}]]);export{e as default};
