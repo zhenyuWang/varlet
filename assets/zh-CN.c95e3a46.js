@@ -1,1 +1,0 @@
-import{_ as o}from"./IconSfc.576827a5.js";import{o as r,c as s,a}from"./vendor.d2d73257.js";const n={components:{}},t={class:"varlet-site-doc"},e=[a("h1",null,"轮播项",-1)];var c=o(n,[["render",function(o,a,n,c,d,f){return r(),s("div",t,e)}]]);export{c as default};
