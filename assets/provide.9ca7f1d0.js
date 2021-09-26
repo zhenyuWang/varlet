@@ -1,1 +1,1 @@
-import{c as s,d as e}from"./components.0481fe69.js";const n=Symbol("SWIPE_BIND_SWIPE_ITEM_KEY"),o=Symbol("SWIPE_COUNT_SWIPE_ITEM_KEY");function t(){const{childProviders:t,bindChildren:i}=s(n),{length:I}=e(o);return{length:I,swipeItems:t,bindSwipeItems:i}}export{n as S,o as a,t as u};
+import{c as n,d as E}from"./components.0481fe69.js";const _=Symbol("SWIPE_BIND_SWIPE_ITEM_KEY"),t=Symbol("SWIPE_COUNT_SWIPE_ITEM_KEY");function S(){const{childProviders:e,bindChildren:s}=n(_),{length:I}=E(t);return{length:I,swipeItems:e,bindSwipeItems:s}}export{_ as S,t as a,S as u};

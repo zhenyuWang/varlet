@@ -1,0 +1,1 @@
+import{_ as o}from"./IconSfc.fde87e76.js";import{q as p,o as s,c as t,O as n}from"./vendor.85536c59.js";const r=p({name:"AppType"}),a={class:"app-type"};function _(e,c,d,f,i,l){return s(),t("div",a,[n(e.$slots,"default")])}var v=o(r,[["render",_]]);export{v as A};
