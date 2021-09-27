@@ -60,6 +60,7 @@ yarn dev
 }
 </code></pre></div><div class="card"><h3>Commands Intro</h3><h4>Start the development server</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli dev
 </code></pre><h4>Build documentation site</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli build
+</code></pre><h4>Preview documentation site</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli preview
 </code></pre><h4>Build component library code</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli compile
 </code></pre><h4>Perform all unit tests</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli test
 </code></pre><h4>Execute unit tests in watch mode</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli test -w

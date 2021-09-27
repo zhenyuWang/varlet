@@ -59,6 +59,7 @@ yarn dev
 }
 </code></pre></div><div class="card"><h3>\u547D\u4EE4\u76F8\u5173</h3><h4>\u542F\u52A8\u5F00\u53D1\u670D\u52A1\u5668</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli dev
 </code></pre><h4>\u6784\u5EFA\u6587\u6863\u7AD9\u70B9</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli build
+</code></pre><h4>\u9884\u89C8\u6587\u6863\u7AD9\u70B9</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli preview
 </code></pre><h4>\u6784\u5EFA\u7EC4\u4EF6\u5E93\u4EE3\u7801</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli compile
 </code></pre><h4>\u6267\u884C\u6240\u6709\u7684\u5355\u5143\u6D4B\u8BD5</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli test
 </code></pre><h4>\u4EE5watch\u6A21\u5F0F\u6267\u884C\u5355\u5143\u6D4B\u8BD5</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli test -w
