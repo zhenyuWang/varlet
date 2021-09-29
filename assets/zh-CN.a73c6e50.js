@@ -1,0 +1,1 @@
+import{_ as e}from"./IconSfc.8e5067c1.js";import{o,c as s,a as c}from"./vendor.cfbfc887.js";const t={components:{}},n={class:"varlet-site-doc"},r=c("h1",null,"\u8F6E\u64AD\u9879",-1),a=[r];function _(d,f,i,p,l,m){return o(),s("div",n,a)}var v=e(t,[["render",_]]);export{v as default};
