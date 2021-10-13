@@ -2,7 +2,11 @@ import{_ as s}from"./elevation.61c5e873.js";import{o as t,c as a,M as e}from"./v
 <span class="hljs-keyword">import</span> { IndexBar, IndexAnchor } <span class="hljs-keyword">from</span> <span class="hljs-string">&#39;@varlet/ui&#39;</span>
 
 createApp().use(IndexBar).use(IndexAnchor)
-</code></pre></div><div class="card"><h3>Basic Usage</h3><p>When you click the index bar, it will automatically jump to the corresponding <code>IndexAnchor</code> anchor position.</p><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-index-bar</span> @<span class="hljs-attr">change</span>=<span class="hljs-string">&quot;change&quot;</span> <span class="hljs-attr">duration</span>=<span class="hljs-string">&quot;300&quot;</span>&gt;</span>
+</code></pre></div><div class="card"><h3>Basic Usage</h3><p>When you click the index bar, it will automatically jump to the corresponding <code>IndexAnchor</code> anchor position.</p><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-index-bar</span>
+  <span class="hljs-attr">duration</span>=<span class="hljs-string">&quot;300&quot;</span>
+  <span class="hljs-attr">:sticky-offset-top</span>=<span class="hljs-string">&quot;54&quot;</span>
+  @<span class="hljs-attr">change</span>=<span class="hljs-string">&quot;change&quot;</span>
+&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in list&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">var-index-anchor</span> 
       <span class="hljs-attr">:index</span>=<span class="hljs-string">&quot;item&quot;</span> 

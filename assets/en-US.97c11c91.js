@@ -152,7 +152,7 @@ createApp()
   <span class="hljs-attr">color</span>=<span class="hljs-string">&quot;#2979ff&quot;</span>
   <span class="hljs-attr">active-color</span>=<span class="hljs-string">&quot;#fff&quot;</span>
   <span class="hljs-attr">inactive-color</span>=<span class="hljs-string">&quot;hsla(0, 0%, 100%, .6)&quot;</span>
-  <span class="hljs-attr">:offset-top</span>=<span class="hljs-string">&quot;50&quot;</span>
+  <span class="hljs-attr">:offset-top</span>=<span class="hljs-string">&quot;54&quot;</span>
   <span class="hljs-attr">v-model:active</span>=<span class="hljs-string">&quot;active&quot;</span>
 &gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-tab</span>&gt;</span>Option1<span class="hljs-tag">&lt;/<span class="hljs-name">var-tab</span>&gt;</span>

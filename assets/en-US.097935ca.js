@@ -2,7 +2,7 @@ import{_ as s}from"./elevation.61c5e873.js";import{o as t,c as a,M as e}from"./v
 <span class="hljs-keyword">import</span> { Sticky } <span class="hljs-keyword">from</span> <span class="hljs-string">&#39;@varlet/ui&#39;</span>
 
 createApp().use(Sticky)
-</code></pre></div><div class="card"><h3>Basic Use</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-sticky</span> <span class="hljs-attr">:offset-top</span>=<span class="hljs-string">&quot;50&quot;</span>&gt;</span>
+</code></pre></div><div class="card"><h3>Basic Use</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-sticky</span> <span class="hljs-attr">:offset-top</span>=<span class="hljs-string">&quot;54&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span>&gt;</span>Basic Use<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">var-sticky</span>&gt;</span>
 </code></pre></div><div class="card"><h3>Local Sticky</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;scroller&quot;</span>&gt;</span>
