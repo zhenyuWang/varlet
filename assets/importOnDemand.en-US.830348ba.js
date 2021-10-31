@@ -16,8 +16,7 @@ yarn add babel-plugin-import -D
   <span class="hljs-attr">configureWebpack</span>: {
     <span class="hljs-attr">plugins</span>: [
       Components({
-        <span class="hljs-attr">resolvers</span>: [VarletUIResolver()],
-        <span class="hljs-attr">dts</span>: <span class="hljs-literal">true</span>
+        <span class="hljs-attr">resolvers</span>: [VarletUIResolver()]
       })
     ]
   }
@@ -32,8 +31,7 @@ yarn add babel-plugin-import -D
   <span class="hljs-attr">plugins</span>: [
     vue(),
     components({
-      <span class="hljs-attr">resolvers</span>: [VarletUIResolver()],
-      <span class="hljs-attr">dts</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">resolvers</span>: [VarletUIResolver()]
     })
   ]
 })
