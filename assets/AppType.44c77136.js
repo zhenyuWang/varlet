@@ -1,1 +1,0 @@
-import{_ as o}from"./elevation.c2941a7c.js";import{q as p,o as s,c as t,B as a}from"./vendor.ea41cd30.js";const n=p({name:"AppType"}),r={class:"app-type"};function _(e,c,d,i,l,f){return s(),t("div",r,[a(e.$slots,"default")])}var u=o(n,[["render",_]]);export{u as A};
