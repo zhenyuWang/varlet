@@ -1,1 +1,0 @@
-import{b as n,e as E}from"./components.c996eb06.js";const _=Symbol("SWIPE_BIND_SWIPE_ITEM_KEY"),t=Symbol("SWIPE_COUNT_SWIPE_ITEM_KEY");function S(){const{childProviders:e,bindChildren:s}=n(_),{length:I}=E(t);return{length:I,swipeItems:e,bindSwipeItems:s}}export{_ as S,t as a,S as u};
