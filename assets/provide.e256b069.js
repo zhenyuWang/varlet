@@ -1,1 +1,0 @@
-import{b as t,e as n}from"./components.c996eb06.js";const s=Symbol("TABS_ITEMS_BIND_TAB_ITEM_KEY"),o=Symbol("TABS_ITEMS_COUNT_TAB_ITEM_KEY");function E(){const{bindChildren:T,childProviders:_}=t(s),{length:e}=n(o);return{length:e,tabItemList:_,bindTabItem:T}}export{s as T,o as a,E as u};
