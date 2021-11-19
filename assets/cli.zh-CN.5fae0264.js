@@ -12,6 +12,7 @@ yarn dev
       <span class="hljs-string">&#39;zh-CN&#39;</span>: <span class="hljs-string">&#39;\u4E00\u4E2A\u7EC4\u4EF6\u5E93&#39;</span>,
     },
     <span class="hljs-attr">header</span>: {
+      <span class="hljs-attr">darkMode</span>: <span class="hljs-literal">null</span>,
       <span class="hljs-attr">i18n</span>: <span class="hljs-literal">null</span>,
       <span class="hljs-attr">github</span>: <span class="hljs-string">&#39;https://github.com/haoziqaq/varlet&#39;</span>,
     },
@@ -53,6 +54,7 @@ yarn dev
       <span class="hljs-string">&#39;zh-CN&#39;</span>: <span class="hljs-string">&#39;\u4E00\u4E2A\u7EC4\u4EF6\u5E93&#39;</span>,
     },
     <span class="hljs-attr">header</span>: {
+      <span class="hljs-attr">darkMode</span>: <span class="hljs-literal">null</span>,
       <span class="hljs-attr">i18n</span>: <span class="hljs-literal">null</span>,
       <span class="hljs-attr">github</span>: <span class="hljs-string">&#39;https://github.com/haoziqaq/varlet&#39;</span>,
     },
