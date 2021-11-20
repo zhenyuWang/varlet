@@ -65,6 +65,8 @@ yarn dev
 </code></pre><h4>Build component library code</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli compile
 </code></pre><h4>Perform all unit tests</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli test
 </code></pre><h4>Execute unit tests in watch mode</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli test -w
+or
+varlet-cli test -wa
 </code></pre><h4>Lint code</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli lint
 </code></pre><h4>Quickly create a component folder</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli create &lt;componentName&gt;
 </code></pre><h4>Generate a project template</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli gen &lt;projectName&gt;

@@ -66,6 +66,8 @@ yarn dev
 </code></pre><h4>\u6784\u5EFA\u7EC4\u4EF6\u5E93\u4EE3\u7801</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli compile
 </code></pre><h4>\u6267\u884C\u6240\u6709\u7684\u5355\u5143\u6D4B\u8BD5</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli test
 </code></pre><h4>\u4EE5watch\u6A21\u5F0F\u6267\u884C\u5355\u5143\u6D4B\u8BD5</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli test -w
+or
+varlet-cli test -wa
 </code></pre><h4>\u68C0\u67E5\u4EE3\u7801</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli lint
 </code></pre><h4>\u5FEB\u901F\u521B\u5EFA\u4E00\u4E2A\u7EC4\u4EF6\u6587\u4EF6\u5939</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli create &lt;componentName&gt;
 </code></pre><h4>\u751F\u6210\u4E00\u4E2A\u9879\u76EE\u6A21\u677F</h4><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css">varlet-cli gen &lt;projectName&gt;
