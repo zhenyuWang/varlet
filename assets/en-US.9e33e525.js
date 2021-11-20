@@ -12,10 +12,13 @@ createApp().use(Space)
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button2<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button3<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">var-space</span>&gt;</span>
-</code></pre></div><div class="card"><h3>Space Between</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-space</span> <span class="hljs-attr">:size</span>=<span class="hljs-string">&quot;[&#39;30px&#39;,&#39;10px&#39;]&quot;</span>&gt;</span>
+</code></pre></div><div class="card"><h3>Space Between</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-space</span> <span class="hljs-attr">:size</span>=<span class="hljs-string">&quot;[20, 20]&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button1<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button2<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button3<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button4<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button5<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button6<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">var-space</span>&gt;</span>
 </code></pre></div><div class="card"><h3>Right Align</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-space</span> <span class="hljs-attr">justify</span>=<span class="hljs-string">&quot;end&quot;</span> &gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button1<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
