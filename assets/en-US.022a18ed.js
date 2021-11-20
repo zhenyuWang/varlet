@@ -12,7 +12,7 @@ createApp().use(Space)
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button2<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button3<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">var-space</span>&gt;</span>
-</code></pre></div><div class="card"><h3>Space Between</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-space</span> <span class="hljs-attr">:size</span>=<span class="hljs-string">&quot;[20, 20]&quot;</span>&gt;</span>
+</code></pre></div><div class="card"><h3>Space Size</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-space</span> <span class="hljs-attr">:size</span>=<span class="hljs-string">&quot;[20, 20]&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button1<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button2<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">var-button</span>&gt;</span>Button3<span class="hljs-tag">&lt;/<span class="hljs-name">var-button</span>&gt;</span>
