@@ -41,7 +41,7 @@ createApp().use(List)
     }
   }
 }
-</code></pre></div><div class="card"><h3>Load Fail</h3><p>You can manually set the error status using <code>v-model:error</code>, an error message is displayed. Clicking on the error message will help you set the <code>error</code> to <code>false</code> and trigger the <code>load</code> event again.</p><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"> <span class="hljs-tag">&lt;<span class="hljs-name">var-list</span>
+</code></pre></div><div class="card"><h3>Load Fail</h3><p>You can manually set the error status using <code>v-model:error</code>, an error message is displayed. Clicking on the error message will help you set the <code>error</code> to <code>false</code> and trigger the <code>load</code> event again.</p><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-list</span>
   <span class="hljs-attr">v-model:error</span>=<span class="hljs-string">&quot;error&quot;</span>
   <span class="hljs-attr">v-model:loading</span>=<span class="hljs-string">&quot;loading&quot;</span>
   @<span class="hljs-attr">load</span>=<span class="hljs-string">&quot;load&quot;</span>

@@ -34,7 +34,7 @@ createApp()
     <span class="hljs-keyword">return</span> { active }
   }
 }
-</code></pre></div><div class="card"><h3>\u4FEE\u6539\u6837\u5F0F</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"> <span class="hljs-tag">&lt;<span class="hljs-name">var-tabs</span>
+</code></pre></div><div class="card"><h3>\u4FEE\u6539\u6837\u5F0F</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-tabs</span>
   <span class="hljs-attr">elevation</span>
   <span class="hljs-attr">color</span>=<span class="hljs-string">&quot;#2979ff&quot;</span>
   <span class="hljs-attr">active-color</span>=<span class="hljs-string">&quot;#fff&quot;</span>

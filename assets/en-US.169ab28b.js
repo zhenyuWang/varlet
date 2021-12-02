@@ -25,7 +25,7 @@ createApp().use(Steps).use(Step)
     }
   }
 }
-</code></pre></div><div class="card"><h3>Custom Style</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"> <span class="hljs-tag">&lt;<span class="hljs-name">var-steps</span> 
+</code></pre></div><div class="card"><h3>Custom Style</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-steps</span> 
   <span class="hljs-attr">:active</span>=<span class="hljs-string">&quot;active&quot;</span>
   <span class="hljs-attr">active-color</span>=<span class="hljs-string">&quot;#f44336&quot;</span>
   <span class="hljs-attr">inactive-color</span>=<span class="hljs-string">&quot;#e99eb4&quot;</span>

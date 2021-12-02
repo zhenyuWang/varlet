@@ -12,7 +12,7 @@ createApp().use(Skeleton)
     <span class="hljs-keyword">return</span> { loading }
   }
 }
-</code></pre></div><div class="card"><h3>Display Title</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"> <span class="hljs-tag">&lt;<span class="hljs-name">var-skeleton</span> <span class="hljs-attr">title</span> <span class="hljs-attr">:loading</span>=<span class="hljs-string">&quot;loading&quot;</span>&gt;</span>Loading Data<span class="hljs-tag">&lt;/<span class="hljs-name">var-skeleton</span>&gt;</span>
+</code></pre></div><div class="card"><h3>Display Title</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-skeleton</span> <span class="hljs-attr">title</span> <span class="hljs-attr">:loading</span>=<span class="hljs-string">&quot;loading&quot;</span>&gt;</span>Loading Data<span class="hljs-tag">&lt;/<span class="hljs-name">var-skeleton</span>&gt;</span>
 </code></pre></div><div class="card"><h3>Custom Rows Height</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-skeleton</span>
   <span class="hljs-attr">title</span>
   <span class="hljs-attr">:rows</span>=<span class="hljs-string">&quot;3&quot;</span>

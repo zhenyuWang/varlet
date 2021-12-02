@@ -12,7 +12,7 @@ createApp().use(Skeleton)
     <span class="hljs-keyword">return</span> { loading }
   }
 }
-</code></pre></div><div class="card"><h3>\u663E\u793A\u6807\u9898</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"> <span class="hljs-tag">&lt;<span class="hljs-name">var-skeleton</span> <span class="hljs-attr">title</span> <span class="hljs-attr">:loading</span>=<span class="hljs-string">&quot;loading&quot;</span>&gt;</span>\u52A0\u8F7D\u7684\u6570\u636E<span class="hljs-tag">&lt;/<span class="hljs-name">var-skeleton</span>&gt;</span>
+</code></pre></div><div class="card"><h3>\u663E\u793A\u6807\u9898</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-skeleton</span> <span class="hljs-attr">title</span> <span class="hljs-attr">:loading</span>=<span class="hljs-string">&quot;loading&quot;</span>&gt;</span>\u52A0\u8F7D\u7684\u6570\u636E<span class="hljs-tag">&lt;/<span class="hljs-name">var-skeleton</span>&gt;</span>
 </code></pre></div><div class="card"><h3>\u81EA\u5B9A\u4E49\u6BB5\u843D\u9AD8\u5EA6</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-skeleton</span>
   <span class="hljs-attr">title</span>
   <span class="hljs-attr">:rows</span>=<span class="hljs-string">&quot;3&quot;</span>

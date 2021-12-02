@@ -41,7 +41,7 @@ createApp().use(List)
     }
   }
 }
-</code></pre></div><div class="card"><h3>\u52A0\u8F7D\u5931\u8D25</h3><p>\u60A8\u53EF\u4EE5\u4F7F\u7528<code>v-model:error</code>\u624B\u52A8\u8BBE\u7F6E\u9519\u8BEF\u72B6\u6001\uFF0C\u4F1A\u5C55\u793A\u9519\u8BEF\u63D0\u793A\uFF0C\u70B9\u51FB\u9519\u8BEF\u63D0\u793A\u4F1A\u5E2E\u60A8\u628A<code>error</code>\u8BBE\u7F6E\u6210<code>false</code>\u5E76\u518D\u6B21\u89E6\u53D1<code>load</code>\u4E8B\u4EF6\u3002</p><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"> <span class="hljs-tag">&lt;<span class="hljs-name">var-list</span>
+</code></pre></div><div class="card"><h3>\u52A0\u8F7D\u5931\u8D25</h3><p>\u60A8\u53EF\u4EE5\u4F7F\u7528<code>v-model:error</code>\u624B\u52A8\u8BBE\u7F6E\u9519\u8BEF\u72B6\u6001\uFF0C\u4F1A\u5C55\u793A\u9519\u8BEF\u63D0\u793A\uFF0C\u70B9\u51FB\u9519\u8BEF\u63D0\u793A\u4F1A\u5E2E\u60A8\u628A<code>error</code>\u8BBE\u7F6E\u6210<code>false</code>\u5E76\u518D\u6B21\u89E6\u53D1<code>load</code>\u4E8B\u4EF6\u3002</p><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-tag">&lt;<span class="hljs-name">var-list</span>
   <span class="hljs-attr">v-model:error</span>=<span class="hljs-string">&quot;error&quot;</span>
   <span class="hljs-attr">v-model:loading</span>=<span class="hljs-string">&quot;loading&quot;</span>
   @<span class="hljs-attr">load</span>=<span class="hljs-string">&quot;load&quot;</span>
