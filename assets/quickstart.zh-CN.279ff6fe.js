@@ -7,7 +7,7 @@ import{_ as s}from"./elevation.7076906a.js";import{o as a,c as n,K as p}from"./v
   })
   app.use(Varlet).mount(<span class="hljs-string">&#39;#app&#39;</span>)
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-</code></pre></div><div class="card"><h3>Webpack/Vite</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-meta">#</span><span class="bash"> \u901A\u8FC7npm\u6216yarn\u5B89\u88C5</span>
+</code></pre></div><div class="card"><h3>Webpack/Vite</h3><pre class="hljs"><code><link rel="stylesheet" href="./highlight.css"><span class="hljs-meta">#</span><span class="bash"> \u901A\u8FC7 npm \u6216 yarn \u5B89\u88C5</span>
 <span class="hljs-meta">#</span><span class="bash"> npm</span>
 npm i @varlet/ui -S
 <span class="hljs-meta">#</span><span class="bash"> yarn</span>
