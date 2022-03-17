@@ -1,4 +1,4 @@
-import { reactive, getCurrentInstance, watch, onBeforeMount, onUnmounted, onActivated, onDeactivated, ref, onMounted, provide, computed, inject, nextTick, createApp, onBeforeUnmount, h, isVNode, defineComponent, createVNode, Teleport, Transition, withDirectives, mergeProps, vShow, openBlock, createBlock, resolveDynamicComponent, normalizeClass, normalizeStyle, resolveComponent, resolveDirective, withCtx, createElementVNode, renderSlot, toDisplayString, createElementBlock, Fragment, renderList, createCommentVNode, onUpdated, createTextVNode, pushScopeId, popScopeId, withModifiers, normalizeProps, guardReactiveProps, vModelText, toRefs, withKeys, toRaw, TransitionGroup } from "vue";
+import { reactive, getCurrentInstance, watch, onBeforeMount, onUnmounted, onActivated, onDeactivated, ref, onMounted, provide, computed, inject, nextTick, createApp, onBeforeUnmount, h, isVNode, defineComponent, createVNode, Teleport, Transition, withDirectives, mergeProps, vShow, openBlock, createBlock, resolveDynamicComponent, normalizeClass, normalizeStyle, resolveComponent, resolveDirective, withCtx, createElementVNode, renderSlot, toDisplayString, createElementBlock, Fragment, renderList, createCommentVNode, onUpdated, createTextVNode, pushScopeId, popScopeId, withModifiers, normalizeProps, guardReactiveProps, vModelText, toRefs, withKeys, toRaw, TransitionGroup, Comment } from "vue";
 var context = {
   locks: {},
   zIndex: 2e3,
@@ -6,8 +6,8 @@ var context = {
 };
 reactive(context);
 var Context = reactive(context);
-function _extends$c() {
-  _extends$c = Object.assign || function(target) {
+function _extends$d() {
+  _extends$d = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -18,7 +18,7 @@ function _extends$c() {
     }
     return target;
   };
-  return _extends$c.apply(this, arguments);
+  return _extends$d.apply(this, arguments);
 }
 var ANIMATION_DURATION$1 = 250;
 function setStyles(element) {
@@ -64,7 +64,6 @@ function createRipple(event) {
     return;
   }
   var task = () => {
-    var _ripple$color;
     _ripple.tasker = null;
     var {
       x,
@@ -79,7 +78,7 @@ function createRipple(event) {
     ripple2.style.transform = "translate(" + x + "px, " + y + "px) scale3d(.3, .3, .3)";
     ripple2.style.width = size + "px";
     ripple2.style.height = size + "px";
-    ripple2.style.backgroundColor = (_ripple$color = _ripple.color) != null ? _ripple$color : "currentColor";
+    _ripple.color && (ripple2.style.backgroundColor = _ripple.color);
     ripple2.dataset.createdAt = String(performance.now());
     setStyles(this);
     this.appendChild(ripple2);
@@ -119,7 +118,7 @@ function forbidRippleTask() {
 }
 function mounted$1(el, binding) {
   var _binding$value, _binding$value$touchm, _binding$value2;
-  el._ripple = _extends$c({
+  el._ripple = _extends$d({
     tasker: null
   }, (_binding$value = binding.value) != null ? _binding$value : {}, {
     touchmoveForbid: (_binding$value$touchm = (_binding$value2 = binding.value) == null ? void 0 : _binding$value2.touchmoveForbid) != null ? _binding$value$touchm : Context.touchmoveForbid,
@@ -150,7 +149,7 @@ function unmounted(el) {
 }
 function updated$1(el, binding) {
   var _binding$value3, _binding$value$touchm2, _binding$value4;
-  el._ripple = _extends$c({}, el._ripple, (_binding$value3 = binding.value) != null ? _binding$value3 : {}, {
+  el._ripple = _extends$d({}, el._ripple, (_binding$value3 = binding.value) != null ? _binding$value3 : {}, {
     touchmoveForbid: (_binding$value$touchm2 = (_binding$value4 = binding.value) == null ? void 0 : _binding$value4.touchmoveForbid) != null ? _binding$value$touchm2 : Context.touchmoveForbid,
     tasker: null
   });
@@ -476,8 +475,8 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   }
   return target;
 }
-function _extends$b() {
-  _extends$b = Object.assign || function(target) {
+function _extends$c() {
+  _extends$c = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -488,7 +487,7 @@ function _extends$b() {
     }
     return target;
   };
-  return _extends$b.apply(this, arguments);
+  return _extends$c.apply(this, arguments);
 }
 function pickProps(props2, propsKey) {
   return Array.isArray(propsKey) ? propsKey.reduce((pickedProps, key) => {
@@ -517,7 +516,7 @@ function mountInstance(component, props2, eventListener) {
   }
   var Host = {
     setup() {
-      return () => h(component, _extends$b({}, props2, eventListener));
+      return () => h(component, _extends$c({}, props2, eventListener));
     }
   };
   var {
@@ -605,7 +604,7 @@ function useChildren(key) {
     removeItem(childProviders, childProvider);
   };
   var bindChildren = (parentProvider) => {
-    provide(key, _extends$b({
+    provide(key, _extends$c({
       collect,
       clear: clear2
     }, parentProvider));
@@ -708,8 +707,8 @@ function exposeApis(apis) {
     Object.assign(instance.proxy, apis);
   }
 }
-function _extends$a() {
-  _extends$a = Object.assign || function(target) {
+function _extends$b() {
+  _extends$b = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -720,7 +719,7 @@ function _extends$a() {
     }
     return target;
   };
-  return _extends$a.apply(this, arguments);
+  return _extends$b.apply(this, arguments);
 }
 function _isSlot$2(s) {
   return typeof s === "function" || Object.prototype.toString.call(s) === "[object Object]" && !isVNode(s);
@@ -768,7 +767,7 @@ var Popup = defineComponent({
       } = props2;
       return createVNode("div", {
         "class": ["var-popup__overlay", overlayClass],
-        "style": _extends$a({
+        "style": _extends$b({
           zIndex: zIndex.value - 1
         }, overlayStyle),
         "onClick": hidePopup
@@ -1131,8 +1130,8 @@ var Icon = defineComponent({
 Icon.install = function(app) {
   app.component(Icon.name, Icon);
 };
-function _extends$9() {
-  _extends$9 = Object.assign || function(target) {
+function _extends$a() {
+  _extends$a = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -1143,9 +1142,9 @@ function _extends$9() {
     }
     return target;
   };
-  return _extends$9.apply(this, arguments);
+  return _extends$a.apply(this, arguments);
 }
-var props$Q = _extends$9({
+var props$Q = _extends$a({
   show: {
     type: Boolean,
     default: false
@@ -1277,8 +1276,8 @@ var zhCN = {
   paginationPage: "\u9875",
   paginationJump: "\u524D\u5F80"
 };
-function _extends$8() {
-  _extends$8 = Object.assign || function(target) {
+function _extends$9() {
+  _extends$9 = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -1289,7 +1288,7 @@ function _extends$8() {
     }
     return target;
   };
-  return _extends$8.apply(this, arguments);
+  return _extends$9.apply(this, arguments);
 }
 function useLocale() {
   var packs2 = {};
@@ -1310,7 +1309,7 @@ function useLocale() {
       console.warn("The " + lang + " does not exist. You can mount a language package using the add method");
       return;
     }
-    packs2[lang] = _extends$8({}, packs2[lang], pack3);
+    packs2[lang] = _extends$9({}, packs2[lang], pack3);
     use2(lang);
   };
   return {
@@ -1338,11 +1337,11 @@ var Locale = {
   merge,
   useLocale
 };
-var _hoisted_1$I = {
+var _hoisted_1$H = {
   class: "var-action-sheet__title"
 };
 var _hoisted_2$t = ["onClick"];
-var _hoisted_3$i = {
+var _hoisted_3$j = {
   class: "var-action-sheet__action-name"
 };
 function render$W(_ctx, _cache) {
@@ -1373,7 +1372,7 @@ function render$W(_ctx, _cache) {
   }), {
     default: withCtx(() => [createElementVNode("div", mergeProps({
       class: "var-action-sheet var--box"
-    }, _ctx.$attrs), [renderSlot(_ctx.$slots, "title", {}, () => [createElementVNode("div", _hoisted_1$I, toDisplayString(_ctx.dt(_ctx.title, _ctx.pack.actionSheetTitle)), 1)]), renderSlot(_ctx.$slots, "actions", {}, () => [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.actions, (action) => {
+    }, _ctx.$attrs), [renderSlot(_ctx.$slots, "title", {}, () => [createElementVNode("div", _hoisted_1$H, toDisplayString(_ctx.dt(_ctx.title, _ctx.pack.actionSheetTitle)), 1)]), renderSlot(_ctx.$slots, "actions", {}, () => [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.actions, (action) => {
       return withDirectives((openBlock(), createElementBlock("div", {
         class: normalizeClass(["var-action-sheet__action-item", [action.className, action.disabled ? "var-action-sheet--disabled" : null]]),
         key: action.name,
@@ -1387,7 +1386,7 @@ function render$W(_ctx, _cache) {
         "var-action-sheet-cover": "",
         name: action.icon,
         size: action.iconSize
-      }, null, 8, ["name", "size"])) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_3$i, toDisplayString(action.name), 1)], 14, _hoisted_2$t)), [[_directive_ripple, {
+      }, null, 8, ["name", "size"])) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_3$j, toDisplayString(action.name), 1)], 14, _hoisted_2$t)), [[_directive_ripple, {
         disabled: action.disabled
       }]]);
     }), 128))])], 16)]),
@@ -1510,14 +1509,14 @@ var props$P = {
     default: true
   }
 };
-var _hoisted_1$H = {
+var _hoisted_1$G = {
   class: "var-app-bar__left"
 };
 var _hoisted_2$s = {
   key: 0,
   class: "var-app-bar__title"
 };
-var _hoisted_3$h = {
+var _hoisted_3$i = {
   class: "var-app-bar__right"
 };
 function render$V(_ctx, _cache) {
@@ -1529,13 +1528,13 @@ function render$V(_ctx, _cache) {
       background: _ctx.color,
       color: _ctx.textColor
     })
-  }, [createElementVNode("div", _hoisted_1$H, [renderSlot(_ctx.$slots, "left"), _ctx.titlePosition === "left" ? (openBlock(), createElementBlock("div", {
+  }, [createElementVNode("div", _hoisted_1$G, [renderSlot(_ctx.$slots, "left"), _ctx.titlePosition === "left" ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: "var-app-bar__title",
     style: normalizeStyle({
       paddingLeft: _ctx.paddingLeft
     })
-  }, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])], 4)) : createCommentVNode("v-if", true)]), _ctx.titlePosition === "center" ? (openBlock(), createElementBlock("div", _hoisted_2$s, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])])) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_3$h, [_ctx.titlePosition === "right" ? (openBlock(), createElementBlock("div", {
+  }, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])], 4)) : createCommentVNode("v-if", true)]), _ctx.titlePosition === "center" ? (openBlock(), createElementBlock("div", _hoisted_2$s, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])])) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_3$i, [_ctx.titlePosition === "right" ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: "var-app-bar__title",
     style: normalizeStyle({
@@ -1601,14 +1600,14 @@ var props$O = {
   }
 };
 var _withScopeId$2 = (n) => (pushScopeId(""), n = n(), popScopeId(), n);
-var _hoisted_1$G = {
+var _hoisted_1$F = {
   class: "var-loading"
 };
 var _hoisted_2$r = {
   key: 0,
   class: "var-loading__circle"
 };
-var _hoisted_3$g = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("svg", {
+var _hoisted_3$h = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("svg", {
   viewBox: "25 25 50 50"
 }, [/* @__PURE__ */ createElementVNode("circle", {
   cx: "50",
@@ -1616,9 +1615,9 @@ var _hoisted_3$g = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createEl
   r: "20",
   fill: "none"
 })], -1));
-var _hoisted_4$a = [_hoisted_3$g];
+var _hoisted_4$a = [_hoisted_3$h];
 function render$U(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$G, [_ctx.$slots.default ? (openBlock(), createElementBlock("div", {
+  return openBlock(), createElementBlock("div", _hoisted_1$F, [_ctx.$slots.default ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: normalizeClass(["var-loading__content", [_ctx.loading ? "var-loading__content--active" : null]])
   }, [renderSlot(_ctx.$slots, "default")], 2)) : createCommentVNode("v-if", true), _ctx.isShow ? (openBlock(), createElementBlock("div", {
@@ -1760,7 +1759,7 @@ var props$N = {
     type: Function
   }
 };
-var _hoisted_1$F = ["disabled"];
+var _hoisted_1$E = ["disabled"];
 function render$T(_ctx, _cache) {
   var _component_var_loading = resolveComponent("var-loading");
   var _directive_ripple = resolveDirective("ripple");
@@ -1786,7 +1785,7 @@ function render$T(_ctx, _cache) {
     radius: _ctx.loadingRadius
   }, null, 8, ["type", "size", "radius"])) : createCommentVNode("v-if", true), createElementVNode("div", {
     class: normalizeClass(["var-button__content", [_ctx.loading || _ctx.pending ? "var-button--hidden" : null]])
-  }, [renderSlot(_ctx.$slots, "default")], 2)], 46, _hoisted_1$F)), [[_directive_ripple, {
+  }, [renderSlot(_ctx.$slots, "default")], 2)], 46, _hoisted_1$E)), [[_directive_ripple, {
     disabled: _ctx.disabled || !_ctx.ripple
   }]]);
 }
@@ -1986,7 +1985,7 @@ var props$L = {
     type: String
   }
 };
-var _hoisted_1$E = {
+var _hoisted_1$D = {
   class: "var-badge var--box"
 };
 var _hoisted_2$q = {
@@ -1994,7 +1993,7 @@ var _hoisted_2$q = {
 };
 function render$R(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
-  return openBlock(), createElementBlock("div", _hoisted_1$E, [createVNode(Transition, {
+  return openBlock(), createElementBlock("div", _hoisted_1$D, [createVNode(Transition, {
     name: "var-badge-fade"
   }, {
     default: withCtx(() => [withDirectives(createElementVNode("span", mergeProps(_ctx.$attrs, {
@@ -2029,7 +2028,7 @@ var Badge = defineComponent({
         dot,
         icon: icon2
       } = props2;
-      var positionBasic = (slots.default == null ? void 0 : slots.default()) && "var-badge__position var-badge--" + position;
+      var positionBasic = slots.default && "var-badge__position var-badge--" + position;
       var dotClass = dot && "var-badge__dot";
       var positionClass = getPositionClass();
       var iconClass = icon2 && "var-badge__icon";
@@ -2104,12 +2103,12 @@ var props$K = {
     type: Function
   }
 };
-var _hoisted_1$D = ["src", "alt"];
+var _hoisted_1$C = ["src", "alt"];
 var _hoisted_2$p = {
   key: 0,
   class: "var-card__title"
 };
-var _hoisted_3$f = {
+var _hoisted_3$g = {
   key: 0,
   class: "var-card__subtitle"
 };
@@ -2137,7 +2136,7 @@ function render$Q(_ctx, _cache) {
     }),
     src: _ctx.src,
     alt: _ctx.alt
-  }, null, 12, _hoisted_1$D)) : createCommentVNode("v-if", true)]), renderSlot(_ctx.$slots, "title", {}, () => [_ctx.title ? (openBlock(), createElementBlock("div", _hoisted_2$p, toDisplayString(_ctx.title), 1)) : createCommentVNode("v-if", true)]), renderSlot(_ctx.$slots, "subtitle", {}, () => [_ctx.subtitle ? (openBlock(), createElementBlock("div", _hoisted_3$f, toDisplayString(_ctx.subtitle), 1)) : createCommentVNode("v-if", true)]), renderSlot(_ctx.$slots, "description", {}, () => [_ctx.description ? (openBlock(), createElementBlock("div", _hoisted_4$9, toDisplayString(_ctx.description), 1)) : createCommentVNode("v-if", true)]), _ctx.$slots.extra ? (openBlock(), createElementBlock("div", _hoisted_5$7, [renderSlot(_ctx.$slots, "extra")])) : createCommentVNode("v-if", true)], 2)), [[_directive_ripple, {
+  }, null, 12, _hoisted_1$C)) : createCommentVNode("v-if", true)]), renderSlot(_ctx.$slots, "title", {}, () => [_ctx.title ? (openBlock(), createElementBlock("div", _hoisted_2$p, toDisplayString(_ctx.title), 1)) : createCommentVNode("v-if", true)]), renderSlot(_ctx.$slots, "subtitle", {}, () => [_ctx.subtitle ? (openBlock(), createElementBlock("div", _hoisted_3$g, toDisplayString(_ctx.subtitle), 1)) : createCommentVNode("v-if", true)]), renderSlot(_ctx.$slots, "description", {}, () => [_ctx.description ? (openBlock(), createElementBlock("div", _hoisted_4$9, toDisplayString(_ctx.description), 1)) : createCommentVNode("v-if", true)]), _ctx.$slots.extra ? (openBlock(), createElementBlock("div", _hoisted_5$7, [renderSlot(_ctx.$slots, "extra")])) : createCommentVNode("v-if", true)], 2)), [[_directive_ripple, {
     disabled: !_ctx.ripple
   }]]);
 }
@@ -2184,7 +2183,7 @@ var props$J = {
     type: String
   }
 };
-var _hoisted_1$C = {
+var _hoisted_1$B = {
   class: "var-cell__content"
 };
 function render$P(_ctx, _cache) {
@@ -2197,7 +2196,7 @@ function render$P(_ctx, _cache) {
   }, [renderSlot(_ctx.$slots, "icon", {}, () => [createVNode(_component_var_icon, {
     class: "var--flex",
     name: _ctx.icon
-  }, null, 8, ["name"])])], 2)) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_1$C, [createElementVNode("div", {
+  }, null, 8, ["name"])])], 2)) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_1$B, [createElementVNode("div", {
     class: normalizeClass(["var-cell__title", [_ctx.titleClass ? _ctx.titleClass : null]])
   }, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])], 2), _ctx.$slots.desc || _ctx.desc ? (openBlock(), createElementBlock("div", {
     key: 0,
@@ -2228,21 +2227,21 @@ var props$I = {
     default: ""
   }
 };
-var _hoisted_1$B = {
+var _hoisted_1$A = {
   key: 0,
   class: "var-form-details"
 };
 var _hoisted_2$o = {
   class: "var-form-details__message"
 };
-var _hoisted_3$e = {
+var _hoisted_3$f = {
   class: "var-form-details__length"
 };
 function render$O(_ctx, _cache) {
   return openBlock(), createBlock(Transition, {
     name: "var-form-details"
   }, {
-    default: withCtx(() => [_ctx.errorMessage || _ctx.maxlengthText ? (openBlock(), createElementBlock("div", _hoisted_1$B, [createElementVNode("div", _hoisted_2$o, toDisplayString(_ctx.errorMessage), 1), createElementVNode("div", _hoisted_3$e, toDisplayString(_ctx.maxlengthText), 1)])) : createCommentVNode("v-if", true)]),
+    default: withCtx(() => [_ctx.errorMessage || _ctx.maxlengthText ? (openBlock(), createElementBlock("div", _hoisted_1$A, [createElementVNode("div", _hoisted_2$o, toDisplayString(_ctx.errorMessage), 1), createElementVNode("div", _hoisted_3$f, toDisplayString(_ctx.maxlengthText), 1)])) : createCommentVNode("v-if", true)]),
     _: 1
   });
 }
@@ -2356,7 +2355,7 @@ function useFormItems() {
     bindFormItems: bindChildren
   };
 }
-var _hoisted_1$A = {
+var _hoisted_1$z = {
   class: "var-checkbox"
 };
 function render$N(_ctx, _cache) {
@@ -2368,7 +2367,7 @@ function render$N(_ctx, _cache) {
     onClick: _cache[0] || (_cache[0] = function() {
       return _ctx.handleClick && _ctx.handleClick(...arguments);
     })
-  }, [createElementVNode("div", _hoisted_1$A, [withDirectives((openBlock(), createElementBlock("div", {
+  }, [createElementVNode("div", _hoisted_1$z, [withDirectives((openBlock(), createElementBlock("div", {
     class: normalizeClass(["var-checkbox__action", [_ctx.checked ? "var-checkbox--checked" : "var-checkbox--unchecked", _ctx.errorMessage || _ctx.checkboxGroupErrorMessage ? "var-checkbox--error" : null, _ctx.formDisabled || _ctx.disabled ? "var-checkbox--disabled" : null]]),
     style: normalizeStyle({
       color: _ctx.checked ? _ctx.checkedColor : _ctx.uncheckedColor
@@ -2476,6 +2475,9 @@ var Checkbox = defineComponent({
       } = props2;
       value.value = values.includes(checkedValue2) ? checkedValue2 : uncheckedValue;
     };
+    var resetWithAnimation = () => {
+      withAnimation.value = false;
+    };
     var reset = () => {
       var _props$onUpdateModel2;
       (_props$onUpdateModel2 = props2["onUpdate:modelValue"]) == null ? void 0 : _props$onUpdateModel2.call(props2, props2.uncheckedValue);
@@ -2504,7 +2506,8 @@ var Checkbox = defineComponent({
       sync,
       validate,
       resetValidation,
-      reset
+      reset,
+      resetWithAnimation
     };
     bindCheckboxGroup == null ? void 0 : bindCheckboxGroup(checkboxProvider);
     bindForm == null ? void 0 : bindForm(checkboxProvider);
@@ -2556,12 +2559,12 @@ var props$G = {
     type: Function
   }
 };
-var _hoisted_1$z = {
+var _hoisted_1$y = {
   class: "var-checkbox-group__wrap"
 };
 function render$M(_ctx, _cache) {
   var _component_var_form_details = resolveComponent("var-form-details");
-  return openBlock(), createElementBlock("div", _hoisted_1$z, [createElementVNode("div", {
+  return openBlock(), createElementBlock("div", _hoisted_1$y, [createElementVNode("div", {
     class: normalizeClass(["var-checkbox-group", ["var-checkbox-group--" + _ctx.direction]])
   }, [renderSlot(_ctx.$slots, "default")], 2), createVNode(_component_var_form_details, {
     "error-message": _ctx.errorMessage
@@ -2631,6 +2634,9 @@ var CheckboxGroup = defineComponent({
       } = _ref;
       return sync(props2.modelValue);
     });
+    var resetWithAnimation = () => {
+      checkboxes.forEach((checkbox2) => checkbox2.resetWithAnimation());
+    };
     var checkAll2 = () => {
       var _props$onUpdateModel2;
       var checkedValues = checkboxes.map((_ref2) => {
@@ -2640,6 +2646,7 @@ var CheckboxGroup = defineComponent({
         return checkedValue.value;
       });
       var changedModelValue = uniq(checkedValues);
+      resetWithAnimation();
       (_props$onUpdateModel2 = props2["onUpdate:modelValue"]) == null ? void 0 : _props$onUpdateModel2.call(props2, changedModelValue);
       return changedModelValue;
     };
@@ -2657,6 +2664,7 @@ var CheckboxGroup = defineComponent({
         return checkedValue.value;
       });
       var changedModelValue = uniq(checkedValues);
+      resetWithAnimation();
       (_props$onUpdateModel3 = props2["onUpdate:modelValue"]) == null ? void 0 : _props$onUpdateModel3.call(props2, changedModelValue);
       return changedModelValue;
     };
@@ -2971,11 +2979,11 @@ var props$D = {
     type: Function
   }
 };
-var _hoisted_1$y = {
+var _hoisted_1$x = {
   class: "var-collapse"
 };
 function render$J(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$y, [renderSlot(_ctx.$slots, "default")]);
+  return openBlock(), createElementBlock("div", _hoisted_1$x, [renderSlot(_ctx.$slots, "default")]);
 }
 var Collapse = defineComponent({
   render: render$J,
@@ -3111,13 +3119,13 @@ var props$C = {
     default: false
   }
 };
-var _hoisted_1$x = {
+var _hoisted_1$w = {
   class: "var-collapse-item-header__title"
 };
 var _hoisted_2$n = {
   class: "var-collapse-item-header__icon"
 };
-var _hoisted_3$d = {
+var _hoisted_3$e = {
   class: "var-collapse-item__wrap"
 };
 function render$I(_ctx, _cache) {
@@ -3131,7 +3139,7 @@ function render$I(_ctx, _cache) {
   }, [createElementVNode("div", {
     class: "var-collapse-item-header",
     onClick: _cache[0] || (_cache[0] = ($event) => _ctx.toggle())
-  }, [createElementVNode("div", _hoisted_1$x, [renderSlot(_ctx.$slots, "title", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])]), createElementVNode("div", _hoisted_2$n, [renderSlot(_ctx.$slots, "icon", {}, () => [createVNode(_component_var_icon, {
+  }, [createElementVNode("div", _hoisted_1$w, [renderSlot(_ctx.$slots, "title", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])]), createElementVNode("div", _hoisted_2$n, [renderSlot(_ctx.$slots, "icon", {}, () => [createVNode(_component_var_icon, {
     name: _ctx.icon,
     transition: 250,
     class: normalizeClass({
@@ -3145,7 +3153,7 @@ function render$I(_ctx, _cache) {
     onTransitionend: _cache[1] || (_cache[1] = function() {
       return _ctx.transitionend && _ctx.transitionend(...arguments);
     })
-  }, [createElementVNode("div", _hoisted_3$d, [renderSlot(_ctx.$slots, "default")])], 544), [[vShow, _ctx.show]])], 2);
+  }, [createElementVNode("div", _hoisted_3$e, [renderSlot(_ctx.$slots, "default")])], 544), [[vShow, _ctx.show]])], 2);
 }
 var CollapseItem = defineComponent({
   render: render$I,
@@ -3257,11 +3265,11 @@ var SECOND = 1e3;
 var MINUTE = 60 * SECOND;
 var HOUR = 60 * MINUTE;
 var DAY = 24 * HOUR;
-var _hoisted_1$w = {
+var _hoisted_1$v = {
   class: "var-countdown"
 };
 function render$H(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$w, [renderSlot(_ctx.$slots, "default", normalizeProps(guardReactiveProps(_ctx.timeData)), () => [createTextVNode(toDisplayString(_ctx.showTime), 1)])]);
+  return openBlock(), createElementBlock("div", _hoisted_1$v, [renderSlot(_ctx.$slots, "default", normalizeProps(guardReactiveProps(_ctx.timeData)), () => [createTextVNode(toDisplayString(_ctx.showTime), 1)])]);
 }
 var Countdown = defineComponent({
   render: render$H,
@@ -5709,7 +5717,7 @@ var props$A = {
 };
 var SPEED = 100;
 var DELAY = 600;
-var _hoisted_1$v = {
+var _hoisted_1$u = {
   class: "var-counter var--box"
 };
 var _hoisted_2$m = ["inputmode", "readonly", "disabled"];
@@ -5717,7 +5725,7 @@ function render$G(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
   var _component_var_form_details = resolveComponent("var-form-details");
   var _directive_ripple = resolveDirective("ripple");
-  return openBlock(), createElementBlock("div", _hoisted_1$v, [createElementVNode("div", mergeProps({
+  return openBlock(), createElementBlock("div", _hoisted_1$u, [createElementVNode("div", mergeProps({
     class: ["var-counter__controller var-elevation--2", [_ctx.disabled || _ctx.formDisabled ? "var-counter--disabled" : null, _ctx.errorMessage ? "var-counter--error" : null]],
     style: {
       background: _ctx.color ? _ctx.color : void 0
@@ -6515,6 +6523,10 @@ var props$z = {
     type: Boolean,
     default: false
   },
+  touchable: {
+    type: Boolean,
+    default: true
+  },
   onChange: {
     type: Function
   },
@@ -6522,13 +6534,13 @@ var props$z = {
     type: Function
   }
 };
-var _hoisted_1$u = {
+var _hoisted_1$t = {
   class: "var-picker-header"
 };
 function render$F(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
   var _component_var_button = resolveComponent("var-button");
-  return openBlock(), createElementBlock("div", _hoisted_1$u, [createVNode(_component_var_button, {
+  return openBlock(), createElementBlock("div", _hoisted_1$t, [createVNode(_component_var_button, {
     round: "",
     text: "",
     style: {
@@ -6545,7 +6557,7 @@ function render$F(_ctx, _cache) {
     class: "var-picker-header__value",
     onClick: _cache[1] || (_cache[1] = ($event) => _ctx.$emit("check-panel"))
   }, [createVNode(Transition, {
-    name: _ctx.reverse ? "var-date-picker-reverse-translatex" : "var-date-picker-translatex"
+    name: "var-date-picker" + (_ctx.reverse ? "-reverse" : "") + "-translatex"
   }, {
     default: withCtx(() => [(openBlock(), createElementBlock("div", {
       key: _ctx.showDate
@@ -6610,6 +6622,8 @@ var PanelHeader = defineComponent({
       return pack.value.lang === "zh-CN" ? previewYear + " " + monthName : monthName + " " + previewYear;
     });
     var checkDate = (checkType) => {
+      if (checkType === "prev" && props2.disabled.left || checkType === "next" && props2.disabled.right)
+        return;
       emit("check-date", checkType);
       reverse.value = checkType === "prev";
       forwardOrBackNum.value += checkType === "prev" ? -1 : 1;
@@ -6624,8 +6638,8 @@ var PanelHeader = defineComponent({
     };
   }
 });
-function _extends$7() {
-  _extends$7 = Object.assign || function(target) {
+function _extends$8() {
+  _extends$8 = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -6636,11 +6650,11 @@ function _extends$7() {
     }
     return target;
   };
-  return _extends$7.apply(this, arguments);
+  return _extends$8.apply(this, arguments);
 }
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
-var _hoisted_1$t = {
+var _hoisted_1$s = {
   class: "var-month-picker__panel"
 };
 var _hoisted_2$l = {
@@ -6649,14 +6663,15 @@ var _hoisted_2$l = {
 function render$E(_ctx, _cache) {
   var _component_panel_header = resolveComponent("panel-header");
   var _component_var_button = resolveComponent("var-button");
-  return openBlock(), createElementBlock("div", _hoisted_1$t, [createElementVNode("div", _hoisted_2$l, [createVNode(_component_panel_header, {
+  return openBlock(), createElementBlock("div", _hoisted_1$s, [createElementVNode("div", _hoisted_2$l, [createVNode(_component_panel_header, {
+    ref: "headerEl",
     type: "month",
     date: _ctx.preview,
     disabled: _ctx.panelBtnDisabled,
     onCheckPanel: _ctx.clickYear,
     onCheckDate: _ctx.checkDate
   }, null, 8, ["date", "disabled", "onCheckPanel", "onCheckDate"]), createVNode(Transition, {
-    name: _ctx.reverse ? "var-date-picker-reverse-translatex" : "var-date-picker-translatex"
+    name: "var-date-picker" + (_ctx.reverse ? "-reverse" : "") + "-translatex"
   }, {
     default: withCtx(() => [(openBlock(), createElementBlock("ul", {
       key: _ctx.panelKey
@@ -6668,8 +6683,8 @@ function render$E(_ctx, _cache) {
         class: "var-month-picker__button",
         "var-month-picker-cover": "",
         ripple: false
-      }, _extends$7({}, _ctx.buttonProps(month.index)), {
-        onClick: ($event) => _ctx.chooseMonth(month)
+      }, _extends$8({}, _ctx.buttonProps(month.index)), {
+        onClick: (event) => _ctx.chooseMonth(month, event)
       }), {
         default: withCtx(() => [createTextVNode(toDisplayString(_ctx.getMonthAbbr(month.index)), 1)]),
         _: 2
@@ -6715,6 +6730,7 @@ var MonthPickerPanel = defineComponent({
     var [currentYear, currentMonth] = props2.current.split("-");
     var reverse = ref(false);
     var panelKey = ref(0);
+    var headerEl = ref(null);
     var panelBtnDisabled = reactive({
       left: false,
       right: false
@@ -6825,21 +6841,29 @@ var MonthPickerPanel = defineComponent({
       };
       var isCover = textColorOrCover().startsWith("var-date-picker");
       return {
-        disabled,
         outline: computeOutline(),
         text: computeText(),
         color: !computeText() ? color : "",
         textColor: isCover ? "" : textColorOrCover(),
-        "var-date-picker-color-cover": isCover
+        "var-date-picker-color-cover": isCover,
+        class: {
+          "var-month-picker__button-disabled": disabled
+        }
       };
     };
-    var chooseMonth = (month) => {
+    var chooseMonth = (month, event) => {
+      var buttonEl = event.currentTarget;
+      if (buttonEl.classList.contains("var-month-picker__button-disabled"))
+        return;
       emit("choose-month", month);
     };
     var checkDate = (checkType) => {
       reverse.value = checkType === "prev";
       panelKey.value += checkType === "prev" ? -1 : 1;
       emit("check-preview", "year", checkType);
+    };
+    var forwardRef = (checkType) => {
+      headerEl.value.checkDate(checkType);
     };
     watch(() => props2.preview.previewYear, (year) => {
       var {
@@ -6858,9 +6882,11 @@ var MonthPickerPanel = defineComponent({
     return {
       pack,
       MONTH_LIST,
+      headerEl,
       reverse,
       panelKey,
       panelBtnDisabled,
+      forwardRef,
       buttonProps,
       getMonthAbbr,
       chooseMonth,
@@ -6868,12 +6894,12 @@ var MonthPickerPanel = defineComponent({
     };
   }
 });
-var _hoisted_1$s = {
+var _hoisted_1$r = {
   class: "var-year-picker__panel"
 };
 var _hoisted_2$k = ["onClick"];
 function render$D(_ctx, _cache) {
-  return openBlock(), createElementBlock("ul", _hoisted_1$s, [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.yearList, (year) => {
+  return openBlock(), createElementBlock("ul", _hoisted_1$r, [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.yearList, (year) => {
     return openBlock(), createElementBlock("li", {
       key: year,
       class: normalizeClass([year === _ctx.toNumber(_ctx.preview) ? "var-year-picker__panel--active" : null]),
@@ -6950,8 +6976,8 @@ var YearPickerPanel = defineComponent({
     };
   }
 });
-function _extends$6() {
-  _extends$6 = Object.assign || function(target) {
+function _extends$7() {
+  _extends$7 = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -6962,17 +6988,17 @@ function _extends$6() {
     }
     return target;
   };
-  return _extends$6.apply(this, arguments);
+  return _extends$7.apply(this, arguments);
 }
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
-var _hoisted_1$r = {
+var _hoisted_1$q = {
   class: "var-day-picker__panel"
 };
 var _hoisted_2$j = {
   class: "var-day-picker__content"
 };
-var _hoisted_3$c = {
+var _hoisted_3$d = {
   class: "var-day-picker__head"
 };
 var _hoisted_4$8 = {
@@ -6981,18 +7007,19 @@ var _hoisted_4$8 = {
 function render$C(_ctx, _cache) {
   var _component_panel_header = resolveComponent("panel-header");
   var _component_var_button = resolveComponent("var-button");
-  return openBlock(), createElementBlock("div", _hoisted_1$r, [createElementVNode("div", _hoisted_2$j, [createVNode(_component_panel_header, {
+  return openBlock(), createElementBlock("div", _hoisted_1$q, [createElementVNode("div", _hoisted_2$j, [createVNode(_component_panel_header, {
+    ref: "headerEl",
     type: "day",
     date: _ctx.preview,
     disabled: _ctx.panelBtnDisabled,
     onCheckPanel: _ctx.clickMonth,
     onCheckDate: _ctx.checkDate
   }, null, 8, ["date", "disabled", "onCheckPanel", "onCheckDate"]), createVNode(Transition, {
-    name: _ctx.reverse ? "var-date-picker-reverse-translatex" : "var-date-picker-translatex"
+    name: "var-date-picker" + (_ctx.reverse ? "-reverse" : "") + "-translatex"
   }, {
     default: withCtx(() => [(openBlock(), createElementBlock("div", {
       key: _ctx.panelKey
-    }, [createElementVNode("ul", _hoisted_3$c, [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.sortWeekList, (week) => {
+    }, [createElementVNode("ul", _hoisted_3$d, [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.sortWeekList, (week) => {
       return openBlock(), createElementBlock("li", {
         key: week.index
       }, toDisplayString(_ctx.getDayAbbr(week.index)), 1);
@@ -7007,8 +7034,8 @@ function render$C(_ctx, _cache) {
         "var-day-picker-cover": "",
         round: "",
         ripple: false
-      }, _extends$6({}, _ctx.buttonProps(day)), {
-        onClick: ($event) => _ctx.chooseDay(day)
+      }, _extends$7({}, _ctx.buttonProps(day)), {
+        onClick: (event) => _ctx.chooseDay(day, event)
       }), {
         default: withCtx(() => [createTextVNode(toDisplayString(_ctx.filterDay(day)), 1)]),
         _: 2
@@ -7055,6 +7082,7 @@ var DayPickerPanel = defineComponent({
     var days = ref([]);
     var reverse = ref(false);
     var panelKey = ref(0);
+    var headerEl = ref(null);
     var panelBtnDisabled = reactive({
       left: false,
       right: false
@@ -7212,11 +7240,13 @@ var DayPickerPanel = defineComponent({
       };
       var isCover = textColorOrCover().startsWith("var-date-picker");
       return {
-        disabled,
         text: computeText(),
         outline: computeOutline(),
         textColor: isCover ? "" : textColorOrCover(),
-        "var-date-picker-color-cover": isCover
+        "var-date-picker-color-cover": isCover,
+        class: {
+          "var-day-picker__button-disabled": disabled
+        }
       };
     };
     var checkDate = (checkType) => {
@@ -7224,8 +7254,14 @@ var DayPickerPanel = defineComponent({
       panelKey.value += checkType === "prev" ? -1 : 1;
       emit("check-preview", "month", checkType);
     };
-    var chooseDay = (day) => {
+    var chooseDay = (day, event) => {
+      var buttonEl = event.currentTarget;
+      if (buttonEl.classList.contains("var-day-picker__button-disabled"))
+        return;
       emit("choose-day", day);
+    };
+    var forwardRef = (checkType) => {
+      headerEl.value.checkDate(checkType);
     };
     onMounted(() => {
       initDate();
@@ -7238,9 +7274,11 @@ var DayPickerPanel = defineComponent({
     return {
       days,
       reverse,
+      headerEl,
       panelKey,
       sortWeekList,
       panelBtnDisabled,
+      forwardRef,
       filterDay,
       getDayAbbr,
       checkDate,
@@ -7249,9 +7287,6 @@ var DayPickerPanel = defineComponent({
     };
   }
 });
-var _hoisted_1$q = {
-  class: "var-date-picker-body"
-};
 function render$B(_ctx, _cache) {
   var _component_year_picker_panel = resolveComponent("year-picker-panel");
   var _component_month_picker_panel = resolveComponent("month-picker-panel");
@@ -7272,7 +7307,7 @@ function render$B(_ctx, _cache) {
     class: normalizeClass(["var-date-picker-title__date", [!_ctx.isYearPanel ? "var-date-picker-title__date--active" : null, _ctx.range ? "var-date-picker-title__date--range" : null]]),
     onClick: _cache[1] || (_cache[1] = ($event) => _ctx.clickEl("date"))
   }, [createVNode(Transition, {
-    name: _ctx.multiple ? "" : _ctx.reverse ? "var-date-picker-reverse-translatey" : "var-date-picker-translatey"
+    name: _ctx.multiple ? "" : "var-date-picker" + (_ctx.reverse ? "-reverse" : "") + "-translatey"
   }, {
     default: withCtx(() => {
       var _ctx$chooseMonth, _ctx$chooseMonth2, _ctx$chooseMonth3;
@@ -7301,16 +7336,28 @@ function render$B(_ctx, _cache) {
       }, _ctx.slotProps)), () => [createTextVNode(toDisplayString(_ctx.getDateTitle), 1)])]))];
     }),
     _: 3
-  }, 8, ["name"])], 2)], 4), createElementVNode("div", _hoisted_1$q, [createVNode(Transition, {
+  }, 8, ["name"])], 2)], 4), createElementVNode("div", {
+    class: "var-date-picker-body",
+    onTouchstart: _cache[2] || (_cache[2] = function() {
+      return _ctx.handleTouchstart && _ctx.handleTouchstart(...arguments);
+    }),
+    onTouchmove: _cache[3] || (_cache[3] = function() {
+      return _ctx.handleTouchmove && _ctx.handleTouchmove(...arguments);
+    }),
+    onTouchend: _cache[4] || (_cache[4] = function() {
+      return _ctx.handleTouchend && _ctx.handleTouchend(...arguments);
+    })
+  }, [createVNode(Transition, {
     name: "var-date-picker-panel-fade"
   }, {
-    default: withCtx(() => [_ctx.isYearPanel ? (openBlock(), createBlock(_component_year_picker_panel, {
+    default: withCtx(() => [_ctx.getPanelType === "year" ? (openBlock(), createBlock(_component_year_picker_panel, {
       key: 0,
       "component-props": _ctx.componentProps,
       preview: _ctx.previewYear,
       onChooseYear: _ctx.getChooseYear
-    }, null, 8, ["component-props", "preview", "onChooseYear"])) : !_ctx.isYearPanel && _ctx.type === "month" || _ctx.isMonthPanel ? (openBlock(), createBlock(_component_month_picker_panel, {
+    }, null, 8, ["component-props", "preview", "onChooseYear"])) : _ctx.getPanelType === "month" ? (openBlock(), createBlock(_component_month_picker_panel, {
       key: 1,
+      ref: "monthPanelEl",
       current: _ctx.currentDate,
       choose: _ctx.getChoose,
       preview: _ctx.getPreview,
@@ -7318,8 +7365,9 @@ function render$B(_ctx, _cache) {
       "component-props": _ctx.componentProps,
       onChooseMonth: _ctx.getChooseMonth,
       onCheckPreview: _ctx.checkPreview
-    }, null, 8, ["current", "choose", "preview", "click-year", "component-props", "onChooseMonth", "onCheckPreview"])) : !_ctx.isYearPanel && !_ctx.isMonthPanel && _ctx.type === "date" ? (openBlock(), createBlock(_component_day_picker_panel, {
+    }, null, 8, ["current", "choose", "preview", "click-year", "component-props", "onChooseMonth", "onCheckPreview"])) : _ctx.getPanelType === "date" ? (openBlock(), createBlock(_component_day_picker_panel, {
       key: 2,
+      ref: "dayPanelEl",
       current: _ctx.currentDate,
       choose: _ctx.getChoose,
       preview: _ctx.getPreview,
@@ -7329,7 +7377,7 @@ function render$B(_ctx, _cache) {
       onCheckPreview: _ctx.checkPreview
     }, null, 8, ["current", "choose", "preview", "component-props", "click-month", "onChooseDay", "onCheckPreview"])) : createCommentVNode("v-if", true)]),
     _: 1
-  })])], 2);
+  })], 32)], 2);
 }
 var DatePicker = defineComponent({
   render: render$B,
@@ -7341,6 +7389,10 @@ var DatePicker = defineComponent({
   },
   props: props$z,
   setup(props2) {
+    var startX = 0;
+    var startY = 0;
+    var checkType = "";
+    var touchDirection;
     var currentDate = dayjs().format("YYYY-MM-D");
     var [currentYear, currentMonth] = currentDate.split("-");
     var monthDes = MONTH_LIST.find((month) => month.index === currentMonth);
@@ -7357,6 +7409,8 @@ var DatePicker = defineComponent({
     var chooseDays = ref([]);
     var chooseRangeMonth = ref([]);
     var chooseRangeDay = ref([]);
+    var monthPanelEl = ref(null);
+    var dayPanelEl = ref(null);
     var componentProps = reactive({
       allowedDates: props2.allowedDates,
       type: props2.type,
@@ -7419,14 +7473,27 @@ var DatePicker = defineComponent({
         return chooseMonth.value.index + "-" + showDay + " " + weekName.slice(0, 3);
       return weekName.slice(0, 3) + ", " + monthName.slice(0, 3) + " " + chooseDay.value;
     });
+    var getPanelType = computed(() => {
+      if (isYearPanel.value)
+        return "year";
+      if (props2.type === "month" || isMonthPanel.value)
+        return "month";
+      if (props2.type === "date")
+        return "date";
+      return "";
+    });
+    var isUntouchable = computed(() => {
+      return !props2.touchable || ["", "year"].includes(getPanelType.value);
+    });
     var slotProps = computed(() => {
-      var _chooseMonth$value, _chooseYear$value, _chooseMonth$value$in, _chooseMonth$value2, _chooseDay$value;
+      var _chooseMonth$value, _chooseDay$value, _chooseYear$value, _chooseMonth$value$in, _chooseMonth$value2;
       var weekIndex = dayjs(chooseYear.value + "-" + ((_chooseMonth$value = chooseMonth.value) == null ? void 0 : _chooseMonth$value.index) + "-" + chooseDay.value).day();
+      var date = chooseDay.value ? (_chooseDay$value = chooseDay.value) == null ? void 0 : _chooseDay$value.padStart(2, "0") : "";
       return {
         week: "" + weekIndex,
         year: (_chooseYear$value = chooseYear.value) != null ? _chooseYear$value : "",
         month: (_chooseMonth$value$in = (_chooseMonth$value2 = chooseMonth.value) == null ? void 0 : _chooseMonth$value2.index) != null ? _chooseMonth$value$in : "",
-        date: (_chooseDay$value = chooseDay.value) != null ? _chooseDay$value : ""
+        date
       };
     });
     var formatRange = computed(() => getChoose.value.chooseRangeDay.map((choose) => dayjs(choose).format("YYYY-MM-DD")));
@@ -7444,6 +7511,40 @@ var DatePicker = defineComponent({
         isYearPanel.value = false;
         isMonthPanel.value = false;
       }
+    };
+    var handleTouchstart = (event) => {
+      if (isUntouchable.value)
+        return;
+      var {
+        clientX,
+        clientY
+      } = event.touches[0];
+      startX = clientX;
+      startY = clientY;
+    };
+    var getDirection = (x, y) => {
+      return x >= y && x > 20 ? "x" : "y";
+    };
+    var handleTouchmove = (event) => {
+      if (isUntouchable.value)
+        return;
+      var {
+        clientX,
+        clientY
+      } = event.touches[0];
+      var x = clientX - startX;
+      var y = clientY - startY;
+      touchDirection = getDirection(Math.abs(x), Math.abs(y));
+      checkType = x > 0 ? "prev" : "next";
+    };
+    var handleTouchend = () => {
+      if (isUntouchable.value || touchDirection !== "x")
+        return;
+      var componentRef = getPanelType.value === "month" ? monthPanelEl : dayPanelEl;
+      nextTickFrame(() => {
+        componentRef.value.forwardRef(checkType);
+        resetState();
+      });
     };
     var updateRange = (date, type) => {
       var rangeDate = type === "month" ? chooseRangeMonth : chooseRangeDay;
@@ -7531,8 +7632,8 @@ var DatePicker = defineComponent({
       isYearPanel.value = false;
       isMonthPanel.value = true;
     };
-    var checkPreview = (type, checkType) => {
-      var changeValue = checkType === "prev" ? -1 : 1;
+    var checkPreview = (type, checkType2) => {
+      var changeValue = checkType2 === "prev" ? -1 : 1;
       if (type === "year") {
         previewYear.value = "" + (toNumber(previewYear.value) + changeValue);
       } else {
@@ -7599,6 +7700,12 @@ var DatePicker = defineComponent({
       previewMonth.value = monthDes2;
       previewYear.value = yearValue;
     };
+    var resetState = () => {
+      startY = 0;
+      startX = 0;
+      checkType = "";
+      touchDirection = void 0;
+    };
     watch(() => props2.modelValue, (value) => {
       if (!checkValue() || invalidFormatDate(value) || !value)
         return;
@@ -7617,7 +7724,10 @@ var DatePicker = defineComponent({
     }, {
       immediate: true
     });
+    watch(getPanelType, resetState);
     return {
+      monthPanelEl,
+      dayPanelEl,
       reverse,
       currentDate,
       chooseMonth,
@@ -7628,12 +7738,16 @@ var DatePicker = defineComponent({
       isMonthPanel,
       getMonthTitle,
       getDateTitle,
+      getPanelType,
       getChoose,
       getPreview,
       componentProps,
       slotProps,
       formatRange,
       clickEl,
+      handleTouchstart,
+      handleTouchmove,
+      handleTouchend,
       getChooseDay,
       getChooseMonth,
       getChooseYear,
@@ -7644,8 +7758,8 @@ var DatePicker = defineComponent({
 DatePicker.install = function(app) {
   app.component(DatePicker.name, DatePicker);
 };
-function _extends$5() {
-  _extends$5 = Object.assign || function(target) {
+function _extends$6() {
+  _extends$6 = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -7656,12 +7770,12 @@ function _extends$5() {
     }
     return target;
   };
-  return _extends$5.apply(this, arguments);
+  return _extends$6.apply(this, arguments);
 }
 function messageAlignValidator(messageAlign) {
   return ["left", "center", "right"].includes(messageAlign);
 }
-var props$y = _extends$5({
+var props$y = _extends$6({
   show: {
     type: Boolean,
     default: false
@@ -7959,8 +8073,8 @@ var props$x = {
     default: false
   }
 };
-function _extends$4() {
-  _extends$4 = Object.assign || function(target) {
+function _extends$5() {
+  _extends$5 = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -7971,7 +8085,7 @@ function _extends$4() {
     }
     return target;
   };
-  return _extends$4.apply(this, arguments);
+  return _extends$5.apply(this, arguments);
 }
 var _hoisted_1$o = {
   key: 0,
@@ -8005,18 +8119,18 @@ var Divider = defineComponent({
         margin
       };
       if (isBool(inset) || inset === 0)
-        return _extends$4({}, baseStyle);
+        return _extends$5({}, baseStyle);
       var _inset = toNumber(inset);
       var absInsetWithUnit = Math.abs(_inset) + (inset + "").replace(_inset + "", "");
-      return vertical ? _extends$4({}, baseStyle, {
+      return vertical ? _extends$5({}, baseStyle, {
         height: "calc(80% - " + toSizeUnit(absInsetWithUnit) + ")"
-      }) : _extends$4({}, baseStyle, {
+      }) : _extends$5({}, baseStyle, {
         width: "calc(100% - " + toSizeUnit(absInsetWithUnit) + ")",
         left: _inset > 0 ? toSizeUnit(absInsetWithUnit) : toSizeUnit(0)
       });
     });
     var checkHasText = () => {
-      state.withText = Boolean(slots.default == null ? void 0 : slots.default().length) || Boolean(props2.description);
+      state.withText = Boolean(slots.default) || Boolean(props2.description);
     };
     onMounted(() => {
       checkHasText();
@@ -8024,7 +8138,7 @@ var Divider = defineComponent({
     onUpdated(() => {
       checkHasText();
     });
-    return _extends$4({}, toRefs(state), {
+    return _extends$5({}, toRefs(state), {
       style,
       isInset
     });
@@ -8159,8 +8273,8 @@ function _asyncToGenerator$7(fn) {
     });
   };
 }
-function _extends$3() {
-  _extends$3 = Object.assign || function(target) {
+function _extends$4() {
+  _extends$4 = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -8171,7 +8285,7 @@ function _extends$3() {
     }
     return target;
   };
-  return _extends$3.apply(this, arguments);
+  return _extends$4.apply(this, arguments);
 }
 var BACKGROUND_IMAGE_ARG_NAME = "background-image";
 var LAZY_LOADING = "lazy-loading";
@@ -8241,7 +8355,7 @@ function createLazy(el, binding) {
     error: (_el$getAttribute2 = el.getAttribute(LAZY_ERROR)) != null ? _el$getAttribute2 : defaultLazyOptions.error,
     attempt: el.getAttribute(LAZY_ATTEMPT) ? Number(el.getAttribute(LAZY_ATTEMPT)) : defaultLazyOptions.attempt
   };
-  el._lazy = _extends$3({
+  el._lazy = _extends$4({
     src: binding.value,
     arg: binding.arg,
     currentAttempt: 0,
@@ -8990,8 +9104,8 @@ var SwipeItem = defineComponent({
 SwipeItem.install = function(app) {
   app.component(SwipeItem.name, SwipeItem);
 };
-function _extends$2() {
-  _extends$2 = Object.assign || function(target) {
+function _extends$3() {
+  _extends$3 = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -9002,9 +9116,9 @@ function _extends$2() {
     }
     return target;
   };
-  return _extends$2.apply(this, arguments);
+  return _extends$3.apply(this, arguments);
 }
-var props$t = _extends$2({
+var props$t = _extends$3({
   show: {
     type: Boolean,
     default: false
@@ -9038,11 +9152,15 @@ var props$t = _extends$2({
 ]));
 var DISTANCE_OFFSET = 12;
 var EVENT_DELAY = 200;
+var TAP_DELAY = 350;
 var ANIMATION_DURATION = 200;
 var _hoisted_1$k = ["src", "alt"];
 var _hoisted_2$f = {
   key: 0,
   class: "var-image-preview__indicators"
+};
+var _hoisted_3$c = {
+  class: "var-image-preview__extra"
 };
 function render$u(_ctx, _cache) {
   var _component_var_swipe_item = resolveComponent("var-swipe-item");
@@ -9120,7 +9238,7 @@ function render$u(_ctx, _cache) {
       name: "close-circle",
       "var-image-preview-cover": "",
       onClick: _ctx.close
-    }, null, 8, ["onClick"])) : createCommentVNode("v-if", true)])]),
+    }, null, 8, ["onClick"])) : createCommentVNode("v-if", true)]), createElementVNode("div", _hoisted_3$c, [renderSlot(_ctx.$slots, "extra")])]),
     _: 3
   }, 8, ["show", "lock-scroll", "teleport", "onOpen", "onClose", "onClosed", "onOpened", "onRouteChange"]);
 }
@@ -9196,10 +9314,10 @@ var VarImagePreview = defineComponent({
       return getDistance(prevTouch, currentTouch) <= DISTANCE_OFFSET && currentTouch.timestamp - prevTouch.timestamp <= EVENT_DELAY && prevTouch.target === currentTouch.target;
     };
     var isTapTouch = (target) => {
-      if (!startTouch || !prevTouch) {
+      if (!target || !startTouch || !prevTouch) {
         return false;
       }
-      return getDistance(startTouch, prevTouch) <= DISTANCE_OFFSET && (target === startTouch.target || target.parentNode === startTouch.target);
+      return getDistance(startTouch, prevTouch) <= DISTANCE_OFFSET && Date.now() - prevTouch.timestamp < TAP_DELAY && (target === startTouch.target || target.parentNode === startTouch.target);
     };
     var handleTouchend = (event) => {
       checker = window.setTimeout(() => {
@@ -9754,7 +9872,6 @@ var IndexBar = defineComponent({
       indexAnchors,
       bindIndexAnchors
     } = useIndexAnchors();
-    var scrollEl = ref(null);
     var clickedName = ref("");
     var scroller2 = ref(null);
     var barEl = ref(null);
@@ -9780,10 +9897,8 @@ var IndexBar = defineComponent({
       props2.onChange == null ? void 0 : props2.onChange(anchorName);
     };
     var handleScroll = () => {
-      var {
-        scrollTop,
-        scrollHeight
-      } = scrollEl.value;
+      var scrollTop = getScrollTop(scroller2.value);
+      var scrollHeight = scroller2.value === window ? document.body.scrollHeight : scroller2.value.scrollHeight;
       var {
         offsetTop
       } = barEl.value;
@@ -9818,10 +9933,10 @@ var IndexBar = defineComponent({
         if (!indexAnchor)
           return;
         var top = indexAnchor.ownTop.value - stickyOffsetTop.value + offsetTop;
-        var left = getScrollLeft(scrollEl.value);
+        var left = getScrollLeft(scroller2.value);
         clickedName.value = anchorName;
         emitEvent(anchorName);
-        yield scrollTo(scrollEl.value, {
+        yield scrollTo(scroller2.value, {
           left,
           top,
           animation: easeInOutCubic,
@@ -9851,15 +9966,13 @@ var IndexBar = defineComponent({
       });
     }));
     onMounted(/* @__PURE__ */ _asyncToGenerator$4(function* () {
-      var _scroller$value;
       yield doubleRaf();
       scroller2.value = getParentScroller(barEl.value);
-      scrollEl.value = scroller2.value === window ? scroller2.value.document.documentElement : scroller2.value;
-      (_scroller$value = scroller2.value) == null ? void 0 : _scroller$value.addEventListener("scroll", handleScroll);
+      scroller2.value.addEventListener("scroll", handleScroll);
     }));
     onBeforeUnmount(() => {
-      var _scroller$value2;
-      (_scroller$value2 = scroller2.value) == null ? void 0 : _scroller$value2.removeEventListener("scroll", handleScroll);
+      var _scroller$value;
+      (_scroller$value = scroller2.value) == null ? void 0 : _scroller$value.removeEventListener("scroll", handleScroll);
     });
     return {
       barEl,
@@ -10518,7 +10631,7 @@ var Menu = defineComponent({
     });
     var renderTransition = () => createVNode(Transition, {
       "name": "var-menu",
-      "onAfterEnter": props2.onOpen,
+      "onAfterEnter": props2.onOpened,
       "onAfterLeave": props2.onClosed
     }, {
       default: () => [withDirectives(createVNode("div", {
@@ -11051,8 +11164,8 @@ var Pagination = defineComponent({
 Pagination.install = function(app) {
   app.component(Pagination.name, Pagination);
 };
-function _extends$1() {
-  _extends$1 = Object.assign || function(target) {
+function _extends$2() {
+  _extends$2 = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -11063,9 +11176,9 @@ function _extends$1() {
     }
     return target;
   };
-  return _extends$1.apply(this, arguments);
+  return _extends$2.apply(this, arguments);
 }
-var props$k = _extends$1({
+var props$k = _extends$2({
   columns: {
     type: Array,
     default: () => []
@@ -12247,6 +12360,9 @@ var props$f = {
     type: [String, Number],
     default: "2"
   },
+  namespace: {
+    type: String
+  },
   half: {
     type: Boolean,
     default: false
@@ -12299,11 +12415,12 @@ function render$h(_ctx, _cache) {
       onClick: ($event) => _ctx.handleClick(val, $event)
     }, [createVNode(_component_var_icon, {
       transition: 0,
+      namespace: _ctx.namespace,
       name: _ctx.getIconName(val),
       style: normalizeStyle({
         fontSize: _ctx.toSizeUnit(_ctx.size)
       })
-    }, null, 8, ["name", "style"])], 14, _hoisted_3$6)), [[_directive_ripple, {
+    }, null, 8, ["namespace", "name", "style"])], 14, _hoisted_3$6)), [[_directive_ripple, {
       disabled: _ctx.formReadonly || _ctx.readonly || _ctx.formDisabled || _ctx.disabled || !_ctx.ripple
     }]]);
   }), 128))]), createVNode(_component_var_form_details, {
@@ -13203,6 +13320,20 @@ var props$b = {
     type: Function
   }
 };
+function _extends$1() {
+  _extends$1 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends$1.apply(this, arguments);
+}
 var Thumbs;
 (function(Thumbs2) {
   Thumbs2["First"] = "1";
@@ -13259,11 +13390,9 @@ function render$d(_ctx, _cache) {
       })
     }, null, 4), createElementVNode("div", {
       class: normalizeClass(["var-slider__thumb-ripple", [_ctx.thumbsProps[item.enumValue].active ? "var-slider__thumb-ripple-active" : null]]),
-      style: normalizeStyle({
-        background: _ctx.thumbColor,
-        height: _ctx.thumbSize === void 0 ? void 0 : _ctx.thumbsProps[item.enumValue].active ? 3 * _ctx.toNumber(_ctx.thumbSize) + "px" : "0px",
-        width: _ctx.thumbSize === void 0 ? void 0 : _ctx.thumbsProps[item.enumValue].active ? 3 * _ctx.toNumber(_ctx.thumbSize) + "px" : "0px"
-      })
+      style: normalizeStyle(_extends$1({
+        background: _ctx.thumbColor
+      }, _ctx.getRippleSize(item)))
     }, null, 6), createElementVNode("div", {
       class: normalizeClass(["var-slider__thumb-label", [_ctx.showLabel(item.enumValue) ? "var-slider__thumb-label-active" : null]]),
       style: normalizeStyle({
@@ -13329,6 +13458,16 @@ var Slider = defineComponent({
       }
       return list2;
     });
+    var getRippleSize = (item) => {
+      var size;
+      if (props2.thumbSize !== void 0) {
+        size = thumbsProps[item.enumValue].active ? 3 * toNumber(props2.thumbSize) + "px" : "0px";
+      }
+      return {
+        height: size,
+        width: size
+      };
+    };
     var showLabel = (type) => {
       if (props2.labelVisible === "always")
         return true;
@@ -13517,6 +13656,7 @@ var Slider = defineComponent({
       thumbsProps,
       thumbList,
       toNumber,
+      getRippleSize,
       showLabel,
       start,
       move,
@@ -14002,9 +14142,25 @@ var Space = defineComponent({
         size
       } = props2;
       var children = (_slots$default = slots.default == null ? void 0 : slots.default()) != null ? _slots$default : [];
-      var lastIndex = children.length - 1;
       var isInternalSize = internalSizeValidator(size);
       var [y, x] = getSize(size, isInternalSize);
+      var flatten = (vNodes) => {
+        var result = [];
+        vNodes.forEach((vNode) => {
+          if (vNode.type === Comment)
+            return;
+          if (vNode.type === Fragment && isArray(vNode.children)) {
+            vNode.children.forEach((item) => {
+              result.push(item);
+            });
+            return;
+          }
+          result.push(vNode);
+        });
+        return result;
+      };
+      children = flatten(children);
+      var lastIndex = children.length - 1;
       var spacers = children.map((child, index) => {
         var margin = "0";
         if (direction === "row") {
@@ -15972,6 +16128,10 @@ var props = {
   rules: {
     type: Array
   },
+  hideList: {
+    type: Boolean,
+    default: false
+  },
   onBeforeRead: {
     type: Function
   },
@@ -16040,7 +16200,7 @@ function render(_ctx, _cache) {
   var _component_var_form_details = resolveComponent("var-form-details");
   var _component_var_popup = resolveComponent("var-popup");
   var _directive_ripple = resolveDirective("ripple");
-  return openBlock(), createElementBlock("div", _hoisted_1, [createElementVNode("div", _hoisted_2, [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.modelValue, (f) => {
+  return openBlock(), createElementBlock("div", _hoisted_1, [createElementVNode("div", _hoisted_2, [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.files, (f) => {
     return withDirectives((openBlock(), createElementBlock("div", {
       class: normalizeClass(["var-uploader__file var-elevation--2", [f.state === "loading" ? "var-uploader--loading" : null]]),
       key: f.id,
@@ -16147,6 +16307,16 @@ var Uploader = defineComponent({
       validate: v,
       resetValidation
     } = useValidation();
+    var files = computed(() => {
+      var {
+        modelValue,
+        hideList
+      } = props2;
+      if (hideList) {
+        return [];
+      }
+      return modelValue;
+    });
     var preview = (varFile) => {
       var {
         disabled,
@@ -16239,8 +16409,8 @@ var Uploader = defineComponent({
           var limit = Math.min(varFiles2.length, toNumber(maxlength) - modelValue.length);
           return varFiles2.slice(0, limit);
         };
-        var files = getFiles(event);
-        var varFiles = files.map(createVarFile);
+        var files2 = getFiles(event);
+        var varFiles = files2.map(createVarFile);
         varFiles = maxsize != null ? getValidSizeVarFile(varFiles) : varFiles;
         varFiles = maxlength != null ? getValidLengthVarFiles(varFiles) : varFiles;
         var resolvedVarFiles = yield Promise.all(getResolvers(varFiles));
@@ -16328,6 +16498,7 @@ var Uploader = defineComponent({
       deep: true
     });
     return {
+      files,
       showPreview,
       currentPreview,
       errorMessage,
