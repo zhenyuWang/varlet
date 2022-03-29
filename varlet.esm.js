@@ -165,7 +165,7 @@ var Ripple = {
 function positionValidator$3(position) {
   return ["top", "bottom", "right", "left", "center"].includes(position);
 }
-var props$S = {
+var props$U = {
   show: {
     type: Boolean,
     default: false
@@ -727,7 +727,7 @@ function _isSlot$2(s) {
 var Popup = defineComponent({
   name: "VarPopup",
   inheritAttrs: false,
-  props: props$S,
+  props: props$U,
   setup(props2, _ref) {
     var {
       slots,
@@ -827,7 +827,7 @@ var Popup = defineComponent({
 Popup.install = function(app) {
   app.component(Popup.name, Popup);
 };
-var props$R = {
+var props$T = {
   name: {
     type: String
   },
@@ -1074,7 +1074,7 @@ function _asyncToGenerator$9(fn) {
     });
   };
 }
-function render$X(_ctx, _cache) {
+function render$Z(_ctx, _cache) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.isURL(_ctx.name) ? "img" : "i"), {
     class: normalizeClass(["var-icon", [_ctx.namespace + "--set", _ctx.isURL(_ctx.name) ? "var-icon__image" : _ctx.namespace + "-" + _ctx.nextName, _ctx.shrinking ? "var-icon--shrinking" : null]]),
     style: normalizeStyle({
@@ -1089,9 +1089,9 @@ function render$X(_ctx, _cache) {
   }, null, 8, ["class", "style", "src", "onClick"]);
 }
 var Icon = defineComponent({
-  render: render$X,
+  render: render$Z,
   name: "VarIcon",
-  props: props$R,
+  props: props$T,
   setup(props2) {
     var nextName = ref("");
     var shrinking = ref(false);
@@ -1144,7 +1144,7 @@ function _extends$a() {
   };
   return _extends$a.apply(this, arguments);
 }
-var props$Q = _extends$a({
+var props$S = _extends$a({
   show: {
     type: Boolean,
     default: false
@@ -1166,7 +1166,7 @@ var props$Q = _extends$a({
   "onUpdate:show": {
     type: Function
   }
-}, pickProps(props$S, [
+}, pickProps(props$U, [
   "overlay",
   "overlayClass",
   "overlayStyle",
@@ -1337,14 +1337,14 @@ var Locale = {
   merge,
   useLocale
 };
-var _hoisted_1$H = {
+var _hoisted_1$I = {
   class: "var-action-sheet__title"
 };
-var _hoisted_2$t = ["onClick"];
+var _hoisted_2$u = ["onClick"];
 var _hoisted_3$j = {
   class: "var-action-sheet__action-name"
 };
-function render$W(_ctx, _cache) {
+function render$Y(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
   var _component_var_popup = resolveComponent("var-popup");
   var _directive_ripple = resolveDirective("ripple");
@@ -1372,7 +1372,7 @@ function render$W(_ctx, _cache) {
   }), {
     default: withCtx(() => [createElementVNode("div", mergeProps({
       class: "var-action-sheet var--box"
-    }, _ctx.$attrs), [renderSlot(_ctx.$slots, "title", {}, () => [createElementVNode("div", _hoisted_1$H, toDisplayString(_ctx.dt(_ctx.title, _ctx.pack.actionSheetTitle)), 1)]), renderSlot(_ctx.$slots, "actions", {}, () => [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.actions, (action) => {
+    }, _ctx.$attrs), [renderSlot(_ctx.$slots, "title", {}, () => [createElementVNode("div", _hoisted_1$I, toDisplayString(_ctx.dt(_ctx.title, _ctx.pack.actionSheetTitle)), 1)]), renderSlot(_ctx.$slots, "actions", {}, () => [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.actions, (action) => {
       return withDirectives((openBlock(), createElementBlock("div", {
         class: normalizeClass(["var-action-sheet__action-item", [action.className, action.disabled ? "var-action-sheet--disabled" : null]]),
         key: action.name,
@@ -1386,7 +1386,7 @@ function render$W(_ctx, _cache) {
         "var-action-sheet-cover": "",
         name: action.icon,
         size: action.iconSize
-      }, null, 8, ["name", "size"])) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_3$j, toDisplayString(action.name), 1)], 14, _hoisted_2$t)), [[_directive_ripple, {
+      }, null, 8, ["name", "size"])) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_3$j, toDisplayString(action.name), 1)], 14, _hoisted_2$u)), [[_directive_ripple, {
         disabled: action.disabled
       }]]);
     }), 128))])], 16)]),
@@ -1394,7 +1394,7 @@ function render$W(_ctx, _cache) {
   }, 16, ["overlay", "overlay-class", "overlay-style", "lock-scroll", "close-on-click-overlay", "teleport", "show", "onOpen", "onClose", "onClosed", "onOpened", "onRouteChange"]);
 }
 var VarActionSheet = defineComponent({
-  render: render$W,
+  render: render$Y,
   name: "VarActionSheet",
   directives: {
     Ripple
@@ -1404,7 +1404,7 @@ var VarActionSheet = defineComponent({
     VarIcon: Icon
   },
   inheritAttrs: false,
-  props: props$Q,
+  props: props$S,
   setup(props2) {
     var popupShow = ref(false);
     var handleSelect = (action) => {
@@ -1489,7 +1489,7 @@ function positionValidator$2(position) {
   var validPositions = ["left", "center", "right"];
   return validPositions.includes(position);
 }
-var props$P = {
+var props$R = {
   color: {
     type: String
   },
@@ -1509,17 +1509,17 @@ var props$P = {
     default: true
   }
 };
-var _hoisted_1$G = {
+var _hoisted_1$H = {
   class: "var-app-bar__left"
 };
-var _hoisted_2$s = {
+var _hoisted_2$t = {
   key: 0,
   class: "var-app-bar__title"
 };
 var _hoisted_3$i = {
   class: "var-app-bar__right"
 };
-function render$V(_ctx, _cache) {
+function render$X(_ctx, _cache) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["var-app-bar", {
       "var-elevation--3": _ctx.elevation
@@ -1528,13 +1528,13 @@ function render$V(_ctx, _cache) {
       background: _ctx.color,
       color: _ctx.textColor
     })
-  }, [createElementVNode("div", _hoisted_1$G, [renderSlot(_ctx.$slots, "left"), _ctx.titlePosition === "left" ? (openBlock(), createElementBlock("div", {
+  }, [createElementVNode("div", _hoisted_1$H, [renderSlot(_ctx.$slots, "left"), _ctx.titlePosition === "left" ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: "var-app-bar__title",
     style: normalizeStyle({
       paddingLeft: _ctx.paddingLeft
     })
-  }, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])], 4)) : createCommentVNode("v-if", true)]), _ctx.titlePosition === "center" ? (openBlock(), createElementBlock("div", _hoisted_2$s, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])])) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_3$i, [_ctx.titlePosition === "right" ? (openBlock(), createElementBlock("div", {
+  }, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])], 4)) : createCommentVNode("v-if", true)]), _ctx.titlePosition === "center" ? (openBlock(), createElementBlock("div", _hoisted_2$t, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])])) : createCommentVNode("v-if", true), createElementVNode("div", _hoisted_3$i, [_ctx.titlePosition === "right" ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: "var-app-bar__title",
     style: normalizeStyle({
@@ -1543,9 +1543,9 @@ function render$V(_ctx, _cache) {
   }, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.title), 1)])], 4)) : createCommentVNode("v-if", true), renderSlot(_ctx.$slots, "right")])], 6);
 }
 var AppBar = defineComponent({
-  render: render$V,
+  render: render$X,
   name: "VarAppBar",
-  props: props$P,
+  props: props$R,
   setup(props2, _ref) {
     var {
       slots
@@ -1573,7 +1573,7 @@ function typeValidator$6(type) {
 function sizeValidator$3(size) {
   return ["normal", "mini", "small", "large"].includes(size);
 }
-var props$O = {
+var props$Q = {
   type: {
     type: String,
     default: "circle",
@@ -1600,10 +1600,10 @@ var props$O = {
   }
 };
 var _withScopeId$2 = (n) => (pushScopeId(""), n = n(), popScopeId(), n);
-var _hoisted_1$F = {
+var _hoisted_1$G = {
   class: "var-loading"
 };
-var _hoisted_2$r = {
+var _hoisted_2$s = {
   key: 0,
   class: "var-loading__circle"
 };
@@ -1616,14 +1616,14 @@ var _hoisted_3$h = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createEl
   fill: "none"
 })], -1));
 var _hoisted_4$a = [_hoisted_3$h];
-function render$U(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$F, [_ctx.$slots.default ? (openBlock(), createElementBlock("div", {
+function render$W(_ctx, _cache) {
+  return openBlock(), createElementBlock("div", _hoisted_1$G, [_ctx.$slots.default ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: normalizeClass(["var-loading__content", [_ctx.loading ? "var-loading__content--active" : null]])
   }, [renderSlot(_ctx.$slots, "default")], 2)) : createCommentVNode("v-if", true), _ctx.isShow ? (openBlock(), createElementBlock("div", {
     key: 1,
     class: normalizeClass(["var--box var-loading__body", [_ctx.$slots.default ? "var-loading__inside" : null]])
-  }, [_ctx.type === "circle" ? (openBlock(), createElementBlock("div", _hoisted_2$r, [createElementVNode("span", {
+  }, [_ctx.type === "circle" ? (openBlock(), createElementBlock("div", _hoisted_2$s, [createElementVNode("span", {
     class: "var-loading__circle-block",
     style: normalizeStyle({
       width: _ctx.getRadius * 2 + "px",
@@ -1654,9 +1654,9 @@ function render$U(_ctx, _cache) {
   }, [renderSlot(_ctx.$slots, "description", {}, () => [createTextVNode(toDisplayString(_ctx.description), 1)])], 6)) : createCommentVNode("v-if", true)], 2)) : createCommentVNode("v-if", true)]);
 }
 var Loading = defineComponent({
-  render: render$U,
+  render: render$W,
   name: "VarLoading",
-  props: props$O,
+  props: props$Q,
   setup(props2, _ref) {
     var {
       slots
@@ -1697,7 +1697,7 @@ function typeValidator$5(type) {
 function sizeValidator$2(size) {
   return ["normal", "mini", "small", "large"].includes(size);
 }
-var props$N = {
+var props$P = {
   type: {
     type: String,
     default: "default",
@@ -1750,8 +1750,8 @@ var props$N = {
     type: [Number, String],
     default: 12
   },
-  loadingType: pickProps(props$O, "type"),
-  loadingSize: pickProps(props$O, "size"),
+  loadingType: pickProps(props$Q, "type"),
+  loadingSize: pickProps(props$Q, "size"),
   onClick: {
     type: Function
   },
@@ -1759,8 +1759,8 @@ var props$N = {
     type: Function
   }
 };
-var _hoisted_1$E = ["disabled"];
-function render$T(_ctx, _cache) {
+var _hoisted_1$F = ["disabled"];
+function render$V(_ctx, _cache) {
   var _component_var_loading = resolveComponent("var-loading");
   var _directive_ripple = resolveDirective("ripple");
   return withDirectives((openBlock(), createElementBlock("button", {
@@ -1785,12 +1785,12 @@ function render$T(_ctx, _cache) {
     radius: _ctx.loadingRadius
   }, null, 8, ["type", "size", "radius"])) : createCommentVNode("v-if", true), createElementVNode("div", {
     class: normalizeClass(["var-button__content", [_ctx.loading || _ctx.pending ? "var-button--hidden" : null]])
-  }, [renderSlot(_ctx.$slots, "default")], 2)], 46, _hoisted_1$E)), [[_directive_ripple, {
+  }, [renderSlot(_ctx.$slots, "default")], 2)], 46, _hoisted_1$F)), [[_directive_ripple, {
     disabled: _ctx.disabled || !_ctx.ripple
   }]]);
 }
 var Button = defineComponent({
-  render: render$T,
+  render: render$V,
   name: "VarButton",
   components: {
     VarLoading: Loading
@@ -1798,7 +1798,7 @@ var Button = defineComponent({
   directives: {
     Ripple
   },
-  props: props$N,
+  props: props$P,
   setup(props2) {
     var pending = ref(false);
     var attemptAutoLoading = (result) => {
@@ -1841,7 +1841,7 @@ var Button = defineComponent({
 Button.install = function(app) {
   app.component(Button.name, Button);
 };
-var props$M = {
+var props$O = {
   visibilityHeight: {
     type: [Number, String],
     default: 200
@@ -1863,7 +1863,7 @@ var props$M = {
     type: Function
   }
 };
-function render$S(_ctx, _cache) {
+function render$U(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
   var _component_var_button = resolveComponent("var-button");
   return openBlock(), createElementBlock("div", {
@@ -1888,13 +1888,13 @@ function render$S(_ctx, _cache) {
   })])], 6);
 }
 var BackTop = defineComponent({
-  render: render$S,
+  render: render$U,
   name: "VarBackTop",
   components: {
     VarButton: Button,
     VarIcon: Icon
   },
-  props: props$M,
+  props: props$O,
   setup(props2) {
     var show = ref(false);
     var backTopEl = ref(null);
@@ -1952,7 +1952,7 @@ function typeValidator$4(type) {
 function positionValidator$1(position) {
   return ["right-top", "right-bottom", "left-top", "left-bottom"].includes(position);
 }
-var props$L = {
+var props$N = {
   type: {
     type: String,
     default: "default",
@@ -1985,15 +1985,15 @@ var props$L = {
     type: String
   }
 };
-var _hoisted_1$D = {
+var _hoisted_1$E = {
   class: "var-badge var--box"
 };
-var _hoisted_2$q = {
+var _hoisted_2$r = {
   key: 1
 };
-function render$R(_ctx, _cache) {
+function render$T(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
-  return openBlock(), createElementBlock("div", _hoisted_1$D, [createVNode(Transition, {
+  return openBlock(), createElementBlock("div", _hoisted_1$E, [createVNode(Transition, {
     name: "var-badge-fade"
   }, {
     default: withCtx(() => [withDirectives(createElementVNode("span", mergeProps(_ctx.$attrs, {
@@ -2005,18 +2005,18 @@ function render$R(_ctx, _cache) {
       key: 0,
       name: _ctx.icon,
       size: "10px"
-    }, null, 8, ["name"])) : (openBlock(), createElementBlock("span", _hoisted_2$q, toDisplayString(_ctx.values), 1))], 16), [[vShow, !_ctx.hidden]])]),
+    }, null, 8, ["name"])) : (openBlock(), createElementBlock("span", _hoisted_2$r, toDisplayString(_ctx.values), 1))], 16), [[vShow, !_ctx.hidden]])]),
     _: 1
   }), renderSlot(_ctx.$slots, "default")]);
 }
 var Badge = defineComponent({
-  render: render$R,
+  render: render$T,
   name: "VarBadge",
   components: {
     VarIcon: Icon
   },
   inheritAttrs: false,
-  props: props$L,
+  props: props$N,
   setup(props2, _ref) {
     var {
       slots
@@ -2064,6 +2064,247 @@ var Badge = defineComponent({
 });
 Badge.install = function(app) {
   app.component(Badge.name, Badge);
+};
+var props$M = {
+  modelValue: {
+    type: [Number, String],
+    default: 0
+  },
+  fixed: {
+    type: Boolean,
+    default: false
+  },
+  border: {
+    type: Boolean,
+    default: false
+  },
+  zIndex: {
+    type: [Number, String],
+    default: 1
+  },
+  activeColor: {
+    type: String
+  },
+  inactiveColor: {
+    type: String
+  },
+  onChange: {
+    type: Function
+  },
+  "onUpdate:modelValue": {
+    type: Function
+  },
+  onBeforeChange: {
+    type: Function
+  }
+};
+var BOTTOMNAVIGATION_BIND_BOTTOMNAVIGATIONITEM_KEY = Symbol("BOTTOMNAVIGATION_BIND_BOTTOMNAVIGATIONITEM_KEY");
+var BOTTOMNAVIGATIONITEM_INDEX_KEY = Symbol("BOTTOMNAVIGATIONITEM_INDEX_KEY");
+function useBottomNavigationItem() {
+  var {
+    childProviders,
+    bindChildren
+  } = useChildren(BOTTOMNAVIGATION_BIND_BOTTOMNAVIGATIONITEM_KEY);
+  useAtChildrenCounter(BOTTOMNAVIGATIONITEM_INDEX_KEY);
+  return {
+    bottomNavigationItems: childProviders,
+    bindBottomNavigationItem: bindChildren
+  };
+}
+function render$S(_ctx, _cache) {
+  return openBlock(), createElementBlock("div", {
+    class: normalizeClass(["var-bottom-navigation", (_ctx.fixed ? "var-bottom-navigation--fixed" : "") + " " + (_ctx.border ? "var-bottom-navigation--border" : "")]),
+    style: normalizeStyle("z-index:" + _ctx.zIndex)
+  }, [renderSlot(_ctx.$slots, "default")], 6);
+}
+var BottomNavigation$1 = defineComponent({
+  render: render$S,
+  name: "VarBottomNavigation",
+  props: props$M,
+  setup(props2) {
+    var active = computed(() => props2.modelValue);
+    var fixed = computed(() => props2.fixed);
+    var border = computed(() => props2.border);
+    var zIndex = computed(() => props2.zIndex);
+    var activeColor = computed(() => props2.activeColor);
+    var inactiveColor = computed(() => props2.inactiveColor);
+    var onToggle = (changedValue) => {
+      if (props2.onBeforeChange) {
+        handleBeforeChange(changedValue);
+      } else {
+        handleChange(changedValue);
+      }
+    };
+    function handleBeforeChange(changedValue) {
+      Promise.resolve(props2.onBeforeChange == null ? void 0 : props2.onBeforeChange(changedValue)).then((res) => {
+        if (res) {
+          handleChange(changedValue);
+        }
+      });
+    }
+    function handleChange(changedValue) {
+      var _props$onUpdateModel;
+      (_props$onUpdateModel = props2["onUpdate:modelValue"]) == null ? void 0 : _props$onUpdateModel.call(props2, changedValue);
+      props2.onChange == null ? void 0 : props2.onChange(changedValue);
+    }
+    var {
+      bindBottomNavigationItem
+    } = useBottomNavigationItem();
+    var bottomNavigationProvider = {
+      active,
+      fixed,
+      border,
+      zIndex,
+      activeColor,
+      inactiveColor,
+      onToggle
+    };
+    bindBottomNavigationItem(bottomNavigationProvider);
+  }
+});
+BottomNavigation$1.install = function(app) {
+  app.component(BottomNavigation$1.name, BottomNavigation$1);
+};
+var props$L = {
+  name: {
+    type: String
+  },
+  icon: {
+    type: String
+  },
+  label: {
+    type: String
+  },
+  namespace: {
+    type: String,
+    default: "var-icon"
+  },
+  badge: {
+    type: [Boolean, Object],
+    default: false
+  },
+  onClick: {
+    type: Function
+  }
+};
+function useBottomNavigation() {
+  var {
+    parentProvider,
+    bindParent
+  } = useParent(BOTTOMNAVIGATION_BIND_BOTTOMNAVIGATIONITEM_KEY);
+  var {
+    index
+  } = useAtParentIndex(BOTTOMNAVIGATIONITEM_INDEX_KEY);
+  if (!parentProvider || !bindParent || !index) {
+    throw Error("<var-bottom-navigation-item/> must in <var-bottom-navigation/>");
+  }
+  return {
+    index,
+    bottomNavigation: parentProvider,
+    bindBottomNavigation: bindParent
+  };
+}
+var _hoisted_1$D = {
+  class: "var-icon__wrapper van-badge__wrapper"
+};
+var _hoisted_2$q = {
+  class: "var-bottom-navigation__label"
+};
+function render$R(_ctx, _cache) {
+  var _component_VarIcon = resolveComponent("VarIcon");
+  var _component_VarBadge = resolveComponent("VarBadge");
+  var _directive_ripple = resolveDirective("ripple");
+  return withDirectives((openBlock(), createElementBlock("div", {
+    class: normalizeClass(["var-bottom-navigation-item", _ctx.active === _ctx.index || _ctx.active === _ctx.name ? "var-bottom-navigation-item--active" : ""]),
+    style: normalizeStyle({
+      color: _ctx.computeColorStyle()
+    }),
+    onClick: _cache[0] || (_cache[0] = function() {
+      return _ctx.handleClick && _ctx.handleClick(...arguments);
+    })
+  }, [createElementVNode("div", _hoisted_1$D, [_ctx.icon && !_ctx.$slots.icon ? (openBlock(), createBlock(_component_VarIcon, {
+    key: 0,
+    name: _ctx.icon,
+    namespace: _ctx.namespace
+  }, null, 8, ["name", "namespace"])) : createCommentVNode("v-if", true), renderSlot(_ctx.$slots, "icon", {
+    active: _ctx.active === _ctx.index || _ctx.active === _ctx.name
+  }), _ctx.badge ? (openBlock(), createBlock(_component_VarBadge, normalizeProps(mergeProps({
+    key: 1
+  }, _ctx.badgeProps)), null, 16)) : createCommentVNode("v-if", true)]), createElementVNode("div", _hoisted_2$q, [!_ctx.$slots.default ? (openBlock(), createElementBlock(Fragment, {
+    key: 0
+  }, [createTextVNode(toDisplayString(_ctx.label), 1)], 2112)) : createCommentVNode("v-if", true), renderSlot(_ctx.$slots, "default")])], 6)), [[_directive_ripple]]);
+}
+var BottomNavigationItem$1 = defineComponent({
+  render: render$R,
+  name: "VarBottomNavigationItem",
+  components: {
+    VarBadge: Badge,
+    VarIcon: Icon
+  },
+  directives: {
+    Ripple
+  },
+  props: props$L,
+  setup(props2) {
+    var name = computed(() => props2.name);
+    var badge2 = computed(() => props2.badge);
+    var badgeProps = ref({});
+    watch(badge2, (value) => {
+      if (value) {
+        if (isBool(value)) {
+          badgeProps.value = {
+            type: "danger",
+            dot: true
+          };
+        } else {
+          badgeProps.value = badge2.value;
+        }
+      } else {
+        badgeProps.value = {};
+      }
+    }, {
+      immediate: true
+    });
+    var {
+      index,
+      bottomNavigation,
+      bindBottomNavigation
+    } = useBottomNavigation();
+    var {
+      active,
+      activeColor,
+      inactiveColor
+    } = bottomNavigation;
+    var bottomNavigationItemProvider = {
+      name,
+      index
+    };
+    bindBottomNavigation(bottomNavigationItemProvider);
+    var computeColorStyle = () => {
+      return active.value === name.value || active.value === index.value ? activeColor.value : inactiveColor.value;
+    };
+    var handleClick = () => {
+      var active2 = name.value || index.value;
+      var {
+        onClick
+      } = props2;
+      if (onClick) {
+        onClick(active2);
+      }
+      bottomNavigation == null ? void 0 : bottomNavigation.onToggle(active2);
+    };
+    return {
+      index,
+      active,
+      badge: badge2,
+      badgeProps,
+      computeColorStyle,
+      handleClick
+    };
+  }
+});
+BottomNavigationItem$1.install = function(app) {
+  app.component(BottomNavigationItem$1.name, BottomNavigationItem$1);
 };
 function fitValidator$1(fit) {
   return ["fill", "contain", "cover", "none", "scale-down"].includes(fit);
@@ -2726,7 +2967,7 @@ var props$F = {
   textColor: {
     type: String
   },
-  iconName: pickProps(props$R, "name"),
+  iconName: pickProps(props$T, "name"),
   plain: {
     type: Boolean,
     default: false
@@ -7835,7 +8076,7 @@ var props$y = _extends$6({
   dialogStyle: {
     type: Object
   }
-}, pickProps(props$S, [
+}, pickProps(props$U, [
   "overlay",
   "overlayClass",
   "overlayStyle",
@@ -9141,7 +9382,7 @@ var props$t = _extends$3({
   "onUpdate:show": {
     type: Function
   }
-}, pickProps(props$u, ["loop", "indicator", "onChange"]), pickProps(props$S, [
+}, pickProps(props$u, ["loop", "indicator", "onChange"]), pickProps(props$U, [
   "lockScroll",
   "teleport",
   "onOpen",
@@ -11231,7 +11472,7 @@ var props$k = _extends$2({
   onCancel: {
     type: Function
   }
-}, pickProps(props$S, ["show", "onUpdate:show", "closeOnClickOverlay", "teleport", "onOpen", "onClose", "onOpened", "onClosed", "onClickOverlay", "onRouteChange"]));
+}, pickProps(props$U, ["show", "onUpdate:show", "closeOnClickOverlay", "teleport", "onOpen", "onClose", "onOpened", "onClosed", "onClickOverlay", "onRouteChange"]));
 var MOMENTUM_RECORD_TIME = 300;
 var MOMENTUM_ALLOW_DISTANCE = 15;
 var sid$1 = 0;
@@ -13699,8 +13940,8 @@ var props$a = {
     type: Boolean,
     default: false
   },
-  loadingType: pickProps(props$O, "type"),
-  loadingSize: pickProps(props$O, "size"),
+  loadingType: pickProps(props$Q, "type"),
+  loadingSize: pickProps(props$Q, "size"),
   lockScroll: {
     type: Boolean,
     default: false
@@ -16536,6 +16777,10 @@ var backTop = "";
 var BackTopSfc = "";
 var badge = "";
 var BadgeSfc = "";
+var BottomNavigation = "";
+var BottomNavigationSfc = "";
+var BottomNavigationItem = "";
+var BottomNavigationItemSfc = "";
 var loading = "";
 var ButtonSfc = "";
 var card = "";
@@ -16637,6 +16882,8 @@ function install(app) {
   AppBar.install && app.use(AppBar);
   BackTop.install && app.use(BackTop);
   Badge.install && app.use(Badge);
+  BottomNavigation$1.install && app.use(BottomNavigation$1);
+  BottomNavigationItem$1.install && app.use(BottomNavigationItem$1);
   Button.install && app.use(Button);
   Card.install && app.use(Card);
   Cell.install && app.use(Cell);
@@ -16702,6 +16949,8 @@ var umdIndex = {
   AppBar,
   BackTop,
   Badge,
+  BottomNavigation: BottomNavigation$1,
+  BottomNavigationItem: BottomNavigationItem$1,
   Button,
   Card,
   Cell,
@@ -16761,4 +17010,4 @@ var umdIndex = {
   TimePicker,
   Uploader
 };
-export { ActionSheet, AppBar, BackTop, Badge, Button, Card, Cell, Checkbox, CheckboxGroup, Chip, Col, Collapse, CollapseItem, Context, Countdown, Counter, DatePicker, Dialog, Divider, Form, FormDetails, Icon, Image$1 as Image, ImagePreview, IndexAnchor, IndexBar, Input, Lazy, List, Loading, Locale, Menu, Option, Pagination, Picker, Popup, Progress, PullRefresh, Radio, RadioGroup, Rate, Ripple, Row, Select, Skeleton, Slider, Snackbar, Space, Step, Steps, Sticky, StyleProvider, Swipe, SwipeItem, Switch, Tab, TabItem, Table, Tabs, TabsItems, TimePicker, Uploader, umdIndex as default, install };
+export { ActionSheet, AppBar, BackTop, Badge, BottomNavigation$1 as BottomNavigation, BottomNavigationItem$1 as BottomNavigationItem, Button, Card, Cell, Checkbox, CheckboxGroup, Chip, Col, Collapse, CollapseItem, Context, Countdown, Counter, DatePicker, Dialog, Divider, Form, FormDetails, Icon, Image$1 as Image, ImagePreview, IndexAnchor, IndexBar, Input, Lazy, List, Loading, Locale, Menu, Option, Pagination, Picker, Popup, Progress, PullRefresh, Radio, RadioGroup, Rate, Ripple, Row, Select, Skeleton, Slider, Snackbar, Space, Step, Steps, Sticky, StyleProvider, Swipe, SwipeItem, Switch, Tab, TabItem, Table, Tabs, TabsItems, TimePicker, Uploader, umdIndex as default, install };
