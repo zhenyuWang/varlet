@@ -6,6 +6,334 @@ var context = {
 };
 reactive(context);
 var Context = reactive(context);
+var toNumber = (val) => {
+  if (val == null)
+    return 0;
+  if (isString(val)) {
+    val = parseFloat(val);
+    val = Number.isNaN(val) ? 0 : val;
+    return val;
+  }
+  if (isBool(val))
+    return Number(val);
+  return val;
+};
+var isHTMLSupportImage = (val) => {
+  if (val == null) {
+    return false;
+  }
+  return val.startsWith("data:image") || /\.(png|jpg|gif|jpeg|svg)$/.test(val);
+};
+var isHTMLSupportVideo = (val) => {
+  if (val == null) {
+    return false;
+  }
+  return val.startsWith("data:video") || /\.(mp4|webm|ogg)$/.test(val);
+};
+var isString = (val) => typeof val === "string";
+var isBool = (val) => typeof val === "boolean";
+var isNumber = (val) => typeof val === "number";
+var isPlainObject = (val) => Object.prototype.toString.call(val) === "[object Object]";
+var isObject = (val) => typeof val === "object" && val !== null;
+var isArray = (val) => Array.isArray(val);
+var isURL = (val) => {
+  if (!val) {
+    return false;
+  }
+  return /^(http)|(\.*\/)/.test(val);
+};
+var isEmpty = (val) => val === void 0 || val === null || val === "" || Array.isArray(val) && !val.length;
+var removeItem = (arr, item) => {
+  if (arr.length) {
+    var index = arr.indexOf(item);
+    if (index > -1) {
+      return arr.splice(index, 1);
+    }
+  }
+};
+var throttle = function(method, mustRunDelay) {
+  if (mustRunDelay === void 0) {
+    mustRunDelay = 200;
+  }
+  var timer;
+  var start = 0;
+  return function loop() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    var now = Date.now();
+    var elapsed = now - start;
+    if (!start) {
+      start = now;
+    }
+    if (timer) {
+      window.clearTimeout(timer);
+    }
+    if (elapsed >= mustRunDelay) {
+      method.apply(this, args);
+      start = now;
+    } else {
+      timer = window.setTimeout(() => {
+        loop.apply(this, args);
+      }, mustRunDelay - elapsed);
+    }
+  };
+};
+var createCache = (max2) => {
+  var cache = [];
+  return {
+    cache,
+    has(key) {
+      return this.cache.includes(key);
+    },
+    add(key) {
+      if (this.has(key)) {
+        return;
+      }
+      this.cache.length === max2 && cache.shift();
+      this.cache.push(key);
+    },
+    remove(key) {
+      this.has(key) && removeItem(this.cache, key);
+    },
+    clear() {
+      this.cache.length = 0;
+    }
+  };
+};
+var linear = (value) => value;
+var cubic = (value) => Math.pow(value, 3);
+var easeInOutCubic = (value) => value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2;
+function parseFormat(format, time) {
+  var scannedTimes = Object.values(time);
+  var scannedFormats = ["DD", "HH", "mm", "ss"];
+  var padValues = [24, 60, 60, 1e3];
+  scannedFormats.forEach((scannedFormat, index) => {
+    if (!format.includes(scannedFormat)) {
+      scannedTimes[index + 1] += scannedTimes[index] * padValues[index];
+    } else {
+      format = format.replace(scannedFormat, String(scannedTimes[index]).padStart(2, "0"));
+    }
+  });
+  if (format.includes("S")) {
+    var ms = String(scannedTimes[scannedTimes.length - 1]).padStart(3, "0");
+    if (format.includes("SSS")) {
+      format = format.replace("SSS", ms);
+    } else if (format.includes("SS")) {
+      format = format.replace("SS", ms.slice(0, 2));
+    } else {
+      format = format.replace("S", ms.slice(0, 1));
+    }
+  }
+  return format;
+}
+var dt = (value, defaultText) => value == null ? defaultText : value;
+var inBrowser = () => typeof window !== "undefined";
+var uniq = (arr) => [...new Set(arr)];
+function kebabCase(str) {
+  var ret = str.replace(/([A-Z])/g, " $1").trim();
+  return ret.split(" ").join("-").toLowerCase();
+}
+function asyncGeneratorStep$b(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+function _asyncToGenerator$b(fn) {
+  return function() {
+    var self = this, args = arguments;
+    return new Promise(function(resolve, reject) {
+      var gen = fn.apply(self, args);
+      function _next(value) {
+        asyncGeneratorStep$b(gen, resolve, reject, _next, _throw, "next", value);
+      }
+      function _throw(err) {
+        asyncGeneratorStep$b(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+      _next(void 0);
+    });
+  };
+}
+function getLeft(element) {
+  var {
+    left
+  } = element.getBoundingClientRect();
+  return left + (document.body.scrollLeft || document.documentElement.scrollLeft);
+}
+function getTop$1(element) {
+  var {
+    top
+  } = element.getBoundingClientRect();
+  return top + (document.body.scrollTop || document.documentElement.scrollTop);
+}
+function getScrollTop(element) {
+  var top = "scrollTop" in element ? element.scrollTop : element.pageYOffset;
+  return Math.max(top, 0);
+}
+function getScrollLeft(element) {
+  var left = "scrollLeft" in element ? element.scrollLeft : element.pageXOffset;
+  return Math.max(left, 0);
+}
+function inViewport(_x) {
+  return _inViewport.apply(this, arguments);
+}
+function _inViewport() {
+  _inViewport = _asyncToGenerator$b(function* (element) {
+    yield doubleRaf();
+    var {
+      top,
+      bottom,
+      left,
+      right
+    } = element.getBoundingClientRect();
+    var {
+      innerWidth,
+      innerHeight
+    } = window;
+    var xInViewport = left <= innerWidth && right >= 0;
+    var yInViewport = top <= innerHeight && bottom >= 0;
+    return xInViewport && yInViewport;
+  });
+  return _inViewport.apply(this, arguments);
+}
+function getTranslate(el) {
+  var {
+    transform
+  } = window.getComputedStyle(el);
+  return +transform.slice(transform.lastIndexOf(",") + 2, transform.length - 1);
+}
+function getParentScroller(el) {
+  var element = el;
+  while (element) {
+    if (!element.parentNode) {
+      break;
+    }
+    element = element.parentNode;
+    if (element === document.body || element === document.documentElement) {
+      break;
+    }
+    var scrollRE = /(scroll|auto)/;
+    var {
+      overflowY,
+      overflow
+    } = window.getComputedStyle(element);
+    if (scrollRE.test(overflowY) || scrollRE.test(overflow)) {
+      return element;
+    }
+  }
+  return window;
+}
+function getAllParentScroller(el) {
+  var allParentScroller = [];
+  var element = el;
+  while (element !== window) {
+    element = getParentScroller(element);
+    allParentScroller.push(element);
+  }
+  return allParentScroller;
+}
+var isRem = (value) => isString(value) && value.endsWith("rem");
+var isPx = (value) => isString(value) && value.endsWith("px") || isNumber(value);
+var isPercent = (value) => isString(value) && value.endsWith("%");
+var isVw = (value) => isString(value) && value.endsWith("vw");
+var isVh = (value) => isString(value) && value.endsWith("vh");
+var toPxNum = (value) => {
+  if (isNumber(value)) {
+    return value;
+  }
+  if (isPx(value)) {
+    return +value.replace("px", "");
+  }
+  if (isVw(value)) {
+    return +value.replace("vw", "") * window.innerWidth / 100;
+  }
+  if (isVh(value)) {
+    return +value.replace("vh", "") * window.innerHeight / 100;
+  }
+  if (isRem(value)) {
+    var num = +value.replace("rem", "");
+    var rootFontSize = window.getComputedStyle(document.documentElement).fontSize;
+    return num * parseFloat(rootFontSize);
+  }
+  if (isString(value)) {
+    return toNumber(value);
+  }
+  return 0;
+};
+var toSizeUnit = (value) => {
+  if (value == null) {
+    return void 0;
+  }
+  if (isPercent(value) || isVw(value) || isVh(value) || isRem(value)) {
+    return value;
+  }
+  return toPxNum(value) + "px";
+};
+function requestAnimationFrame(fn) {
+  return globalThis.requestAnimationFrame ? globalThis.requestAnimationFrame(fn) : globalThis.setTimeout(fn, 16);
+}
+function cancelAnimationFrame(handle) {
+  globalThis.cancelAnimationFrame ? globalThis.cancelAnimationFrame(handle) : globalThis.clearTimeout(handle);
+}
+function nextTickFrame(fn) {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(fn);
+  });
+}
+function doubleRaf() {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(resolve);
+    });
+  });
+}
+function scrollTo(element, _ref) {
+  var {
+    top = 0,
+    left = 0,
+    duration = 300,
+    animation
+  } = _ref;
+  var startTime = Date.now();
+  var scrollTop = getScrollTop(element);
+  var scrollLeft = getScrollLeft(element);
+  return new Promise((resolve) => {
+    var frame = () => {
+      var progress2 = (Date.now() - startTime) / duration;
+      if (progress2 < 1) {
+        var nextTop = scrollTop + (top - scrollTop) * animation(progress2);
+        var nextLeft = scrollLeft + (left - scrollLeft) * animation(progress2);
+        element.scrollTo(nextLeft, nextTop);
+        requestAnimationFrame(frame);
+      } else {
+        element.scrollTo(left, top);
+        resolve();
+      }
+    };
+    requestAnimationFrame(frame);
+  });
+}
+function formatStyleVars(styleVars) {
+  return Object.entries(styleVars != null ? styleVars : {}).reduce((styles, _ref2) => {
+    var [key, value] = _ref2;
+    var cssVar = key.startsWith("--") ? key : "--" + kebabCase(key);
+    styles[cssVar] = value;
+    return styles;
+  }, {});
+}
+function supportTouch() {
+  var inBrowser2 = typeof window !== "undefined";
+  return inBrowser2 && "ontouchstart" in window;
+}
 function _extends$d() {
   _extends$d = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -110,6 +438,9 @@ function removeRipple() {
 }
 function forbidRippleTask() {
   var _ripple = this._ripple;
+  if (!supportTouch()) {
+    return;
+  }
   if (!_ripple.touchmoveForbid) {
     return;
   }
@@ -303,136 +634,8 @@ function useZIndex(source, count) {
     zIndex
   };
 }
-var toNumber = (val) => {
-  if (val == null)
-    return 0;
-  if (isString(val)) {
-    val = parseFloat(val);
-    val = Number.isNaN(val) ? 0 : val;
-    return val;
-  }
-  if (isBool(val))
-    return Number(val);
-  return val;
-};
-var isHTMLSupportImage = (val) => {
-  if (val == null) {
-    return false;
-  }
-  return val.startsWith("data:image") || /\.(png|jpg|gif|jpeg|svg)$/.test(val);
-};
-var isHTMLSupportVideo = (val) => {
-  if (val == null) {
-    return false;
-  }
-  return val.startsWith("data:video") || /\.(mp4|webm|ogg)$/.test(val);
-};
-var isString = (val) => typeof val === "string";
-var isBool = (val) => typeof val === "boolean";
-var isNumber = (val) => typeof val === "number";
-var isPlainObject = (val) => Object.prototype.toString.call(val) === "[object Object]";
-var isObject = (val) => typeof val === "object" && val !== null;
-var isArray = (val) => Array.isArray(val);
-var isURL = (val) => {
-  if (!val) {
-    return false;
-  }
-  return /^(http)|(\.*\/)/.test(val);
-};
-var isEmpty = (val) => val === void 0 || val === null || val === "" || Array.isArray(val) && !val.length;
-var removeItem = (arr, item) => {
-  if (arr.length) {
-    var index = arr.indexOf(item);
-    if (index > -1) {
-      return arr.splice(index, 1);
-    }
-  }
-};
-var throttle = function(method, mustRunDelay) {
-  if (mustRunDelay === void 0) {
-    mustRunDelay = 200;
-  }
-  var timer;
-  var start = 0;
-  return function loop() {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-    var now = Date.now();
-    var elapsed = now - start;
-    if (!start) {
-      start = now;
-    }
-    if (timer) {
-      window.clearTimeout(timer);
-    }
-    if (elapsed >= mustRunDelay) {
-      method.apply(this, args);
-      start = now;
-    } else {
-      timer = window.setTimeout(() => {
-        loop.apply(this, args);
-      }, mustRunDelay - elapsed);
-    }
-  };
-};
-var createCache = (max2) => {
-  var cache = [];
-  return {
-    cache,
-    has(key) {
-      return this.cache.includes(key);
-    },
-    add(key) {
-      if (this.has(key)) {
-        return;
-      }
-      this.cache.length === max2 && cache.shift();
-      this.cache.push(key);
-    },
-    remove(key) {
-      this.has(key) && removeItem(this.cache, key);
-    },
-    clear() {
-      this.cache.length = 0;
-    }
-  };
-};
-var linear = (value) => value;
-var cubic = (value) => Math.pow(value, 3);
-var easeInOutCubic = (value) => value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2;
-function parseFormat(format, time) {
-  var scannedTimes = Object.values(time);
-  var scannedFormats = ["DD", "HH", "mm", "ss"];
-  var padValues = [24, 60, 60, 1e3];
-  scannedFormats.forEach((scannedFormat, index) => {
-    if (!format.includes(scannedFormat)) {
-      scannedTimes[index + 1] += scannedTimes[index] * padValues[index];
-    } else {
-      format = format.replace(scannedFormat, String(scannedTimes[index]).padStart(2, "0"));
-    }
-  });
-  if (format.includes("S")) {
-    var ms = String(scannedTimes[scannedTimes.length - 1]).padStart(3, "0");
-    if (format.includes("SSS")) {
-      format = format.replace("SSS", ms);
-    } else if (format.includes("SS")) {
-      format = format.replace("SS", ms.slice(0, 2));
-    } else {
-      format = format.replace("S", ms.slice(0, 1));
-    }
-  }
-  return format;
-}
-var dt = (value, defaultText) => value == null ? defaultText : value;
-var inBrowser = () => typeof window !== "undefined";
-var uniq = (arr) => [...new Set(arr)];
-function kebabCase(str) {
-  var ret = str.replace(/([A-Z])/g, " $1").trim();
-  return ret.split(" ").join("-").toLowerCase();
-}
 var _excluded = ["collect", "clear"];
-function asyncGeneratorStep$b(gen, resolve, reject, _next, _throw, key, arg) {
+function asyncGeneratorStep$a(gen, resolve, reject, _next, _throw, key, arg) {
   try {
     var info = gen[key](arg);
     var value = info.value;
@@ -446,16 +649,16 @@ function asyncGeneratorStep$b(gen, resolve, reject, _next, _throw, key, arg) {
     Promise.resolve(value).then(_next, _throw);
   }
 }
-function _asyncToGenerator$b(fn) {
+function _asyncToGenerator$a(fn) {
   return function() {
     var self = this, args = arguments;
     return new Promise(function(resolve, reject) {
       var gen = fn.apply(self, args);
       function _next(value) {
-        asyncGeneratorStep$b(gen, resolve, reject, _next, _throw, "next", value);
+        asyncGeneratorStep$a(gen, resolve, reject, _next, _throw, "next", value);
       }
       function _throw(err) {
-        asyncGeneratorStep$b(gen, resolve, reject, _next, _throw, "throw", err);
+        asyncGeneratorStep$a(gen, resolve, reject, _next, _throw, "throw", err);
       }
       _next(void 0);
     });
@@ -642,7 +845,7 @@ function keyInProvides(key) {
 function useValidation() {
   var errorMessage = ref("");
   var validate = /* @__PURE__ */ function() {
-    var _ref = _asyncToGenerator$b(function* (rules, value, apis) {
+    var _ref = _asyncToGenerator$a(function* (rules, value, apis) {
       if (!isArray(rules) || !rules.length) {
         return true;
       }
@@ -663,7 +866,7 @@ function useValidation() {
     errorMessage.value = "";
   };
   var validateWithTrigger = /* @__PURE__ */ function() {
-    var _ref2 = _asyncToGenerator$b(function* (validateTrigger, trigger, rules, value, apis) {
+    var _ref2 = _asyncToGenerator$a(function* (validateTrigger, trigger, rules, value, apis) {
       if (validateTrigger.includes(trigger)) {
         (yield validate(rules, value, apis)) && (errorMessage.value = "");
       }
@@ -849,202 +1052,6 @@ var props$T = {
     type: Function
   }
 };
-function asyncGeneratorStep$a(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-function _asyncToGenerator$a(fn) {
-  return function() {
-    var self = this, args = arguments;
-    return new Promise(function(resolve, reject) {
-      var gen = fn.apply(self, args);
-      function _next(value) {
-        asyncGeneratorStep$a(gen, resolve, reject, _next, _throw, "next", value);
-      }
-      function _throw(err) {
-        asyncGeneratorStep$a(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-      _next(void 0);
-    });
-  };
-}
-function getLeft(element) {
-  var {
-    left
-  } = element.getBoundingClientRect();
-  return left + (document.body.scrollLeft || document.documentElement.scrollLeft);
-}
-function getTop$1(element) {
-  var {
-    top
-  } = element.getBoundingClientRect();
-  return top + (document.body.scrollTop || document.documentElement.scrollTop);
-}
-function getScrollTop(element) {
-  var top = "scrollTop" in element ? element.scrollTop : element.pageYOffset;
-  return Math.max(top, 0);
-}
-function getScrollLeft(element) {
-  var left = "scrollLeft" in element ? element.scrollLeft : element.pageXOffset;
-  return Math.max(left, 0);
-}
-function inViewport(_x) {
-  return _inViewport.apply(this, arguments);
-}
-function _inViewport() {
-  _inViewport = _asyncToGenerator$a(function* (element) {
-    yield doubleRaf();
-    var {
-      top,
-      bottom,
-      left,
-      right
-    } = element.getBoundingClientRect();
-    var {
-      innerWidth,
-      innerHeight
-    } = window;
-    var xInViewport = left <= innerWidth && right >= 0;
-    var yInViewport = top <= innerHeight && bottom >= 0;
-    return xInViewport && yInViewport;
-  });
-  return _inViewport.apply(this, arguments);
-}
-function getTranslate(el) {
-  var {
-    transform
-  } = window.getComputedStyle(el);
-  return +transform.slice(transform.lastIndexOf(",") + 2, transform.length - 1);
-}
-function getParentScroller(el) {
-  var element = el;
-  while (element) {
-    if (!element.parentNode) {
-      break;
-    }
-    element = element.parentNode;
-    if (element === document.body || element === document.documentElement) {
-      break;
-    }
-    var scrollRE = /(scroll|auto)/;
-    var {
-      overflowY,
-      overflow
-    } = window.getComputedStyle(element);
-    if (scrollRE.test(overflowY) || scrollRE.test(overflow)) {
-      return element;
-    }
-  }
-  return window;
-}
-function getAllParentScroller(el) {
-  var allParentScroller = [];
-  var element = el;
-  while (element !== window) {
-    element = getParentScroller(element);
-    allParentScroller.push(element);
-  }
-  return allParentScroller;
-}
-var isRem = (value) => isString(value) && value.endsWith("rem");
-var isPx = (value) => isString(value) && value.endsWith("px") || isNumber(value);
-var isPercent = (value) => isString(value) && value.endsWith("%");
-var isVw = (value) => isString(value) && value.endsWith("vw");
-var isVh = (value) => isString(value) && value.endsWith("vh");
-var toPxNum = (value) => {
-  if (isNumber(value)) {
-    return value;
-  }
-  if (isPx(value)) {
-    return +value.replace("px", "");
-  }
-  if (isVw(value)) {
-    return +value.replace("vw", "") * window.innerWidth / 100;
-  }
-  if (isVh(value)) {
-    return +value.replace("vh", "") * window.innerHeight / 100;
-  }
-  if (isRem(value)) {
-    var num = +value.replace("rem", "");
-    var rootFontSize = window.getComputedStyle(document.documentElement).fontSize;
-    return num * parseFloat(rootFontSize);
-  }
-  if (isString(value)) {
-    return toNumber(value);
-  }
-  return 0;
-};
-var toSizeUnit = (value) => {
-  if (value == null) {
-    return void 0;
-  }
-  if (isPercent(value) || isVw(value) || isVh(value) || isRem(value)) {
-    return value;
-  }
-  return toPxNum(value) + "px";
-};
-function requestAnimationFrame(fn) {
-  return globalThis.requestAnimationFrame ? globalThis.requestAnimationFrame(fn) : globalThis.setTimeout(fn, 16);
-}
-function cancelAnimationFrame(handle) {
-  globalThis.cancelAnimationFrame ? globalThis.cancelAnimationFrame(handle) : globalThis.clearTimeout(handle);
-}
-function nextTickFrame(fn) {
-  requestAnimationFrame(() => {
-    requestAnimationFrame(fn);
-  });
-}
-function doubleRaf() {
-  return new Promise((resolve) => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(resolve);
-    });
-  });
-}
-function scrollTo(element, _ref) {
-  var {
-    top = 0,
-    left = 0,
-    duration = 300,
-    animation
-  } = _ref;
-  var startTime = Date.now();
-  var scrollTop = getScrollTop(element);
-  var scrollLeft = getScrollLeft(element);
-  return new Promise((resolve) => {
-    var frame = () => {
-      var progress2 = (Date.now() - startTime) / duration;
-      if (progress2 < 1) {
-        var nextTop = scrollTop + (top - scrollTop) * animation(progress2);
-        var nextLeft = scrollLeft + (left - scrollLeft) * animation(progress2);
-        element.scrollTo(nextLeft, nextTop);
-        requestAnimationFrame(frame);
-      } else {
-        element.scrollTo(left, top);
-        resolve();
-      }
-    };
-    requestAnimationFrame(frame);
-  });
-}
-function formatStyleVars(styleVars) {
-  return Object.entries(styleVars != null ? styleVars : {}).reduce((styles, _ref2) => {
-    var [key, value] = _ref2;
-    var cssVar = key.startsWith("--") ? key : "--" + kebabCase(key);
-    styles[cssVar] = value;
-    return styles;
-  }, {});
-}
 function asyncGeneratorStep$9(gen, resolve, reject, _next, _throw, key, arg) {
   try {
     var info = gen[key](arg);
@@ -1866,7 +1873,10 @@ var props$O = {
 function render$U(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
   var _component_var_button = resolveComponent("var-button");
-  return openBlock(), createElementBlock("div", {
+  return openBlock(), createBlock(Teleport, {
+    to: "body",
+    disabled: _ctx.disabled
+  }, [createElementVNode("div", {
     class: normalizeClass(["var-back-top", [_ctx.show ? "var-back-top--active" : null]]),
     ref: "backTopEl",
     style: normalizeStyle({
@@ -1885,7 +1895,7 @@ function render$U(_ctx, _cache) {
       name: "chevron-up"
     })]),
     _: 1
-  })])], 6);
+  })])], 6)], 8, ["disabled"]);
 }
 var BackTop = defineComponent({
   render: render$U,
@@ -1898,6 +1908,7 @@ var BackTop = defineComponent({
   setup(props2) {
     var show = ref(false);
     var backTopEl = ref(null);
+    var disabled = ref(true);
     var target;
     var click = (event) => {
       props2.onClick == null ? void 0 : props2.onClick(event);
@@ -1923,19 +1934,20 @@ var BackTop = defineComponent({
         }
         return el;
       }
-      if (isObject(target2)) {
+      if (isObject(target2))
         return target2;
-      }
       throw Error('[Varlet] BackTop: type of prop "target" should be a selector or an element object');
     };
     onMounted(() => {
       target = props2.target ? getTarget() : getParentScroller(backTopEl.value);
       target.addEventListener("scroll", throttleScroll);
+      disabled.value = false;
     });
     onBeforeUnmount(() => {
       target.removeEventListener("scroll", throttleScroll);
     });
     return {
+      disabled,
       show,
       backTopEl,
       toSizeUnit,
@@ -12905,6 +12917,10 @@ var props$d = {
     type: Boolean,
     default: false
   },
+  offsetY: {
+    type: [String, Number],
+    default: 0
+  },
   chip: {
     type: Boolean,
     default: false
@@ -13197,7 +13213,7 @@ var Select = defineComponent({
         return;
       }
       wrapWidth.value = getWrapWidth();
-      offsetY.value = getOffsetY();
+      offsetY.value = getOffsetY() + toPxNum(props2.offsetY);
       isFocus.value = true;
       onFocus == null ? void 0 : onFocus();
       validateWithTrigger("onFocus");
@@ -13304,6 +13320,8 @@ var Select = defineComponent({
       computeLabel();
     };
     var focus = () => {
+      wrapWidth.value = getWrapWidth();
+      offsetY.value = getOffsetY() + toPxNum(props2.offsetY);
       isFocus.value = true;
     };
     var blur = () => {
