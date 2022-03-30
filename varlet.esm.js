@@ -1344,7 +1344,7 @@ var Locale = {
   merge,
   useLocale
 };
-var _hoisted_1$I = {
+var _hoisted_1$J = {
   class: "var-action-sheet__title"
 };
 var _hoisted_2$u = ["onClick"];
@@ -1379,7 +1379,7 @@ function render$Y(_ctx, _cache) {
   }), {
     default: withCtx(() => [createElementVNode("div", mergeProps({
       class: "var-action-sheet var--box"
-    }, _ctx.$attrs), [renderSlot(_ctx.$slots, "title", {}, () => [createElementVNode("div", _hoisted_1$I, toDisplayString(_ctx.dt(_ctx.title, _ctx.pack.actionSheetTitle)), 1)]), renderSlot(_ctx.$slots, "actions", {}, () => [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.actions, (action) => {
+    }, _ctx.$attrs), [renderSlot(_ctx.$slots, "title", {}, () => [createElementVNode("div", _hoisted_1$J, toDisplayString(_ctx.dt(_ctx.title, _ctx.pack.actionSheetTitle)), 1)]), renderSlot(_ctx.$slots, "actions", {}, () => [(openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.actions, (action) => {
       return withDirectives((openBlock(), createElementBlock("div", {
         class: normalizeClass(["var-action-sheet__action-item", [action.className, action.disabled ? "var-action-sheet--disabled" : null]]),
         key: action.name,
@@ -1516,7 +1516,7 @@ var props$R = {
     default: true
   }
 };
-var _hoisted_1$H = {
+var _hoisted_1$I = {
   class: "var-app-bar__left"
 };
 var _hoisted_2$t = {
@@ -1535,7 +1535,7 @@ function render$X(_ctx, _cache) {
       background: _ctx.color,
       color: _ctx.textColor
     })
-  }, [createElementVNode("div", _hoisted_1$H, [renderSlot(_ctx.$slots, "left"), _ctx.titlePosition === "left" ? (openBlock(), createElementBlock("div", {
+  }, [createElementVNode("div", _hoisted_1$I, [renderSlot(_ctx.$slots, "left"), _ctx.titlePosition === "left" ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: "var-app-bar__title",
     style: normalizeStyle({
@@ -1607,7 +1607,7 @@ var props$Q = {
   }
 };
 var _withScopeId$2 = (n) => (pushScopeId(""), n = n(), popScopeId(), n);
-var _hoisted_1$G = {
+var _hoisted_1$H = {
   class: "var-loading"
 };
 var _hoisted_2$s = {
@@ -1624,7 +1624,7 @@ var _hoisted_3$h = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createEl
 })], -1));
 var _hoisted_4$a = [_hoisted_3$h];
 function render$W(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$G, [_ctx.$slots.default ? (openBlock(), createElementBlock("div", {
+  return openBlock(), createElementBlock("div", _hoisted_1$H, [_ctx.$slots.default ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: normalizeClass(["var-loading__content", [_ctx.loading ? "var-loading__content--active" : null]])
   }, [renderSlot(_ctx.$slots, "default")], 2)) : createCommentVNode("v-if", true), _ctx.isShow ? (openBlock(), createElementBlock("div", {
@@ -1766,7 +1766,7 @@ var props$P = {
     type: Function
   }
 };
-var _hoisted_1$F = ["disabled"];
+var _hoisted_1$G = ["disabled"];
 function render$V(_ctx, _cache) {
   var _component_var_loading = resolveComponent("var-loading");
   var _directive_ripple = resolveDirective("ripple");
@@ -1792,7 +1792,7 @@ function render$V(_ctx, _cache) {
     radius: _ctx.loadingRadius
   }, null, 8, ["type", "size", "radius"])) : createCommentVNode("v-if", true), createElementVNode("div", {
     class: normalizeClass(["var-button__content", [_ctx.loading || _ctx.pending ? "var-button--hidden" : null]])
-  }, [renderSlot(_ctx.$slots, "default")], 2)], 46, _hoisted_1$F)), [[_directive_ripple, {
+  }, [renderSlot(_ctx.$slots, "default")], 2)], 46, _hoisted_1$G)), [[_directive_ripple, {
     disabled: _ctx.disabled || !_ctx.ripple
   }]]);
 }
@@ -1997,7 +1997,7 @@ var props$N = {
     type: String
   }
 };
-var _hoisted_1$E = {
+var _hoisted_1$F = {
   class: "var-badge var--box"
 };
 var _hoisted_2$r = {
@@ -2005,7 +2005,7 @@ var _hoisted_2$r = {
 };
 function render$T(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
-  return openBlock(), createElementBlock("div", _hoisted_1$E, [createVNode(Transition, {
+  return openBlock(), createElementBlock("div", _hoisted_1$F, [createVNode(Transition, {
     name: "var-badge-fade"
   }, {
     default: withCtx(() => [withDirectives(createElementVNode("span", mergeProps(_ctx.$attrs, {
@@ -2111,29 +2111,41 @@ var props$M = {
   }
 };
 var BOTTOMNAVIGATION_BIND_BOTTOMNAVIGATIONITEM_KEY = Symbol("BOTTOMNAVIGATION_BIND_BOTTOMNAVIGATIONITEM_KEY");
-var BOTTOMNAVIGATIONITEM_INDEX_KEY = Symbol("BOTTOMNAVIGATIONITEM_INDEX_KEY");
-function useBottomNavigationItem() {
+var BOTTOMNAVIGATION_COUNT_BOTTOMNAVIGATIONITEM_KEY = Symbol("BOTTOMNAVIGATION_COUNT_BOTTOMNAVIGATIONITEM_KEY");
+function useBottomNavigationItems() {
   var {
     childProviders,
     bindChildren
   } = useChildren(BOTTOMNAVIGATION_BIND_BOTTOMNAVIGATIONITEM_KEY);
-  useAtChildrenCounter(BOTTOMNAVIGATIONITEM_INDEX_KEY);
+  var {
+    length
+  } = useAtChildrenCounter(BOTTOMNAVIGATION_COUNT_BOTTOMNAVIGATIONITEM_KEY);
   return {
+    length,
     bottomNavigationItems: childProviders,
     bindBottomNavigationItem: bindChildren
   };
 }
+var _hoisted_1$E = {
+  key: 0,
+  class: "fab"
+};
 function render$S(_ctx, _cache) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["var-bottom-navigation", (_ctx.fixed ? "var-bottom-navigation--fixed" : "") + " " + (_ctx.border ? "var-bottom-navigation--border" : "")]),
+    ref: "bottomNavigationDom",
     style: normalizeStyle("z-index:" + _ctx.zIndex)
-  }, [renderSlot(_ctx.$slots, "default")], 6);
+  }, [renderSlot(_ctx.$slots, "default"), _ctx.$slots.fab ? (openBlock(), createElementBlock("div", _hoisted_1$E, [renderSlot(_ctx.$slots, "fab")])) : createCommentVNode("v-if", true)], 6);
 }
 var BottomNavigation$1 = defineComponent({
   render: render$S,
   name: "VarBottomNavigation",
   props: props$M,
-  setup(props2) {
+  setup(props2, _ref) {
+    var {
+      slots
+    } = _ref;
+    var bottomNavigationDom = ref(null);
     var active = computed(() => props2.modelValue);
     var fixed = computed(() => props2.fixed);
     var border = computed(() => props2.border);
@@ -2160,18 +2172,54 @@ var BottomNavigation$1 = defineComponent({
       props2.onChange == null ? void 0 : props2.onChange(changedValue);
     }
     var {
+      length,
       bindBottomNavigationItem
-    } = useBottomNavigationItem();
+    } = useBottomNavigationItems();
+    onMounted(() => {
+      if (slots.fab) {
+        handlePlaceholderDom();
+      }
+    });
+    function handlePlaceholderDom() {
+      watch(length, (newVal) => {
+        handlePlacehoderDom(bottomNavigationDom.value, newVal);
+      });
+    }
+    function handlePlacehoderDom(parent, length2) {
+      removeOldPlaceholderDom(parent, ".var-bottom-navigation-item--placeholder");
+      insertFabPlaceholderDom(parent, length2);
+      handleEndPlaceholderDom(parent, length2);
+    }
+    function removeOldPlaceholderDom(parent, oldPlaceholderchildSelector) {
+      var oldPlaceholderDoms = parent.querySelectorAll(oldPlaceholderchildSelector);
+      oldPlaceholderDoms.forEach((item) => item.remove());
+    }
+    function insertFabPlaceholderDom(parent, length2) {
+      var placeholderDom = document.createElement("div");
+      placeholderDom.className = "var-bottom-navigation-item var-bottom-navigation-item--placeholder";
+      var BottomNavigationItems = parent.querySelectorAll(".var-bottom-navigation-item");
+      parent.insertBefore(placeholderDom, BottomNavigationItems[(length2 - 1 >> 1) + 1]);
+    }
+    function handleEndPlaceholderDom(parent, length2) {
+      if (length2 % 2) {
+        var placeholderDom = document.createElement("div");
+        placeholderDom.className = "var-bottom-navigation-item var-bottom-navigation-item--placeholder";
+        parent.appendChild(placeholderDom);
+      }
+    }
     var bottomNavigationProvider = {
       active,
-      fixed,
-      border,
-      zIndex,
       activeColor,
       inactiveColor,
       onToggle
     };
     bindBottomNavigationItem(bottomNavigationProvider);
+    return {
+      bottomNavigationDom,
+      fixed,
+      border,
+      zIndex
+    };
   }
 });
 BottomNavigation$1.install = function(app) {
@@ -2206,7 +2254,7 @@ function useBottomNavigation() {
   } = useParent(BOTTOMNAVIGATION_BIND_BOTTOMNAVIGATIONITEM_KEY);
   var {
     index
-  } = useAtParentIndex(BOTTOMNAVIGATIONITEM_INDEX_KEY);
+  } = useAtParentIndex(BOTTOMNAVIGATION_COUNT_BOTTOMNAVIGATIONITEM_KEY);
   if (!parentProvider || !bindParent || !index) {
     throw Error("<var-bottom-navigation-item/> must in <var-bottom-navigation/>");
   }
@@ -2261,18 +2309,17 @@ var BottomNavigationItem$1 = defineComponent({
     var name = computed(() => props2.name);
     var badge2 = computed(() => props2.badge);
     var badgeProps = ref({});
-    watch(badge2, (value) => {
-      if (value) {
-        if (isBool(value)) {
-          badgeProps.value = {
-            type: "danger",
-            dot: true
-          };
-        } else {
-          badgeProps.value = badge2.value;
-        }
-      } else {
+    watch(badge2, (newValue) => {
+      if (!newValue) {
         badgeProps.value = {};
+      }
+      if (isBool(newValue)) {
+        badgeProps.value = {
+          type: "danger",
+          dot: true
+        };
+      } else {
+        badgeProps.value = badge2.value;
       }
     }, {
       immediate: true
