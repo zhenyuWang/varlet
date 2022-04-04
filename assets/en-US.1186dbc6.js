@@ -1,0 +1,26 @@
+import{_ as c}from"./elevation.229458c1.js";import{e as n,o,c as d,a as s,i as e,j as l,m as t,U as r}from"./vendor.49f89f0d.js";const h={components:{}},i={class:"varlet-site-doc"},p=s("h1",null,"Sticky",-1),u=s("div",{class:"card"},[s("h3",null,"Intro"),s("p",null,[t("The sticky layout uses the "),s("code",null,"scroll"),t(" layout mode that listens to container scroll events by default. If necessary, you can switch to the "),s("code",null,"css sticky"),t(" layout mode to improve performance.")])],-1),j={class:"card"},m=s("h3",null,"Install",-1),_=s("pre",{class:"hljs"},[s("code",null,[s("span",{class:"hljs-keyword"},"import"),t(" { createApp } "),s("span",{class:"hljs-keyword"},"from"),t(),s("span",{class:"hljs-string"},"'vue'"),t(`
+`),s("span",{class:"hljs-keyword"},"import"),t(" { Sticky } "),s("span",{class:"hljs-keyword"},"from"),t(),s("span",{class:"hljs-string"},"'@varlet/ui'"),t(`
+
+createApp().use(Sticky)
+`)])],-1),b={class:"card"},y=s("h3",null,"Basic Use",-1),v=s("pre",{class:"hljs"},[s("code",null,[s("span",{class:"hljs-tag"},[t("<"),s("span",{class:"hljs-name"},"var-sticky"),t(),s("span",{class:"hljs-attr"},":offset-top"),t("="),s("span",{class:"hljs-string"},'"54"'),t(">")]),t(`
+  `),s("span",{class:"hljs-tag"},[t("<"),s("span",{class:"hljs-name"},"var-button"),t(),s("span",{class:"hljs-attr"},"type"),t("="),s("span",{class:"hljs-string"},'"primary"'),t(">")]),t("Basic Use"),s("span",{class:"hljs-tag"},[t("</"),s("span",{class:"hljs-name"},"var-button"),t(">")]),t(`
+`),s("span",{class:"hljs-tag"},[t("</"),s("span",{class:"hljs-name"},"var-sticky"),t(">")]),t(`
+`)])],-1),f={class:"card"},g=s("h3",null,"Local Sticky",-1),k=s("pre",{class:"hljs"},[s("code",null,[s("span",{class:"hljs-tag"},[t("<"),s("span",{class:"hljs-name"},"div"),t(),s("span",{class:"hljs-attr"},"class"),t("="),s("span",{class:"hljs-string"},'"scroller"'),t(">")]),t(`
+  `),s("span",{class:"hljs-tag"},[t("<"),s("span",{class:"hljs-name"},"var-sticky"),t(">")]),t(`
+    `),s("span",{class:"hljs-tag"},[t("<"),s("span",{class:"hljs-name"},"var-button"),t(),s("span",{class:"hljs-attr"},"type"),t("="),s("span",{class:"hljs-string"},'"success"'),t(">")]),t("Local Sticky"),s("span",{class:"hljs-tag"},[t("</"),s("span",{class:"hljs-name"},"var-button"),t(">")]),t(`
+  `),s("span",{class:"hljs-tag"},[t("</"),s("span",{class:"hljs-name"},"var-sticky"),t(">")]),t(`
+  `),s("span",{class:"hljs-tag"},[t("<"),s("span",{class:"hljs-name"},"div"),t(),s("span",{class:"hljs-attr"},"class"),t("="),s("span",{class:"hljs-string"},'"block"'),t(">")]),s("span",{class:"hljs-tag"},[t("</"),s("span",{class:"hljs-name"},"div"),t(">")]),t(`
+`),s("span",{class:"hljs-tag"},[t("</"),s("span",{class:"hljs-name"},"div"),t(">")]),t(`
+`)])],-1),w=s("pre",{class:"hljs"},[s("code",null,[s("span",{class:"hljs-selector-class"},".scroller"),t(` {
+  `),s("span",{class:"hljs-attribute"},"height"),t(": "),s("span",{class:"hljs-number"},"200px"),t(`;
+  `),s("span",{class:"hljs-attribute"},"overflow"),t(`: auto;
+  `),s("span",{class:"hljs-attribute"},"background"),t(": "),s("span",{class:"hljs-number"},"#2979ff"),t(`;
+
+  `),s("span",{class:"hljs-selector-class"},".block"),t(` {
+    `),s("span",{class:"hljs-attribute"},"width"),t(": "),s("span",{class:"hljs-number"},"100%"),t(`;
+    `),s("span",{class:"hljs-attribute"},"height"),t(": "),s("span",{class:"hljs-number"},"600px"),t(`;
+    `),s("span",{class:"hljs-attribute"},"background"),t(": "),s("span",{class:"hljs-number"},"#2979ff"),t(`;
+    `),s("span",{class:"hljs-attribute"},"opacity"),t(": ."),s("span",{class:"hljs-number"},"5"),t(`;
+  }
+}
+`)])],-1),x=r('<h2>API</h2><div class="card"><h3>Props</h3><table><thead><tr><th>Prop</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td><code>offset-top</code></td><td>Sticky offset top</td><td><em>string | number</em></td><td><code>0</code></td></tr><tr><td><code>z-index</code></td><td>Sticky z-index</td><td><em>string | number</em></td><td><code>0</code></td></tr><tr><td><code>css-mode</code></td><td>Enable native <code>css sticky</code> mode</td><td><em>boolean</em></td><td><code>false</code></td></tr><tr><td><code>disabled</code></td><td>Disable sticky, when set to <code>true</code>, the element will return to the document flow</td><td><em>boolean</em></td><td><code>false</code></td></tr></tbody></table></div><div class="card"><h3>Events</h3><table><thead><tr><th>Event</th><th>Description</th><th>Arguments</th></tr></thead><tbody><tr><td><code>scroll</code></td><td>Triggered when the scroll container rolls</td><td><code>offsetTop: number</code> <br> <code>isFixed: boolean</code></td></tr></tbody></table></div><div class="card"><h3>Slots</h3><table><thead><tr><th>Slot</th><th>Description</th><th>Arguments</th></tr></thead><tbody><tr><td><code>default</code></td><td>Sticky content</td><td><code>-</code></td></tr></tbody></table></div>',4);function S(A,B,D,T,E,I){const a=n("var-site-code-example");return o(),d("div",i,[p,u,s("div",j,[m,e(a,null,{default:l(()=>[_]),_:1})]),s("div",b,[y,e(a,null,{default:l(()=>[v]),_:1})]),s("div",f,[g,e(a,null,{default:l(()=>[k]),_:1}),e(a,null,{default:l(()=>[w]),_:1})]),x])}var V=c(h,[["render",S]]);export{V as default};
