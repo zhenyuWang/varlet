@@ -2203,6 +2203,9 @@ function render$S(_ctx, _cache) {
 var BottomNavigation = defineComponent({
   render: render$S,
   name: "VarBottomNavigation",
+  directives: {
+    Ripple
+  },
   props: props$M,
   setup(props2, _ref) {
     var {
