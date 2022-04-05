@@ -656,7 +656,7 @@ function _extends$c() {
   return _extends$c.apply(this, arguments);
 }
 var {
-  n: n$Q
+  n: n$R
 } = createNamespace("ripple");
 var ANIMATION_DURATION$1 = 250;
 function setStyles(element) {
@@ -711,7 +711,7 @@ function createRipple(event) {
       size
     } = computeRippleStyles(this, event);
     var ripple2 = document.createElement("div");
-    ripple2.classList.add(n$Q());
+    ripple2.classList.add(n$R());
     ripple2.style.opacity = "0";
     ripple2.style.transform = "translate(" + x + "px, " + y + "px) scale3d(.3, .3, .3)";
     ripple2.style.width = size + "px";
@@ -1116,8 +1116,8 @@ function _asyncToGenerator$9(fn) {
   };
 }
 var {
-  n: n$P,
-  classes: classes$H
+  n: n$Q,
+  classes: classes$I
 } = createNamespace("icon");
 function render$Z(_ctx, _cache) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.isURL(_ctx.name) ? "img" : "i"), {
@@ -1164,8 +1164,8 @@ var Icon = defineComponent({
       immediate: true
     });
     return {
-      n: n$P,
-      classes: classes$H,
+      n: n$Q,
+      classes: classes$I,
       nextName,
       shrinking,
       isURL,
@@ -1385,10 +1385,10 @@ var Locale = {
   useLocale
 };
 var {
-  n: n$O,
-  classes: classes$G
+  n: n$P,
+  classes: classes$H
 } = createNamespace("action-sheet");
-var _hoisted_1$o = ["onClick"];
+var _hoisted_1$n = ["onClick"];
 function render$Y(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
   var _component_var_popup = resolveComponent("var-popup");
@@ -1432,7 +1432,7 @@ function render$Y(_ctx, _cache) {
         size: action.iconSize
       }, null, 8, ["class", "name", "size"])) : createCommentVNode("v-if", true), createElementVNode("div", {
         class: normalizeClass(_ctx.n("action-name"))
-      }, toDisplayString(action.name), 3)], 14, _hoisted_1$o)), [[_directive_ripple, {
+      }, toDisplayString(action.name), 3)], 14, _hoisted_1$n)), [[_directive_ripple, {
         disabled: action.disabled
       }]]);
     }), 128))])], 16)]),
@@ -1471,8 +1471,8 @@ var VarActionSheet = defineComponent({
       immediate: true
     });
     return {
-      n: n$O,
-      classes: classes$G,
+      n: n$P,
+      classes: classes$H,
       handlePopupUpdateShow,
       popupShow,
       pack,
@@ -1559,8 +1559,8 @@ var props$R = {
   }
 };
 var {
-  n: n$N,
-  classes: classes$F
+  n: n$O,
+  classes: classes$G
 } = createNamespace("app-bar");
 function render$X(_ctx, _cache) {
   return openBlock(), createElementBlock("div", {
@@ -1607,8 +1607,8 @@ var AppBar = defineComponent({
     onMounted(computePadding);
     onUpdated(computePadding);
     return {
-      n: n$N,
-      classes: classes$F,
+      n: n$O,
+      classes: classes$G,
       paddingLeft,
       paddingRight
     };
@@ -1650,11 +1650,11 @@ var props$Q = {
   }
 };
 var {
-  n: n$M,
-  classes: classes$E
+  n: n$N,
+  classes: classes$F
 } = createNamespace("loading");
 var _withScopeId$1 = (n2) => (pushScopeId(""), n2 = n2(), popScopeId(), n2);
-var _hoisted_1$n = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("svg", {
+var _hoisted_1$m = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("svg", {
   viewBox: "25 25 50 50"
 }, [/* @__PURE__ */ createElementVNode("circle", {
   cx: "50",
@@ -1662,7 +1662,7 @@ var _hoisted_1$n = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createEl
   r: "20",
   fill: "none"
 })], -1));
-var _hoisted_2$c = [_hoisted_1$n];
+var _hoisted_2$b = [_hoisted_1$m];
 function render$W(_ctx, _cache) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(_ctx.n())
@@ -1682,7 +1682,7 @@ function render$W(_ctx, _cache) {
       height: _ctx.getRadius * 2 + "px",
       color: _ctx.color
     })
-  }, _hoisted_2$c, 6)], 2)) : createCommentVNode("v-if", true), (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.loadingTypeDict, (nums, key) => {
+  }, _hoisted_2$b, 6)], 2)) : createCommentVNode("v-if", true), (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.loadingTypeDict, (nums, key) => {
     return openBlock(), createElementBlock(Fragment, {
       key
     }, [_ctx.type === key ? (openBlock(), createElementBlock("div", {
@@ -1734,8 +1734,8 @@ var Loading = defineComponent({
       return props2.loading;
     });
     return {
-      n: n$M,
-      classes: classes$E,
+      n: n$N,
+      classes: classes$F,
       loadingTypeDict,
       getRadius,
       isShow
@@ -1814,10 +1814,10 @@ var props$P = {
   }
 };
 var {
-  n: n$L,
-  classes: classes$D
+  n: n$M,
+  classes: classes$E
 } = createNamespace("button");
-var _hoisted_1$m = ["disabled"];
+var _hoisted_1$l = ["disabled"];
 function render$V(_ctx, _cache) {
   var _component_var_loading = resolveComponent("var-loading");
   var _directive_ripple = resolveDirective("ripple");
@@ -1843,7 +1843,7 @@ function render$V(_ctx, _cache) {
     radius: _ctx.loadingRadius
   }, null, 8, ["class", "type", "size", "radius"])) : createCommentVNode("v-if", true), createElementVNode("div", {
     class: normalizeClass(_ctx.classes(_ctx.n("content"), [_ctx.loading || _ctx.pending, _ctx.n("--hidden")]))
-  }, [renderSlot(_ctx.$slots, "default")], 2)], 46, _hoisted_1$m)), [[_directive_ripple, {
+  }, [renderSlot(_ctx.$slots, "default")], 2)], 46, _hoisted_1$l)), [[_directive_ripple, {
     disabled: _ctx.disabled || !_ctx.ripple
   }]]);
 }
@@ -1890,8 +1890,8 @@ var Button = defineComponent({
       attemptAutoLoading(onTouchstart(e));
     };
     return {
-      n: n$L,
-      classes: classes$D,
+      n: n$M,
+      classes: classes$E,
       pending,
       handleClick,
       handleTouchstart
@@ -2050,15 +2050,15 @@ var props$N = {
     type: String
   }
 };
-var _hoisted_1$l = {
+var _hoisted_1$k = {
   class: "var-badge var--box"
 };
-var _hoisted_2$b = {
+var _hoisted_2$a = {
   key: 1
 };
 function render$T(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
-  return openBlock(), createElementBlock("div", _hoisted_1$l, [createVNode(Transition, {
+  return openBlock(), createElementBlock("div", _hoisted_1$k, [createVNode(Transition, {
     name: "var-badge-fade"
   }, {
     default: withCtx(() => [withDirectives(createElementVNode("span", mergeProps(_ctx.$attrs, {
@@ -2070,7 +2070,7 @@ function render$T(_ctx, _cache) {
       key: 0,
       name: _ctx.icon,
       size: "10px"
-    }, null, 8, ["name"])) : (openBlock(), createElementBlock("span", _hoisted_2$b, toDisplayString(_ctx.values), 1))], 16), [[vShow, !_ctx.hidden]])]),
+    }, null, 8, ["name"])) : (openBlock(), createElementBlock("span", _hoisted_2$a, toDisplayString(_ctx.values), 1))], 16), [[vShow, !_ctx.hidden]])]),
     _: 1
   }), renderSlot(_ctx.$slots, "default")]);
 }
@@ -2180,8 +2180,8 @@ function useBottomNavigationItems() {
   };
 }
 var {
-  n: n$K,
-  classes: classes$C
+  n: n$L,
+  classes: classes$D
 } = createNamespace("bottom-navigation");
 var {
   n: nItem
@@ -2190,14 +2190,15 @@ var RIGHT_HALF_SPACE_CLASS = nItem("--right-half-space");
 var LEFT_HALF_SPACE_CLASS = nItem("--left-half-space");
 var RIGHT_SPACE_CLASS = nItem("--right-space");
 function render$S(_ctx, _cache) {
+  var _directive_ripple = resolveDirective("ripple");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(_ctx.classes(_ctx.n(), [_ctx.fixed, _ctx.n("--fixed")], [_ctx.border, _ctx.n("--border")])),
     ref: "bottomNavigationDom",
     style: normalizeStyle("z-index:" + _ctx.zIndex)
-  }, [renderSlot(_ctx.$slots, "default"), _ctx.$slots.fab ? (openBlock(), createElementBlock("div", {
+  }, [renderSlot(_ctx.$slots, "default"), _ctx.$slots.fab ? withDirectives((openBlock(), createElementBlock("div", {
     key: 0,
     class: normalizeClass(_ctx.classes(_ctx.n("fab"), "var-elevation--6", [_ctx.length % 2, _ctx.n("--fab-right"), _ctx.n("--fab-center")]))
-  }, [renderSlot(_ctx.$slots, "fab")], 2)) : createCommentVNode("v-if", true)], 6);
+  }, [renderSlot(_ctx.$slots, "fab")], 2)), [[_directive_ripple]]) : createCommentVNode("v-if", true)], 6);
 }
 var BottomNavigation = defineComponent({
   render: render$S,
@@ -2285,8 +2286,8 @@ var BottomNavigation = defineComponent({
       addMarginClass(length.value);
     });
     return {
-      n: n$K,
-      classes: classes$C,
+      n: n$L,
+      classes: classes$D,
       length,
       bottomNavigationDom
     };
@@ -2335,8 +2336,8 @@ function useBottomNavigation() {
   };
 }
 var {
-  n: n$J,
-  classes: classes$B
+  n: n$K,
+  classes: classes$C
 } = createNamespace("bottom-navigation-item");
 var defaultBadgeProps = {
   type: "danger",
@@ -2417,8 +2418,8 @@ var BottomNavigationItem = defineComponent({
       immediate: true
     });
     return {
-      n: n$J,
-      classes: classes$B,
+      n: n$K,
+      classes: classes$C,
       index,
       active,
       badge: badge2,
@@ -2470,10 +2471,10 @@ var props$K = {
   }
 };
 var {
-  n: n$I,
-  classes: classes$A
+  n: n$J,
+  classes: classes$B
 } = createNamespace("card");
-var _hoisted_1$k = ["src", "alt"];
+var _hoisted_1$j = ["src", "alt"];
 function render$Q(_ctx, _cache) {
   var _directive_ripple = resolveDirective("ripple");
   return withDirectives((openBlock(), createElementBlock("div", {
@@ -2490,7 +2491,7 @@ function render$Q(_ctx, _cache) {
     }),
     src: _ctx.src,
     alt: _ctx.alt
-  }, null, 14, _hoisted_1$k)) : createCommentVNode("v-if", true)]), renderSlot(_ctx.$slots, "title", {}, () => [_ctx.title ? (openBlock(), createElementBlock("div", {
+  }, null, 14, _hoisted_1$j)) : createCommentVNode("v-if", true)]), renderSlot(_ctx.$slots, "title", {}, () => [_ctx.title ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: normalizeClass(_ctx.n("title"))
   }, toDisplayString(_ctx.title), 3)) : createCommentVNode("v-if", true)]), renderSlot(_ctx.$slots, "subtitle", {}, () => [_ctx.subtitle ? (openBlock(), createElementBlock("div", {
@@ -2515,8 +2516,8 @@ var Card = defineComponent({
   props: props$K,
   setup() {
     return {
-      n: n$I,
-      classes: classes$A,
+      n: n$J,
+      classes: classes$B,
       toSizeUnit
     };
   }
@@ -2552,8 +2553,8 @@ var props$J = {
   }
 };
 var {
-  n: n$H,
-  classes: classes$z
+  n: n$I,
+  classes: classes$A
 } = createNamespace("cell");
 function render$P(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
@@ -2586,8 +2587,8 @@ var Cell = defineComponent({
   props: props$J,
   setup() {
     return {
-      n: n$H,
-      classes: classes$z
+      n: n$I,
+      classes: classes$A
     };
   }
 });
@@ -2604,11 +2605,11 @@ var props$I = {
     default: ""
   }
 };
-var _hoisted_1$j = {
+var _hoisted_1$i = {
   key: 0,
   class: "var-form-details"
 };
-var _hoisted_2$a = {
+var _hoisted_2$9 = {
   class: "var-form-details__message"
 };
 var _hoisted_3$4 = {
@@ -2618,7 +2619,7 @@ function render$O(_ctx, _cache) {
   return openBlock(), createBlock(Transition, {
     name: "var-form-details"
   }, {
-    default: withCtx(() => [_ctx.errorMessage || _ctx.maxlengthText ? (openBlock(), createElementBlock("div", _hoisted_1$j, [createElementVNode("div", _hoisted_2$a, toDisplayString(_ctx.errorMessage), 1), createElementVNode("div", _hoisted_3$4, toDisplayString(_ctx.maxlengthText), 1)])) : createCommentVNode("v-if", true)]),
+    default: withCtx(() => [_ctx.errorMessage || _ctx.maxlengthText ? (openBlock(), createElementBlock("div", _hoisted_1$i, [createElementVNode("div", _hoisted_2$9, toDisplayString(_ctx.errorMessage), 1), createElementVNode("div", _hoisted_3$4, toDisplayString(_ctx.maxlengthText), 1)])) : createCommentVNode("v-if", true)]),
     _: 1
   });
 }
@@ -2733,8 +2734,8 @@ function useFormItems() {
   };
 }
 var {
-  n: n$G,
-  classes: classes$y
+  n: n$H,
+  classes: classes$z
 } = createNamespace("checkbox");
 function render$N(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
@@ -2896,8 +2897,8 @@ var Checkbox = defineComponent({
       checkboxGroupErrorMessage: checkboxGroup2 == null ? void 0 : checkboxGroup2.errorMessage,
       formDisabled: form == null ? void 0 : form.disabled,
       formReadonly: form == null ? void 0 : form.readonly,
-      n: n$G,
-      classes: classes$y,
+      n: n$H,
+      classes: classes$z,
       handleClick,
       toggle,
       reset,
@@ -2940,8 +2941,8 @@ var props$G = {
   }
 };
 var {
-  n: n$F,
-  classes: classes$x
+  n: n$G,
+  classes: classes$y
 } = createNamespace("checkbox-group");
 function render$M(_ctx, _cache) {
   var _component_var_form_details = resolveComponent("var-form-details");
@@ -3071,8 +3072,8 @@ var CheckboxGroup = defineComponent({
     call(bindForm, checkboxGroupProvider);
     return {
       errorMessage,
-      n: n$F,
-      classes: classes$x,
+      n: n$G,
+      classes: classes$y,
       checkAll: checkAll2,
       inverseAll,
       reset,
@@ -3129,8 +3130,8 @@ var props$F = {
   }
 };
 var {
-  n: n$E,
-  classes: classes$w
+  n: n$F,
+  classes: classes$x
 } = createNamespace("chip");
 function render$L(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
@@ -3189,13 +3190,13 @@ var Chip = defineComponent({
         round: round2
       } = props2;
       var blockClass = block ? "var--flex" : "var--inline-flex";
-      var plainTypeClass = plain ? n$E("plain") + " " + n$E("plain-" + type) : n$E("--" + type);
-      var roundClass = round2 && n$E("--round");
-      return [n$E("--" + size), blockClass, plainTypeClass, roundClass];
+      var plainTypeClass = plain ? n$F("plain") + " " + n$F("plain-" + type) : n$F("--" + type);
+      var roundClass = round2 && n$F("--round");
+      return [n$F("--" + size), blockClass, plainTypeClass, roundClass];
     });
     return {
-      n: n$E,
-      classes: classes$w,
+      n: n$F,
+      classes: classes$x,
       chipStyles,
       contentClass
     };
@@ -3266,8 +3267,8 @@ function useRow() {
   };
 }
 var {
-  n: n$D,
-  classes: classes$v
+  n: n$E,
+  classes: classes$w
 } = createNamespace("col");
 function render$K(_ctx, _cache) {
   return openBlock(), createElementBlock("div", {
@@ -3311,10 +3312,10 @@ var Col = defineComponent({
           span: _span,
           offset: _offset
         } = size;
-        _span && classes2.push(n$D("--span-" + mode + "-" + _span));
-        _offset && classes2.push(n$D("--offset-" + mode + "-" + _offset));
+        _span && classes2.push(n$E("--span-" + mode + "-" + _span));
+        _offset && classes2.push(n$E("--offset-" + mode + "-" + _offset));
       } else {
-        classes2.push(n$D("--span-" + mode + "-" + size));
+        classes2.push(n$E("--span-" + mode + "-" + size));
       }
       return classes2;
     };
@@ -3323,8 +3324,8 @@ var Col = defineComponent({
     });
     call(bindRow, colProvider);
     return {
-      n: n$D,
-      classes: classes$v,
+      n: n$E,
+      classes: classes$w,
       padding,
       toNumber,
       toSizeUnit,
@@ -3373,7 +3374,7 @@ var props$D = {
   }
 };
 var {
-  n: n$C
+  n: n$D
 } = createNamespace("collapse");
 function render$J(_ctx, _cache) {
   return openBlock(), createElementBlock("div", {
@@ -3476,7 +3477,7 @@ var Collapse = defineComponent({
     watch(() => length.value, () => nextTick().then(resize));
     watch(() => props2.modelValue, () => nextTick().then(resize));
     return {
-      n: n$C
+      n: n$D
     };
   }
 });
@@ -3517,8 +3518,8 @@ var props$C = {
   }
 };
 var {
-  n: n$B,
-  classes: classes$u
+  n: n$C,
+  classes: classes$v
 } = createNamespace("collapse-item");
 function render$I(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
@@ -3619,8 +3620,8 @@ var CollapseItem = defineComponent({
         closePanel();
     });
     return {
-      n: n$B,
-      classes: classes$u,
+      n: n$C,
+      classes: classes$v,
       show,
       isShow,
       offset,
@@ -3657,11 +3658,11 @@ var SECOND = 1e3;
 var MINUTE = 60 * SECOND;
 var HOUR = 60 * MINUTE;
 var DAY = 24 * HOUR;
-var _hoisted_1$i = {
+var _hoisted_1$h = {
   class: "var-countdown"
 };
 function render$H(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$i, [renderSlot(_ctx.$slots, "default", normalizeProps(guardReactiveProps(_ctx.timeData)), () => [createTextVNode(toDisplayString(_ctx.showTime), 1)])]);
+  return openBlock(), createElementBlock("div", _hoisted_1$h, [renderSlot(_ctx.$slots, "default", normalizeProps(guardReactiveProps(_ctx.timeData)), () => [createTextVNode(toDisplayString(_ctx.showTime), 1)])]);
 }
 var Countdown = defineComponent({
   render: render$H,
@@ -6108,12 +6109,12 @@ var props$A = {
   }
 };
 var {
-  n: n$A,
-  classes: classes$t
+  n: n$B,
+  classes: classes$u
 } = createNamespace("counter");
 var SPEED = 100;
 var DELAY = 600;
-var _hoisted_1$h = ["inputmode", "readonly", "disabled"];
+var _hoisted_1$g = ["inputmode", "readonly", "disabled"];
 function render$G(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
   var _component_var_form_details = resolveComponent("var-form-details");
@@ -6152,7 +6153,7 @@ function render$G(_ctx, _cache) {
     onChange: _cache[1] || (_cache[1] = function() {
       return _ctx.handleChange && _ctx.handleChange(...arguments);
     })
-  }, null, 46, _hoisted_1$h), [[vModelText, _ctx.inputValue]]), withDirectives(createVNode(_component_var_icon, {
+  }, null, 46, _hoisted_1$g), [[vModelText, _ctx.inputValue]]), withDirectives(createVNode(_component_var_icon, {
     "var-counter-cover": "",
     name: "plus",
     class: normalizeClass(_ctx.classes(_ctx.n("increment-button"), [!_ctx.incrementButton, _ctx.n("--hidden")])),
@@ -6388,8 +6389,8 @@ var Counter = defineComponent({
     });
     setNormalizedValue(normalizeValue(String(props2.modelValue)));
     return {
-      n: n$A,
-      classes: classes$t,
+      n: n$B,
+      classes: classes$u,
       inputValue,
       errorMessage,
       formDisabled,
@@ -6930,7 +6931,7 @@ var props$z = {
   }
 };
 var {
-  n: n$z
+  n: n$A
 } = createNamespace("picker-header");
 function render$F(_ctx, _cache) {
   var _component_var_icon = resolveComponent("var-icon");
@@ -7029,7 +7030,7 @@ var PanelHeader = defineComponent({
       forwardOrBackNum.value = 0;
     });
     return {
-      n: n$z,
+      n: n$A,
       reverse,
       showDate,
       checkDate
@@ -7053,8 +7054,8 @@ function _extends$8() {
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 var {
-  n: n$y,
-  classes: classes$s
+  n: n$z,
+  classes: classes$t
 } = createNamespace("month-picker");
 var {
   n: nDate$1
@@ -7248,12 +7249,12 @@ var MonthPickerPanel = defineComponent({
         color: !computeText() ? color : "",
         textColor: isCover ? "" : textColorOrCover(),
         [nDate$1() + "-color-cover"]: isCover,
-        class: classes$s(n$y("button"), [disabled, n$y("button--disabled")])
+        class: classes$t(n$z("button"), [disabled, n$z("button--disabled")])
       };
     };
     var chooseMonth = (month, event) => {
       var buttonEl = event.currentTarget;
-      if (buttonEl.classList.contains(n$y("button--disabled")))
+      if (buttonEl.classList.contains(n$z("button--disabled")))
         return;
       emit("choose-month", month);
     };
@@ -7280,7 +7281,7 @@ var MonthPickerPanel = defineComponent({
       immediate: true
     });
     return {
-      n: n$y,
+      n: n$z,
       nDate: nDate$1,
       pack,
       MONTH_LIST,
@@ -7297,10 +7298,10 @@ var MonthPickerPanel = defineComponent({
   }
 });
 var {
-  n: n$x,
-  classes: classes$r
+  n: n$y,
+  classes: classes$s
 } = createNamespace("year-picker");
-var _hoisted_1$g = ["onClick"];
+var _hoisted_1$f = ["onClick"];
 function render$D(_ctx, _cache) {
   return openBlock(), createElementBlock("ul", {
     class: normalizeClass(_ctx.n())
@@ -7312,7 +7313,7 @@ function render$D(_ctx, _cache) {
         color: year === _ctx.toNumber(_ctx.preview) ? _ctx.componentProps.color : ""
       }),
       onClick: ($event) => _ctx.chooseYear(year)
-    }, toDisplayString(year), 15, _hoisted_1$g);
+    }, toDisplayString(year), 15, _hoisted_1$f);
   }), 128))], 2);
 }
 var YearPickerPanel = defineComponent({
@@ -7369,14 +7370,14 @@ var YearPickerPanel = defineComponent({
       emit("choose-year", year);
     };
     onMounted(() => {
-      var activeEl = document.querySelector("." + n$x("item--active"));
+      var activeEl = document.querySelector("." + n$y("item--active"));
       activeEl == null ? void 0 : activeEl.scrollIntoView({
         block: "center"
       });
     });
     return {
-      n: n$x,
-      classes: classes$r,
+      n: n$y,
+      classes: classes$s,
       yearList,
       chooseYear,
       toNumber
@@ -7400,8 +7401,8 @@ function _extends$7() {
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 var {
-  n: n$w,
-  classes: classes$q
+  n: n$x,
+  classes: classes$r
 } = createNamespace("day-picker");
 var {
   n: nDate
@@ -7587,7 +7588,7 @@ var DayPickerPanel = defineComponent({
           text: true,
           outline: false,
           textColor: "",
-          class: n$w("button")
+          class: n$x("button")
         };
       }
       var {
@@ -7652,7 +7653,7 @@ var DayPickerPanel = defineComponent({
         outline: computeOutline(),
         textColor: isCover ? "" : textColorOrCover(),
         [nDate() + "-color-cover"]: isCover,
-        class: classes$q(n$w("button"), n$w("button--usable"), [disabled, n$w("button--disabled")])
+        class: classes$r(n$x("button"), n$x("button--usable"), [disabled, n$x("button--disabled")])
       };
     };
     var checkDate = (checkType) => {
@@ -7662,7 +7663,7 @@ var DayPickerPanel = defineComponent({
     };
     var chooseDay = (day, event) => {
       var buttonEl = event.currentTarget;
-      if (buttonEl.classList.contains(n$w("button--disabled")))
+      if (buttonEl.classList.contains(n$x("button--disabled")))
         return;
       emit("choose-day", day);
     };
@@ -7678,7 +7679,7 @@ var DayPickerPanel = defineComponent({
       initHeader();
     });
     return {
-      n: n$w,
+      n: n$x,
       nDate,
       days,
       reverse,
@@ -7696,8 +7697,8 @@ var DayPickerPanel = defineComponent({
   }
 });
 var {
-  n: n$v,
-  classes: classes$p
+  n: n$w,
+  classes: classes$q
 } = createNamespace("date-picker");
 function render$B(_ctx, _cache) {
   var _component_year_picker_panel = resolveComponent("year-picker-panel");
@@ -8136,8 +8137,8 @@ var DatePicker = defineComponent({
     });
     watch(getPanelType, resetState);
     return {
-      n: n$v,
-      classes: classes$p,
+      n: n$w,
+      classes: classes$q,
       monthPanelEl,
       dayPanelEl,
       reverse,
@@ -8261,17 +8262,15 @@ var props$y = _extends$6({
   "onClickOverlay",
   "onRouteChange"
 ]));
-var _hoisted_1$f = {
-  class: "var-dialog__title"
-};
-var _hoisted_2$9 = {
-  class: "var-dialog__actions"
-};
+var {
+  n: n$v,
+  classes: classes$p
+} = createNamespace("dialog");
 function render$A(_ctx, _cache) {
   var _component_var_button = resolveComponent("var-button");
   var _component_var_popup = resolveComponent("var-popup");
   return openBlock(), createBlock(_component_var_popup, {
-    class: "var-dialog__popup",
+    class: normalizeClass(_ctx.n("popup")),
     "var-dialog-cover": "",
     show: _ctx.popupShow,
     overlay: _ctx.overlay,
@@ -8288,16 +8287,20 @@ function render$A(_ctx, _cache) {
     onClickOverlay: _ctx.handleClickOverlay
   }, {
     default: withCtx(() => [createElementVNode("div", mergeProps({
-      class: ["var--box var-dialog", _ctx.dialogClass],
+      class: _ctx.classes("var--box", _ctx.n(), _ctx.dialogClass),
       style: _ctx.dialogStyle
-    }, _ctx.$attrs), [createElementVNode("div", _hoisted_1$f, [renderSlot(_ctx.$slots, "title", {}, () => [createTextVNode(toDisplayString(_ctx.dt(_ctx.title, _ctx.pack.dialogTitle)), 1)])]), createElementVNode("div", {
-      class: "var-dialog__message",
+    }, _ctx.$attrs), [createElementVNode("div", {
+      class: normalizeClass(_ctx.n("title"))
+    }, [renderSlot(_ctx.$slots, "title", {}, () => [createTextVNode(toDisplayString(_ctx.dt(_ctx.title, _ctx.pack.dialogTitle)), 1)])], 2), createElementVNode("div", {
+      class: normalizeClass(_ctx.n("message")),
       style: normalizeStyle({
         textAlign: _ctx.messageAlign
       })
-    }, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.message), 1)])], 4), createElementVNode("div", _hoisted_2$9, [_ctx.cancelButton ? (openBlock(), createBlock(_component_var_button, {
+    }, [renderSlot(_ctx.$slots, "default", {}, () => [createTextVNode(toDisplayString(_ctx.message), 1)])], 6), createElementVNode("div", {
+      class: normalizeClass(_ctx.n("actions"))
+    }, [_ctx.cancelButton ? (openBlock(), createBlock(_component_var_button, {
       key: 0,
-      class: "var-dialog__button var-dialog__cancel-button",
+      class: normalizeClass(_ctx.classes(_ctx.n("button"), _ctx.n("cancel-button"))),
       "var-dialog-cover": "",
       text: "",
       "text-color": _ctx.cancelButtonTextColor,
@@ -8306,9 +8309,9 @@ function render$A(_ctx, _cache) {
     }, {
       default: withCtx(() => [createTextVNode(toDisplayString(_ctx.dt(_ctx.cancelButtonText, _ctx.pack.dialogCancelButtonText)), 1)]),
       _: 1
-    }, 8, ["text-color", "color", "onClick"])) : createCommentVNode("v-if", true), _ctx.confirmButton ? (openBlock(), createBlock(_component_var_button, {
+    }, 8, ["class", "text-color", "color", "onClick"])) : createCommentVNode("v-if", true), _ctx.confirmButton ? (openBlock(), createBlock(_component_var_button, {
       key: 1,
-      class: "var-dialog__button var-dialog__confirm-button",
+      class: normalizeClass(_ctx.classes(_ctx.n("button"), _ctx.n("confirm-button"))),
       "var-dialog-cover": "",
       text: "",
       "text-color": _ctx.confirmButtonTextColor,
@@ -8317,9 +8320,9 @@ function render$A(_ctx, _cache) {
     }, {
       default: withCtx(() => [createTextVNode(toDisplayString(_ctx.dt(_ctx.confirmButtonText, _ctx.pack.dialogConfirmButtonText)), 1)]),
       _: 1
-    }, 8, ["text-color", "color", "onClick"])) : createCommentVNode("v-if", true)])], 16)]),
+    }, 8, ["class", "text-color", "color", "onClick"])) : createCommentVNode("v-if", true)], 2)], 16)]),
     _: 3
-  }, 8, ["show", "overlay", "overlay-class", "overlay-style", "lock-scroll", "close-on-click-overlay", "teleport", "onOpen", "onClose", "onClosed", "onOpened", "onRouteChange", "onClickOverlay"]);
+  }, 8, ["class", "show", "overlay", "overlay-class", "overlay-style", "lock-scroll", "close-on-click-overlay", "teleport", "onOpen", "onClose", "onClosed", "onOpened", "onRouteChange", "onClickOverlay"]);
 }
 var VarDialog = defineComponent({
   render: render$A,
@@ -8333,18 +8336,14 @@ var VarDialog = defineComponent({
   setup(props2) {
     var popupShow = ref(false);
     var popupCloseOnClickOverlay = ref(false);
-    var done = () => {
-      var _props$onUpdateShow;
-      return (_props$onUpdateShow = props2["onUpdate:show"]) == null ? void 0 : _props$onUpdateShow.call(props2, false);
-    };
+    var done = () => call(props2["onUpdate:show"], false);
     var handleClickOverlay = () => {
-      var _props$onUpdateShow2;
       var {
         closeOnClickOverlay,
         onClickOverlay,
         onBeforeClose
       } = props2;
-      onClickOverlay == null ? void 0 : onClickOverlay();
+      call(onClickOverlay);
       if (!closeOnClickOverlay) {
         return;
       }
@@ -8352,33 +8351,31 @@ var VarDialog = defineComponent({
         onBeforeClose("close", done);
         return;
       }
-      (_props$onUpdateShow2 = props2["onUpdate:show"]) == null ? void 0 : _props$onUpdateShow2.call(props2, false);
+      call(props2["onUpdate:show"], false);
     };
     var confirm = () => {
-      var _props$onUpdateShow3;
       var {
         onBeforeClose,
         onConfirm
       } = props2;
-      onConfirm == null ? void 0 : onConfirm();
+      call(onConfirm);
       if (onBeforeClose != null) {
         onBeforeClose("confirm", done);
         return;
       }
-      (_props$onUpdateShow3 = props2["onUpdate:show"]) == null ? void 0 : _props$onUpdateShow3.call(props2, false);
+      call(props2["onUpdate:show"], false);
     };
     var cancel = () => {
-      var _props$onUpdateShow4;
       var {
         onBeforeClose,
         onCancel
       } = props2;
-      onCancel == null ? void 0 : onCancel();
+      call(onCancel);
       if (onBeforeClose != null) {
         onBeforeClose("cancel", done);
         return;
       }
-      (_props$onUpdateShow4 = props2["onUpdate:show"]) == null ? void 0 : _props$onUpdateShow4.call(props2, false);
+      call(props2["onUpdate:show"], false);
     };
     watch(() => props2.show, (newValue) => {
       popupShow.value = newValue;
@@ -8395,6 +8392,8 @@ var VarDialog = defineComponent({
       immediate: true
     });
     return {
+      n: n$v,
+      classes: classes$p,
       pack,
       dt,
       popupShow,
