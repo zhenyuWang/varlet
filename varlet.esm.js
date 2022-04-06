@@ -378,8 +378,8 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   }
   return target;
 }
-function _extends$d() {
-  _extends$d = Object.assign || function(target) {
+function _extends$e() {
+  _extends$e = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -390,7 +390,7 @@ function _extends$d() {
     }
     return target;
   };
-  return _extends$d.apply(this, arguments);
+  return _extends$e.apply(this, arguments);
 }
 function pickProps(props2, propsKey) {
   return Array.isArray(propsKey) ? propsKey.reduce((pickedProps, key) => {
@@ -419,7 +419,7 @@ function mountInstance(component, props2, eventListener) {
   }
   var Host = {
     setup() {
-      return () => h(component, _extends$d({}, props2, eventListener));
+      return () => h(component, _extends$e({}, props2, eventListener));
     }
   };
   var {
@@ -507,7 +507,7 @@ function useChildren(key) {
     removeItem(childProviders, childProvider);
   };
   var bindChildren = (parentProvider) => {
-    provide(key, _extends$d({
+    provide(key, _extends$e({
       collect,
       clear: clear2
     }, parentProvider));
@@ -641,8 +641,8 @@ function call(fn) {
   if (fn)
     return fn(...arg);
 }
-function _extends$c() {
-  _extends$c = Object.assign || function(target) {
+function _extends$d() {
+  _extends$d = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -653,7 +653,7 @@ function _extends$c() {
     }
     return target;
   };
-  return _extends$c.apply(this, arguments);
+  return _extends$d.apply(this, arguments);
 }
 var {
   n: n$S
@@ -759,7 +759,7 @@ function forbidRippleTask() {
 }
 function mounted$1(el, binding) {
   var _binding$value, _binding$value$touchm, _binding$value2;
-  el._ripple = _extends$c({
+  el._ripple = _extends$d({
     tasker: null
   }, (_binding$value = binding.value) != null ? _binding$value : {}, {
     touchmoveForbid: (_binding$value$touchm = (_binding$value2 = binding.value) == null ? void 0 : _binding$value2.touchmoveForbid) != null ? _binding$value$touchm : Context.touchmoveForbid,
@@ -790,7 +790,7 @@ function unmounted(el) {
 }
 function updated$1(el, binding) {
   var _binding$value3, _binding$value$touchm2, _binding$value4;
-  el._ripple = _extends$c({}, el._ripple, (_binding$value3 = binding.value) != null ? _binding$value3 : {}, {
+  el._ripple = _extends$d({}, el._ripple, (_binding$value3 = binding.value) != null ? _binding$value3 : {}, {
     touchmoveForbid: (_binding$value$touchm2 = (_binding$value4 = binding.value) == null ? void 0 : _binding$value4.touchmoveForbid) != null ? _binding$value$touchm2 : Context.touchmoveForbid,
     tasker: null
   });
@@ -944,8 +944,8 @@ function useZIndex(source, count) {
     zIndex
   };
 }
-function _extends$b() {
-  _extends$b = Object.assign || function(target) {
+function _extends$c() {
+  _extends$c = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -956,7 +956,7 @@ function _extends$b() {
     }
     return target;
   };
-  return _extends$b.apply(this, arguments);
+  return _extends$c.apply(this, arguments);
 }
 function _isSlot$2(s) {
   return typeof s === "function" || Object.prototype.toString.call(s) === "[object Object]" && !isVNode(s);
@@ -1004,7 +1004,7 @@ var Popup = defineComponent({
       } = props2;
       return createVNode("div", {
         "class": ["var-popup__overlay", overlayClass],
-        "style": _extends$b({
+        "style": _extends$c({
           zIndex: zIndex.value - 1
         }, overlayStyle),
         "onClick": hidePopup
@@ -1177,8 +1177,8 @@ var Icon = defineComponent({
 Icon.install = function(app) {
   app.component(Icon.name, Icon);
 };
-function _extends$a() {
-  _extends$a = Object.assign || function(target) {
+function _extends$b() {
+  _extends$b = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -1189,9 +1189,9 @@ function _extends$a() {
     }
     return target;
   };
-  return _extends$a.apply(this, arguments);
+  return _extends$b.apply(this, arguments);
 }
-var props$S = _extends$a({
+var props$S = _extends$b({
   show: {
     type: Boolean,
     default: false
@@ -1323,8 +1323,8 @@ var zhCN = {
   paginationPage: "\u9875",
   paginationJump: "\u524D\u5F80"
 };
-function _extends$9() {
-  _extends$9 = Object.assign || function(target) {
+function _extends$a() {
+  _extends$a = Object.assign || function(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
       for (var key in source) {
@@ -1335,7 +1335,7 @@ function _extends$9() {
     }
     return target;
   };
-  return _extends$9.apply(this, arguments);
+  return _extends$a.apply(this, arguments);
 }
 function useLocale() {
   var packs2 = {};
@@ -1356,7 +1356,7 @@ function useLocale() {
       console.warn("The " + lang + " does not exist. You can mount a language package using the add method");
       return;
     }
-    packs2[lang] = _extends$9({}, packs2[lang], pack3);
+    packs2[lang] = _extends$a({}, packs2[lang], pack3);
     use2(lang);
   };
   return {
@@ -2161,6 +2161,13 @@ var props$M = {
   },
   onBeforeChange: {
     type: Function
+  },
+  onFabClick: {
+    type: Function
+  },
+  fabProps: {
+    type: [Object],
+    default: {}
   }
 };
 var BOTTOM_NAVIGATION_BIND_BOTTOM_NAVIGATION_ITEM_KEY = Symbol("BOTTOM_NAVIGATION_BIND_BOTTOM_NAVIGATION_ITEM_KEY");
@@ -2179,6 +2186,20 @@ function useBottomNavigationItems() {
     bindBottomNavigationItem: bindChildren
   };
 }
+function _extends$9() {
+  _extends$9 = Object.assign || function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends$9.apply(this, arguments);
+}
 var {
   n: n$M,
   classes: classes$E
@@ -2189,20 +2210,33 @@ var {
 var RIGHT_HALF_SPACE_CLASS = nItem("--right-half-space");
 var LEFT_HALF_SPACE_CLASS = nItem("--left-half-space");
 var RIGHT_SPACE_CLASS = nItem("--right-space");
+var defaultFabProps = {
+  type: "primary"
+};
 function render$S(_ctx, _cache) {
-  var _directive_ripple = resolveDirective("ripple");
+  var _component_var_button = resolveComponent("var-button");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(_ctx.classes(_ctx.n(), [_ctx.fixed, _ctx.n("--fixed")], [_ctx.border, _ctx.n("--border")])),
     ref: "bottomNavigationDom",
     style: normalizeStyle("z-index:" + _ctx.zIndex)
-  }, [renderSlot(_ctx.$slots, "default"), _ctx.$slots.fab ? withDirectives((openBlock(), createElementBlock("div", {
+  }, [renderSlot(_ctx.$slots, "default"), _ctx.$slots.fab ? (openBlock(), createBlock(_component_var_button, mergeProps({
     key: 0,
-    class: normalizeClass(_ctx.classes(_ctx.n("fab"), "var-elevation--6", [_ctx.length % 2, _ctx.n("--fab-right"), _ctx.n("--fab-center")]))
-  }, [renderSlot(_ctx.$slots, "fab")], 2)), [[_directive_ripple]]) : createCommentVNode("v-if", true)], 6);
+    class: _ctx.classes(_ctx.n("fab"), [_ctx.length % 2, _ctx.n("--fab-right"), _ctx.n("--fab-center")]),
+    "var-bottom-navigation__fab": "",
+    onClick: _ctx.handleFabClick
+  }, _ctx.fabProps, {
+    round: ""
+  }), {
+    default: withCtx(() => [renderSlot(_ctx.$slots, "fab")]),
+    _: 3
+  }, 16, ["class", "onClick"])) : createCommentVNode("v-if", true)], 6);
 }
 var BottomNavigation = defineComponent({
   render: render$S,
   name: "VarBottomNavigation",
+  components: {
+    VarButton: Button
+  },
   directives: {
     Ripple
   },
@@ -2215,6 +2249,7 @@ var BottomNavigation = defineComponent({
     var active = computed(() => props2.modelValue);
     var activeColor = computed(() => props2.activeColor);
     var inactiveColor = computed(() => props2.inactiveColor);
+    var fabProps = ref({});
     var onToggle = (changedValue) => {
       if (props2.onBeforeChange) {
         handleBeforeChange(changedValue);
@@ -2268,6 +2303,10 @@ var BottomNavigation = defineComponent({
     var getBottomNavigationItems = () => {
       return Array.from(bottomNavigationDom.value.querySelectorAll("." + nItem()));
     };
+    fabProps.value = _extends$9({}, defaultFabProps, props2.fabProps);
+    var handleFabClick = () => {
+      call(props2.onFabClick);
+    };
     var bottomNavigationProvider = {
       active,
       activeColor,
@@ -2292,7 +2331,9 @@ var BottomNavigation = defineComponent({
       n: n$M,
       classes: classes$E,
       length,
-      bottomNavigationDom
+      bottomNavigationDom,
+      handleFabClick,
+      fabProps
     };
   }
 });
