@@ -2351,7 +2351,6 @@ var BottomNavigation = defineComponent({
     var handleFabClick = () => {
       call(props2.onFabClick);
     };
-    fabProps.value = _extends$9({}, defaultFabProps, props2.fabProps);
     var bottomNavigationProvider = {
       active,
       activeColor,
@@ -2360,6 +2359,12 @@ var BottomNavigation = defineComponent({
     };
     bindBottomNavigationItem(bottomNavigationProvider);
     watch(() => length.value, matchBoundary);
+    watch(() => props2.fabProps, (newValue) => {
+      fabProps.value = _extends$9({}, defaultFabProps, newValue);
+    }, {
+      immediate: true,
+      deep: true
+    });
     onMounted(() => {
       if (!slots.fab) {
         return;
