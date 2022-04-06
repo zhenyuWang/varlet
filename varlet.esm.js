@@ -2490,7 +2490,6 @@ var BottomNavigationItem = defineComponent({
       name,
       index
     };
-    bindBottomNavigation(bottomNavigationItemProvider);
     var computeColorStyle = () => {
       return active.value === name.value || active.value === index.value ? activeColor.value : inactiveColor.value;
     };
@@ -2499,6 +2498,7 @@ var BottomNavigationItem = defineComponent({
       call(props2.onClick, active2);
       call(bottomNavigation2.onToggle, active2);
     };
+    bindBottomNavigation(bottomNavigationItemProvider);
     watch(() => badge2.value, (newValue) => {
       badgeProps.value = newValue === true ? defaultBadgeProps : badge2.value;
     }, {
