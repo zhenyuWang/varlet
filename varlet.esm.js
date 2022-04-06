@@ -2262,6 +2262,43 @@ var BottomNavigation = defineComponent({
     var activeColor = computed(() => props2.activeColor);
     var inactiveColor = computed(() => props2.inactiveColor);
     var fabProps = ref({});
+    var {
+      length,
+      bottomNavigationItems,
+      bindBottomNavigationItem
+    } = useBottomNavigationItems();
+    var matchBoundary = () => {
+      if (length.value === 0 || matchName() || matchIndex()) {
+        return;
+      }
+      handleActiveIndex();
+    };
+    var matchName = () => {
+      return bottomNavigationItems.find((_ref2) => {
+        var {
+          name
+        } = _ref2;
+        return active.value === name.value;
+      });
+    };
+    var matchIndex = () => {
+      return bottomNavigationItems.find((_ref3) => {
+        var {
+          index
+        } = _ref3;
+        return active.value === index.value;
+      });
+    };
+    var handleActiveIndex = () => {
+      if (!isNumber(active.value)) {
+        return;
+      }
+      if (active.value < 0) {
+        call(props2["onUpdate:modelValue"], 0);
+      } else if (active.value > length.value - 1) {
+        call(props2["onUpdate:modelValue"], length.value - 1);
+      }
+    };
     var onToggle = (changedValue) => {
       if (props2.onBeforeChange) {
         handleBeforeChange(changedValue);
@@ -2280,21 +2317,17 @@ var BottomNavigation = defineComponent({
       call(props2["onUpdate:modelValue"], changedValue);
       call(props2.onChange, changedValue);
     };
-    var {
-      length,
-      bindBottomNavigationItem
-    } = useBottomNavigationItems();
     var removeMarginClass = () => {
-      var bottomNavigationItems = getBottomNavigationItems();
-      bottomNavigationItems.forEach((dom) => {
+      var bottomNavigationItems2 = getBottomNavigationItems();
+      bottomNavigationItems2.forEach((dom) => {
         dom.classList.remove(RIGHT_HALF_SPACE_CLASS, LEFT_HALF_SPACE_CLASS, RIGHT_SPACE_CLASS);
       });
     };
     var addMarginClass = (length2) => {
-      var bottomNavigationItems = getBottomNavigationItems();
-      var itemsNum = bottomNavigationItems.length;
+      var bottomNavigationItems2 = getBottomNavigationItems();
+      var itemsNum = bottomNavigationItems2.length;
       var isEven = length2 % 2 === 0;
-      bottomNavigationItems.forEach((bottomNavigationItem2, i) => {
+      bottomNavigationItems2.forEach((bottomNavigationItem2, i) => {
         handleMarginClass(isEven, bottomNavigationItem2, i, itemsNum);
       });
     };
@@ -2326,6 +2359,7 @@ var BottomNavigation = defineComponent({
       onToggle
     };
     bindBottomNavigationItem(bottomNavigationProvider);
+    watch(() => length.value, matchBoundary);
     onMounted(() => {
       if (!slots.fab) {
         return;
