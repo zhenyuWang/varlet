@@ -2146,7 +2146,7 @@ Badge.install = function(app) {
   app.component(Badge.name, Badge);
 };
 var props$M = {
-  modelValue: {
+  active: {
     type: [Number, String],
     default: 0
   },
@@ -2171,7 +2171,7 @@ var props$M = {
   onChange: {
     type: Function
   },
-  "onUpdate:modelValue": {
+  "onUpdate:active": {
     type: Function
   },
   onBeforeChange: {
@@ -2258,7 +2258,7 @@ var BottomNavigation = defineComponent({
       slots
     } = _ref;
     var bottomNavigationDom = ref(null);
-    var active = computed(() => props2.modelValue);
+    var active = computed(() => props2.active);
     var activeColor = computed(() => props2.activeColor);
     var inactiveColor = computed(() => props2.inactiveColor);
     var fabProps = ref({});
@@ -2294,9 +2294,9 @@ var BottomNavigation = defineComponent({
         return;
       }
       if (active.value < 0) {
-        call(props2["onUpdate:modelValue"], 0);
+        call(props2["onUpdate:active"], 0);
       } else if (active.value > length.value - 1) {
-        call(props2["onUpdate:modelValue"], length.value - 1);
+        call(props2["onUpdate:active"], length.value - 1);
       }
     };
     var onToggle = (changedValue) => {
@@ -2306,7 +2306,7 @@ var BottomNavigation = defineComponent({
       Promise.resolve(call(props2.onBeforeChange, changedValue)).then((res) => res && handleChange(changedValue));
     };
     var handleChange = (changedValue) => {
-      call(props2["onUpdate:modelValue"], changedValue);
+      call(props2["onUpdate:active"], changedValue);
       call(props2.onChange, changedValue);
     };
     var removeMarginClass = () => {
