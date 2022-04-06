@@ -2252,9 +2252,6 @@ var BottomNavigation = defineComponent({
   components: {
     VarButton: Button
   },
-  directives: {
-    Ripple
-  },
   props: props$M,
   setup(props2, _ref) {
     var {
@@ -2318,10 +2315,10 @@ var BottomNavigation = defineComponent({
     var getBottomNavigationItems = () => {
       return Array.from(bottomNavigationDom.value.querySelectorAll("." + nItem()));
     };
-    fabProps.value = _extends$9({}, defaultFabProps, props2.fabProps);
     var handleFabClick = () => {
       call(props2.onFabClick);
     };
+    fabProps.value = _extends$9({}, defaultFabProps, props2.fabProps);
     var bottomNavigationProvider = {
       active,
       activeColor,
