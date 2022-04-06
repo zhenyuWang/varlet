@@ -2300,18 +2300,10 @@ var BottomNavigation = defineComponent({
       }
     };
     var onToggle = (changedValue) => {
-      if (props2.onBeforeChange) {
-        handleBeforeChange(changedValue);
-      } else {
-        handleChange(changedValue);
-      }
+      props2.onBeforeChange ? handleBeforeChange(changedValue) : handleChange(changedValue);
     };
     var handleBeforeChange = (changedValue) => {
-      Promise.resolve(call(props2.onBeforeChange, changedValue)).then((res) => {
-        if (res) {
-          handleChange(changedValue);
-        }
-      });
+      Promise.resolve(call(props2.onBeforeChange, changedValue)).then((res) => res && handleChange(changedValue));
     };
     var handleChange = (changedValue) => {
       call(props2["onUpdate:modelValue"], changedValue);
